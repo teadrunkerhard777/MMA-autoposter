@@ -2,6 +2,8 @@
 
 import os
 
+from dotenv import load_dotenv
+
 from project import settings as project_settings
 from project.settings import (
     EVENT_DEDUP_SETTINGS,
@@ -12,6 +14,9 @@ from project.settings import (
 )
 from project.sources import SOURCES
 
+
+# Environment-backed config must be loaded before module constants are built.
+load_dotenv()
 
 # Older child projects may not define diversity settings yet.
 DIVERSITY_SETTINGS = getattr(project_settings, "DIVERSITY_SETTINGS", None)
