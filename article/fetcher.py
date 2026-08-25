@@ -38,8 +38,8 @@ def fetch_article_html(url, source_config=None):
             if attempt == retries:
                 raise
 
-            # Match the collector's small fixed delay for transient failures.
-            time.sleep(RETRY_DELAY_SECONDS)
+            # Give repeated transient failures progressively more recovery time.
+            time.sleep(RETRY_DELAY_SECONDS * (attempt + 1))
 
 
 def extract_article_text(html, source=None, source_extractors=None):

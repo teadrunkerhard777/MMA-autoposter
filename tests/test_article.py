@@ -82,6 +82,47 @@ def test_fetch_article_html_retries_temporary_ssl_error(monkeypatch):
     assert sleeps == [RETRY_DELAY_SECONDS]
 
 
+def test_fetch_article_html_uses_backoff_for_multiple_ssl_errors(monkeypatch):
+    attempts = []
+    sleeps = []
+    source_config = {
+        "headers": {
+            "User-Agent": "Browser UA",
+            "Accept-Language": "ru-RU",
+        },
+        "retries": 3,
+    }
+
+    def get(url, **kwargs):
+        attempts.append((url, kwargs))
+        if len(attempts) < 4:
+            raise requests.exceptions.SSLError("temporary")
+        return ArticleResponse()
+
+    monkeypatch.setattr("article.fetcher.requests.get", get)
+    monkeypatch.setattr("article.fetcher.time.sleep", sleeps.append)
+
+    html = fetch_article_html(
+        "https://example.test/story",
+        source_config,
+    )
+
+    assert html == ArticleResponse.text
+    assert len(attempts) == 4
+    assert sleeps == [
+        RETRY_DELAY_SECONDS,
+        RETRY_DELAY_SECONDS * 2,
+        RETRY_DELAY_SECONDS * 3,
+    ]
+    assert all(
+        kwargs["headers"] == {
+            **REQUEST_HEADERS,
+            **source_config["headers"],
+        }
+        for _, kwargs in attempts
+    )
+
+
 def test_fetch_article_html_raises_last_error_after_retries(monkeypatch):
     attempts = []
     sleeps = []
@@ -100,7 +141,7 @@ def test_fetch_article_html_raises_last_error_after_retries(monkeypatch):
         )
 
     assert len(attempts) == 3
-    assert sleeps == [RETRY_DELAY_SECONDS, RETRY_DELAY_SECONDS]
+    assert sleeps == [RETRY_DELAY_SECONDS, RETRY_DELAY_SECONDS * 2]
 
 
 def test_fetch_article_html_old_call_does_not_retry(monkeypatch):
