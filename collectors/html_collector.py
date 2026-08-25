@@ -1,3 +1,4 @@
+import time
 from urllib.parse import urljoin
 
 import requests
@@ -8,22 +9,36 @@ from collectors.normalizer import normalize_item
 
 REQUEST_TIMEOUT = 15
 REQUEST_HEADERS = {"User-Agent": "Mozilla/5.0 AutoposterTemplate/1.0"}
+DEFAULT_RETRIES = 3
+RETRY_DELAY_SECONDS = 0.5
 
 
 def collect_html(source):
     """Collect cards using declarative CSS selectors from source config."""
 
-    try:
-        response = requests.get(
-            source["url"],
-            headers=REQUEST_HEADERS,
-            timeout=REQUEST_TIMEOUT,
-        )
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, "html.parser")
-    except requests.RequestException as error:
-        print(f"HTML warning ({source['name']}): {type(error).__name__}")
-        return []
+    headers = {**REQUEST_HEADERS, **(source.get("headers") or {})}
+    retries = max(0, int(source.get("retries", DEFAULT_RETRIES)))
+
+    for attempt in range(retries + 1):
+        try:
+            response = requests.get(
+                source["url"],
+                headers=headers,
+                timeout=REQUEST_TIMEOUT,
+            )
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, "html.parser")
+            break
+        except requests.RequestException as error:
+            if attempt == retries:
+                print(
+                    f"HTML warning ({source['name']}): "
+                    f"{type(error).__name__}"
+                )
+                return []
+
+            # A short fixed delay is enough for transient collector failures.
+            time.sleep(RETRY_DELAY_SECONDS)
 
     items = []
 
