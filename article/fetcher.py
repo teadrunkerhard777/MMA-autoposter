@@ -1,3 +1,4 @@
+import time
 from urllib.parse import urljoin
 
 import requests
@@ -6,21 +7,39 @@ from bs4 import BeautifulSoup
 
 REQUEST_TIMEOUT = 15
 REQUEST_HEADERS = {"User-Agent": "Mozilla/5.0 AutoposterTemplate/1.0"}
+DEFAULT_RETRIES = 3
+RETRY_DELAY_SECONDS = 0.5
 SERVICE_PREFIXES = (
     "photo:", "video:", "read also", "advertisement", "sponsored",
 )
 
 
-def fetch_article_html(url):
+def fetch_article_html(url, source_config=None):
     """Fetch one article page with finite timeout and HTTP validation."""
 
-    response = requests.get(
-        url,
-        headers=REQUEST_HEADERS,
-        timeout=REQUEST_TIMEOUT,
+    config = source_config or {}
+    headers = {**REQUEST_HEADERS, **(config.get("headers") or {})}
+    retries = (
+        max(0, int(config.get("retries", DEFAULT_RETRIES)))
+        if source_config is not None
+        else 0
     )
-    response.raise_for_status()
-    return response.text
+
+    for attempt in range(retries + 1):
+        try:
+            response = requests.get(
+                url,
+                headers=headers,
+                timeout=REQUEST_TIMEOUT,
+            )
+            response.raise_for_status()
+            return response.text
+        except requests.RequestException:
+            if attempt == retries:
+                raise
+
+            # Match the collector's small fixed delay for transient failures.
+            time.sleep(RETRY_DELAY_SECONDS)
 
 
 def extract_article_text(html, source=None, source_extractors=None):
@@ -85,4 +104,3 @@ def extract_article_image_url(html, page_url):
             return urljoin(page_url, value)
 
     return None
-

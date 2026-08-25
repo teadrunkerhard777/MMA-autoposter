@@ -78,8 +78,14 @@ def collect_enabled_news(sources=SOURCES):
     return all_news
 
 
-def load_article_data(news_items):
+def load_article_data(news_items, sources=None):
     """Fetch each page once, then derive text and image from the same HTML."""
+
+    source_configs = {
+        source.get("name"): source
+        for source in (SOURCES if sources is None else sources)
+        if source.get("name")
+    }
 
     for item in news_items:
         if "article_text" in item and "image_url" in item:
@@ -89,7 +95,11 @@ def load_article_data(news_items):
         item.setdefault("image_url", None)
 
         try:
-            html = fetch_article_html(item["url"])
+            source_config = source_configs.get(item.get("source"))
+            html = fetch_article_html(
+                item["url"],
+                source_config=source_config,
+            )
             extracted = extract_article_text(
                 html,
                 source=item.get("source"),
