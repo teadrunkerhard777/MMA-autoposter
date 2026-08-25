@@ -83,11 +83,7 @@ def collect_enabled_news(sources=SOURCES):
 def load_article_data(news_items, sources=None):
     """Fetch each page once, then derive text and image from the same HTML."""
 
-    source_configs = {
-        source.get("name"): source
-        for source in (SOURCES if sources is None else sources)
-        if source.get("name")
-    }
+    source_configs = _source_configs_by_name(sources)
 
     for item in news_items:
         if "article_text" in item and "image_url" in item:
@@ -130,10 +126,12 @@ def publish_selected_news(
     download_image=download_image_temp,
     add_history=add_to_history,
     event_settings=EVENT_DEDUP_SETTINGS,
+    sources=None,
 ):
     """Publish each selected item once and update history on confirmation."""
 
     history_changed = False
+    source_configs = _source_configs_by_name(sources)
 
     for item in selected_news:
         post = format_post(item)
@@ -166,7 +164,11 @@ def publish_selected_news(
                 temporary_image = None
 
                 try:
-                    temporary_image = download_image(image_url)
+                    source_config = source_configs.get(item.get("source"))
+                    temporary_image = download_image(
+                        image_url,
+                        source_config=source_config,
+                    )
 
                     with temporary_image.path.open("rb") as image_file:
                         file_result = send_photo(
@@ -195,6 +197,16 @@ def publish_selected_news(
             history_changed = True
 
     return history_changed
+
+
+def _source_configs_by_name(sources=None):
+    """Index source HTTP settings by the source name stored on each item."""
+
+    return {
+        source.get("name"): source
+        for source in (SOURCES if sources is None else sources)
+        if source.get("name")
+    }
 
 
 def run():

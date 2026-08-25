@@ -16,6 +16,8 @@ TELEGRAM_CONNECT_TIMEOUT_SECONDS = 10
 TELEGRAM_READ_TIMEOUT_SECONDS = 30
 MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
 IMAGE_DOWNLOAD_USER_AGENT = "Mozilla/5.0 AutoposterTemplate/1.0"
+IMAGE_DOWNLOAD_DEFAULT_RETRIES = 3
+IMAGE_DOWNLOAD_RETRY_DELAY_SECONDS = 0.5
 REMOTE_IMAGE_FETCH_ERROR_MARKERS = (
     "failed to get http url content",
     "wrong type of the web page content",
@@ -97,9 +99,41 @@ def send_telegram_photo(photo, caption, filename=None, mime_type=None):
     return result
 
 
-def download_image_temp(image_url):
+def download_image_temp(image_url, source_config=None):
     """Stream a validated image to the operating-system temp directory."""
 
+    config = source_config or {}
+    headers = {
+        "User-Agent": IMAGE_DOWNLOAD_USER_AGENT,
+        **(config.get("headers") or {}),
+    }
+    retries = (
+        max(0, int(config.get("retries", IMAGE_DOWNLOAD_DEFAULT_RETRIES)))
+        if source_config is not None
+        else 0
+    )
+
+    for attempt in range(retries + 1):
+        try:
+            return _download_image_once(image_url, headers)
+        except requests.RequestException as error:
+            if attempt == retries:
+                if isinstance(error, requests.HTTPError):
+                    response = error.response
+                    status = (
+                        response.status_code
+                        if response is not None
+                        else "unknown"
+                    )
+                    raise ImageDownloadError(f"HTTP {status}") from error
+
+                raise ImageDownloadError(type(error).__name__) from error
+
+            # Use the same small fixed retry delay as source-aware fetchers.
+            time.sleep(IMAGE_DOWNLOAD_RETRY_DELAY_SECONDS)
+
+
+def _download_image_once(image_url, headers):
     response = None
     temp_path = None
     completed = False
@@ -107,7 +141,7 @@ def download_image_temp(image_url):
     try:
         response = requests.get(
             image_url,
-            headers={"User-Agent": IMAGE_DOWNLOAD_USER_AGENT},
+            headers=headers,
             timeout=(
                 TELEGRAM_CONNECT_TIMEOUT_SECONDS,
                 TELEGRAM_READ_TIMEOUT_SECONDS,
@@ -161,12 +195,6 @@ def download_image_temp(image_url):
         result = TemporaryImage(temp_path, mime_type, downloaded_size)
         completed = True
         return result
-
-    except requests.HTTPError as error:
-        status = error.response.status_code if error.response else "unknown"
-        raise ImageDownloadError(f"HTTP {status}") from error
-    except requests.RequestException as error:
-        raise ImageDownloadError(type(error).__name__) from error
     finally:
         if response is not None:
             response.close()
@@ -281,4 +309,3 @@ def _read_api_error_description(response):
 def _is_remote_image_fetch_error(reason):
     normalized = (reason or "").casefold()
     return any(marker in normalized for marker in REMOTE_IMAGE_FETCH_ERROR_MARKERS)
-
