@@ -16,7 +16,18 @@ def normalize_date(value):
     try:
         return parsedate_to_datetime(value)
     except (TypeError, ValueError):
+        pass
+
+    # ISO sources commonly use Z instead of the explicit UTC offset.
+    try:
+        iso_value = value.strip()
+        if iso_value.endswith("Z"):
+            iso_value = f"{iso_value[:-1]}+00:00"
+        parsed = datetime.fromisoformat(iso_value)
+    except (AttributeError, TypeError, ValueError):
         return None
+
+    return parsed if parsed.tzinfo is not None else None
 
 
 def clean_description(description):
@@ -44,4 +55,3 @@ def normalize_item(item, source_name):
             if key in item
         },
     }
-
