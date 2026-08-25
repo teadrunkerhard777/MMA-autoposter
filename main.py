@@ -15,6 +15,7 @@ from collectors.rss_collector import collect_rss
 from collectors.static_collector import collect_static
 from config import (
     DRY_RUN,
+    DIVERSITY_SETTINGS,
     EVENT_DEDUP_SETTINGS,
     MAX_NEWS_PER_RUN,
     MIN_PUBLICATION_SCORE,
@@ -25,6 +26,7 @@ from config import (
 from core.environment import configure_ssl
 from core.run_lock import AlreadyRunningError, single_instance_lock
 from processing.deduplicator import remove_duplicates
+from processing.diversity import select_diverse
 from processing.filters import (
     add_scores,
     filter_by_date,
@@ -224,7 +226,11 @@ def run():
             if not is_published(item, history, EVENT_DEDUP_SETTINGS)
         ]
 
-    selected_news = new_news[:MAX_NEWS_PER_RUN]
+    selected_news = select_diverse(
+        new_news,
+        MAX_NEWS_PER_RUN,
+        DIVERSITY_SETTINGS,
+    )
     print(f"Collected: {len(all_news)}")
     print(f"Fresh: {len(fresh_news)}")
     print(f"Relevant: {len(relevant_news)}")

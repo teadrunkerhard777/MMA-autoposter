@@ -2,6 +2,7 @@
 
 import os
 
+from project import settings as project_settings
 from project.settings import (
     EVENT_DEDUP_SETTINGS,
     MAX_NEWS_PER_RUN,
@@ -10,6 +11,10 @@ from project.settings import (
     POST_MODE,
 )
 from project.sources import SOURCES
+
+
+# Older child projects may not define diversity settings yet.
+DIVERSITY_SETTINGS = getattr(project_settings, "DIVERSITY_SETTINGS", None)
 
 
 def _read_boolean_env(name, default):
@@ -34,4 +39,3 @@ def _read_boolean_env(name, default):
 
 # Local execution is safe unless production explicitly opts out.
 DRY_RUN = _read_boolean_env("AUTOPOSTER_DRY_RUN", default=True)
-

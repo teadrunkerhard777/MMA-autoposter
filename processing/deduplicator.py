@@ -32,6 +32,12 @@ def titles_are_similar(first, second, threshold=0.75):
     return title_similarity(first, second) >= threshold
 
 
+def meaningful_tokens(text, settings=None):
+    """Return generic normalized tokens shared by dedup and selection."""
+
+    return _meaningful_tokens(text, _settings(settings))
+
+
 def remove_duplicates(news_items, settings=None, debug=False):
     """Remove URL, title, and conservative cross-source event duplicates."""
 
@@ -227,4 +233,3 @@ def _choose_preferred(first, second):
         return bool(body), bool(item.get("image_url")), len(body)
 
     return second if quality(second) > quality(first) else first
-

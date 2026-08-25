@@ -22,3 +22,18 @@ EVENT_DEDUP_SETTINGS = {
     ),
 }
 
+# Diversity is a softer batch-level check applied after event deduplication.
+DIVERSITY_SETTINGS = {
+    "enabled": True,
+    "text_limit": 1200,
+    "min_shared_tokens": 4,
+    "min_token_overlap": 0.35,
+    "min_token_jaccard": 0.16,
+    "stop_words": {
+        "about", "after", "also", "from", "into", "more", "that",
+        "their", "this", "with", "will", "your",
+    },
+    "noise_prefixes": (
+        "announce", "article", "company", "report", "source", "update",
+    ),
+}
