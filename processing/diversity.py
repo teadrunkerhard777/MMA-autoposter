@@ -8,6 +8,7 @@ DEFAULTS = {
     "core_min_shared_tokens": 4,
     "core_min_token_overlap": 0.30,
     "core_min_token_jaccard": 0.14,
+    "core_dense_match_tokens": 5,
     "min_shared_tokens": 4,
     "min_token_overlap": 0.35,
     "min_token_jaccard": 0.16,
@@ -99,6 +100,7 @@ def _fingerprints_are_too_similar(first, second, settings):
         settings["core_min_shared_tokens"],
         settings["core_min_token_overlap"],
         settings["core_min_token_jaccard"],
+        settings["core_dense_match_tokens"],
     ):
         return True
 
@@ -118,11 +120,16 @@ def _tokens_are_too_similar(
     min_shared_tokens,
     min_token_overlap,
     min_token_jaccard,
+    dense_match_tokens=None,
 ):
     if not first or not second:
         return False
 
     shared = first & second
+
+    # Enough shared core terms identify a cluster even in longer summaries.
+    if dense_match_tokens is not None and len(shared) >= dense_match_tokens:
+        return True
 
     if len(shared) < min_shared_tokens:
         return False

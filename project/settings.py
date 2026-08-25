@@ -29,6 +29,7 @@ DIVERSITY_SETTINGS = {
     "core_min_shared_tokens": 4,
     "core_min_token_overlap": 0.30,
     "core_min_token_jaccard": 0.14,
+    "core_dense_match_tokens": 5,
     "min_shared_tokens": 4,
     "min_token_overlap": 0.35,
     "min_token_jaccard": 0.16,

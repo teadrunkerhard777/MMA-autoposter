@@ -1,4 +1,4 @@
-from processing.deduplicator import remove_duplicates
+from processing.deduplicator import meaningful_tokens, remove_duplicates
 from processing.diversity import select_diverse
 from project.settings import DIVERSITY_SETTINGS
 
@@ -129,6 +129,56 @@ def test_three_generic_shared_words_do_not_block_independent_stories():
         2,
         DIVERSITY_SETTINGS,
     ) == [first, second]
+
+
+def test_five_shared_core_tokens_match_despite_low_overlap():
+    shared = "actor contract dispute interview response"
+    first = make_item(
+        f"{shared} agency payment archive lawyer producer private records "
+        "meeting studio finance letter witness manager history document office "
+        "royalty negotiation",
+        "Accounting documents outline royalty calculations.",
+        "business",
+    )
+    second = make_item(
+        f"{shared} festival director audience schedule concert camera "
+        "travel venue rehearsal ticket sponsor weekend statement performance "
+        "costume lighting broadcast backstage",
+        "Tour rehearsals begin before regional performances.",
+        "culture",
+    )
+    first_core = meaningful_tokens(first["title"], DIVERSITY_SETTINGS)
+    second_core = meaningful_tokens(second["title"], DIVERSITY_SETTINGS)
+    shared_core = first_core & second_core
+
+    assert len(shared_core) == 5
+    assert len(shared_core) / min(len(first_core), len(second_core)) < 0.30
+    assert len(shared_core) / len(first_core | second_core) < 0.14
+
+    assert select_diverse(
+        [first, second],
+        2,
+        DIVERSITY_SETTINGS,
+    ) == [first]
+
+
+def test_existing_core_overlap_rule_still_blocks_four_shared_tokens():
+    first = make_item(
+        "alpha bravo charlie delta echo foxtrot",
+        "Unique background material for the first report.",
+        "business",
+    )
+    second = make_item(
+        "alpha bravo charlie delta golf hotel",
+        "Different background material for the second report.",
+        "culture",
+    )
+
+    assert select_diverse(
+        [first, second],
+        2,
+        DIVERSITY_SETTINGS,
+    ) == [first]
 
 
 def test_selection_returns_all_available_distinct_candidates():
