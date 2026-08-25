@@ -3,11 +3,11 @@ from processing.diversity import select_diverse
 from project.settings import DIVERSITY_SETTINGS
 
 
-def make_item(title, body, category, source="example"):
+def make_item(title, body, category, source="example", description=""):
     slug = title.casefold().replace(" ", "-")
     return {
         "title": title,
-        "description": "",
+        "description": description,
         "article_text": body,
         "event_category": category,
         "matched_topics": [category],
@@ -50,6 +50,29 @@ def distinct_items():
     ]
 
 
+def continuing_story_cluster():
+    return [
+        make_item(
+            "Rowan accuses Casey in their contract conflict",
+            "Financial records and private messages are examined in detail.",
+            "business",
+            description="Rowan and Casey continue their public contract dispute.",
+        ),
+        make_item(
+            "Morgan joins the Rowan and Casey contract conflict",
+            "A new interview focuses on a cancelled tour and management changes.",
+            "business",
+            description="Morgan comments on the Rowan Casey public dispute.",
+        ),
+        make_item(
+            "Casey answers Rowan with a contract accusation",
+            "Lawyers discuss evidence and a separate agreement between the teams.",
+            "business",
+            description="Casey denies Rowan claims in the continuing public dispute.",
+        ),
+    ]
+
+
 def test_diverse_topics_preserve_ranked_order():
     items = distinct_items()
 
@@ -75,6 +98,37 @@ def test_next_diverse_candidate_replaces_skipped_story():
         2,
         DIVERSITY_SETTINGS,
     ) == [first, diverse]
+
+
+def test_core_fingerprint_limits_a_continuing_story_cluster():
+    cluster = continuing_story_cluster()
+    independent = distinct_items()[:2]
+
+    assert remove_duplicates(cluster) == cluster
+    assert select_diverse(
+        [*cluster, *independent],
+        3,
+        DIVERSITY_SETTINGS,
+    ) == [cluster[0], *independent]
+
+
+def test_three_generic_shared_words_do_not_block_independent_stories():
+    first = make_item(
+        "Singer court news follows a contract appeal",
+        "The label disputes royalty calculations in a commercial case.",
+        "business",
+    )
+    second = make_item(
+        "Singer court news accompanies a charity concert",
+        "The performer raises funds for a regional children's hospital.",
+        "culture",
+    )
+
+    assert select_diverse(
+        [first, second],
+        2,
+        DIVERSITY_SETTINGS,
+    ) == [first, second]
 
 
 def test_selection_returns_all_available_distinct_candidates():

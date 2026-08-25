@@ -26,6 +26,9 @@ EVENT_DEDUP_SETTINGS = {
 DIVERSITY_SETTINGS = {
     "enabled": True,
     "text_limit": 1200,
+    "core_min_shared_tokens": 4,
+    "core_min_token_overlap": 0.30,
+    "core_min_token_jaccard": 0.14,
     "min_shared_tokens": 4,
     "min_token_overlap": 0.35,
     "min_token_jaccard": 0.16,

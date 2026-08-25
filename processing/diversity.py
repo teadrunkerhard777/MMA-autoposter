@@ -5,6 +5,9 @@ from processing.deduplicator import meaningful_tokens
 
 DEFAULTS = {
     "text_limit": 1200,
+    "core_min_shared_tokens": 4,
+    "core_min_token_overlap": 0.30,
+    "core_min_token_jaccard": 0.14,
     "min_shared_tokens": 4,
     "min_token_overlap": 0.35,
     "min_token_jaccard": 0.16,
@@ -28,19 +31,22 @@ def select_diverse(news_items, limit, settings=None):
 
     values = {**DEFAULTS, **settings}
     selected = []
-    selected_tokens = []
+    selected_fingerprints = []
 
     for item in items:
-        candidate_tokens = _item_tokens(item, values)
+        candidate = (
+            _core_tokens(item, values),
+            _full_context_tokens(item, values),
+        )
 
         if any(
-            _tokens_are_too_similar(candidate_tokens, existing, values)
-            for existing in selected_tokens
+            _fingerprints_are_too_similar(candidate, existing, values)
+            for existing in selected_fingerprints
         ):
             continue
 
         selected.append(item)
-        selected_tokens.append(candidate_tokens)
+        selected_fingerprints.append(candidate)
 
         if len(selected) == limit:
             break
@@ -48,7 +54,18 @@ def select_diverse(news_items, limit, settings=None):
     return selected
 
 
-def _item_tokens(news_item, settings):
+def _core_tokens(news_item, settings):
+    # Title and description keep the compact story identity from being diluted.
+    text = " ".join(
+        (
+            str(news_item.get("title") or ""),
+            str(news_item.get("description") or ""),
+        )
+    )
+    return meaningful_tokens(text, settings)
+
+
+def _full_context_tokens(news_item, settings):
     topics = news_item.get("matched_topics") or []
 
     if isinstance(topics, str):
@@ -71,18 +88,48 @@ def _item_tokens(news_item, settings):
     return meaningful_tokens(text, settings)
 
 
-def _tokens_are_too_similar(first, second, settings):
+def _fingerprints_are_too_similar(first, second, settings):
+    first_core, first_full = first
+    second_core, second_full = second
+
+    # A matching core is the primary editorial story-cluster signal.
+    if _tokens_are_too_similar(
+        first_core,
+        second_core,
+        settings["core_min_shared_tokens"],
+        settings["core_min_token_overlap"],
+        settings["core_min_token_jaccard"],
+    ):
+        return True
+
+    # Broader context remains a fallback for stories with different summaries.
+    return _tokens_are_too_similar(
+        first_full,
+        second_full,
+        settings["min_shared_tokens"],
+        settings["min_token_overlap"],
+        settings["min_token_jaccard"],
+    )
+
+
+def _tokens_are_too_similar(
+    first,
+    second,
+    min_shared_tokens,
+    min_token_overlap,
+    min_token_jaccard,
+):
     if not first or not second:
         return False
 
     shared = first & second
 
-    if len(shared) < settings["min_shared_tokens"]:
+    if len(shared) < min_shared_tokens:
         return False
 
     overlap = len(shared) / min(len(first), len(second))
     jaccard = len(shared) / len(first | second)
     return (
-        overlap >= settings["min_token_overlap"]
-        or jaccard >= settings["min_token_jaccard"]
+        overlap >= min_token_overlap
+        or jaccard >= min_token_jaccard
     )
