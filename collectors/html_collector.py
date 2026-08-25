@@ -44,7 +44,11 @@ def collect_html(source):
 
     for card in soup.select(source["item_selector"]):
         title_node = card.select_one(source["title_selector"])
-        link_node = card.select_one(source["link_selector"])
+        # Some card selectors point to the anchor instead of containing one.
+        if source.get("link_from_item"):
+            link_node = card
+        else:
+            link_node = card.select_one(source["link_selector"])
 
         if title_node is None or link_node is None:
             continue
@@ -61,6 +65,9 @@ def collect_html(source):
             )
 
         href = link_node.get("href", "")
+        if source.get("link_from_item") and not href:
+            continue
+
         item = normalize_item(
             {
                 "title": title_node.get_text(" ", strip=True),

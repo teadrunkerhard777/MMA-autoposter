@@ -9,13 +9,16 @@ from collectors.html_collector import (
 
 
 class Response:
-    content = b"""
+    default_content = b"""
     <article class='card'>
       <h2><a href='/story'>Story title</a></h2>
       <time datetime='Wed, 01 Jan 2026 10:00:00 +0000'></time>
       <p class='summary'>Useful <b>summary</b></p>
     </article>
     """
+
+    def __init__(self, content=None):
+        self.content = self.default_content if content is None else content
 
     def raise_for_status(self):
         return None
@@ -36,6 +39,17 @@ def html_source(**overrides):
     return source
 
 
+def linked_html_source(**overrides):
+    source = html_source(
+        item_selector="a.card",
+        title_selector=".title",
+        link_from_item=True,
+    )
+    source.pop("link_selector")
+    source.update(overrides)
+    return source
+
+
 def test_declarative_html_collector_builds_shared_contract(monkeypatch):
     monkeypatch.setattr(
         "collectors.html_collector.requests.get",
@@ -48,6 +62,61 @@ def test_declarative_html_collector_builds_shared_contract(monkeypatch):
     assert items[0]["url"] == "https://example.test/story"
     assert items[0]["description"] == "Useful summary"
     assert items[0]["published_at"].tzinfo is not None
+
+
+def test_html_collector_uses_linked_item_as_link(monkeypatch):
+    response = Response(
+        b"""
+        <a class='card' href='/news/example'>
+          <div class='title'>Linked card title</div>
+          <time datetime='Wed, 01 Jan 2026 10:00:00 +0000'></time>
+        </a>
+        """
+    )
+    monkeypatch.setattr(
+        "collectors.html_collector.requests.get",
+        lambda *args, **kwargs: response,
+    )
+
+    items = collect_html(linked_html_source())
+
+    assert items[0]["title"] == "Linked card title"
+    assert items[0]["url"] == "https://example.test/news/example"
+
+
+def test_linked_item_href_uses_configured_base_url(monkeypatch):
+    response = Response(
+        b"""
+        <a class='card' href='story'>
+          <div class='title'>Relative linked card</div>
+        </a>
+        """
+    )
+    monkeypatch.setattr(
+        "collectors.html_collector.requests.get",
+        lambda *args, **kwargs: response,
+    )
+    source = linked_html_source(base_url="https://example.test/section/")
+
+    items = collect_html(source)
+
+    assert items[0]["url"] == "https://example.test/section/story"
+
+
+def test_linked_item_without_href_is_skipped(monkeypatch):
+    response = Response(
+        b"""
+        <a class='card'>
+          <div class='title'>Card without href</div>
+        </a>
+        """
+    )
+    monkeypatch.setattr(
+        "collectors.html_collector.requests.get",
+        lambda *args, **kwargs: response,
+    )
+
+    assert collect_html(linked_html_source()) == []
 
 
 def test_html_collector_uses_default_headers(monkeypatch):
