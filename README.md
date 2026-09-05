@@ -1,8 +1,8 @@
-# Autoposter Template
+# MMA Autoposter
 
-A small, reusable Python template for rule-based Telegram news autoposters.
-It separates stable infrastructure from the theme of a particular channel and
-keeps local execution safe by default.
+A rule-based Telegram autoposter for an energetic Russian-language MMA channel.
+It is being built in small verified stages on top of a reusable autoposter
+template and keeps local execution safe by default.
 
 ## What it includes
 
@@ -43,9 +43,10 @@ cp .env.example .env
 .venv/bin/python main.py
 ```
 
-The included ExampleNews project uses local synthetic technology news. The
-first run therefore demonstrates the full selection and formatting pipeline
-without network access, Telegram calls, or history writes.
+The current Stage 1 project uses local synthetic MMA stories. A run therefore
+demonstrates MMA relevance, categorization, rumor labels, scoring, selection,
+and Russian formatting without network access, Telegram calls, or history
+writes.
 
 To build a real channel, follow [PROJECT_SETUP.md](PROJECT_SETUP.md). For the
 design and LiveCrime mapping, see [ARCHITECTURE.md](ARCHITECTURE.md).
@@ -58,6 +59,5 @@ design and LiveCrime mapping, see [ARCHITECTURE.md](ARCHITECTURE.md).
 2. valid `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`;
 3. an explicit execution of `main.py`.
 
-Do not use real credentials in committed files. The example workflow reads
+Do not use real credentials in committed files. The included workflow reads
 credentials only from GitHub Secrets and has no built-in schedule.
-

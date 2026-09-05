@@ -21,6 +21,9 @@ Status on 2026-09-05:
 
 ## Stage 1: Local MMA editorial MVP
 
+Status: complete. The repository now has a local-only MMA editorial layer; live
+source work remains in Stage 2.
+
 Replace the ExampleNews project configuration with a safe local MMA fixture.
 Implement project-owned MMA relevance, content categories, rumor handling,
 scoring, Russian Telegram formatting, and initial run limits.

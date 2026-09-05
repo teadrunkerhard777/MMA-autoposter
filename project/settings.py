@@ -1,8 +1,8 @@
 """Settings a new autoposter owner is expected to edit first."""
 
 NEWS_LOOKBACK_DAYS = 3
-MAX_NEWS_PER_RUN = 1
-MIN_PUBLICATION_SCORE = 2
+MAX_NEWS_PER_RUN = 5
+MIN_PUBLICATION_SCORE = 5
 POST_MODE = "single"
 
 # Event dedup is generic; projects tune only its data and thresholds.
@@ -15,10 +15,13 @@ EVENT_DEDUP_SETTINGS = {
     "dense_match_tokens": 7,
     "stop_words": {
         "about", "after", "also", "from", "into", "more", "that",
-        "their", "this", "with", "will", "your",
+        "their", "this", "with", "will", "your", "будет", "были",
+        "было", "для", "его", "как", "который", "матч", "после",
+        "при", "свой", "этот",
     },
     "noise_prefixes": (
         "announce", "article", "company", "report", "source", "update",
+        "анонс", "источник", "материал", "сообщ",
     ),
 }
 
@@ -35,9 +38,12 @@ DIVERSITY_SETTINGS = {
     "min_token_jaccard": 0.16,
     "stop_words": {
         "about", "after", "also", "from", "into", "more", "that",
-        "their", "this", "with", "will", "your",
+        "their", "this", "with", "will", "your", "будет", "были",
+        "было", "для", "его", "как", "который", "матч", "после",
+        "при", "свой", "этот",
     },
     "noise_prefixes": (
         "announce", "article", "company", "report", "source", "update",
+        "анонс", "источник", "материал", "сообщ",
     ),
 }
