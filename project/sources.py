@@ -5,13 +5,35 @@ from datetime import datetime, timedelta, timezone
 
 now = datetime.now(timezone.utc)
 
-# Stage 3 keeps the verified live feeds disabled until their article text and
-# images pass the source-specific checks in Stage 4.
+
+def extract_sports_ru_article(soup):
+    """Extract Sports.ru's structured body without related-story promos."""
+
+    body = soup.select_one(".structured-body-wrapper")
+    if body is None:
+        return ""
+
+    paragraphs = []
+    for node in body.select("p.sb-paragraph"):
+        text = " ".join(node.get_text(" ", strip=True).split())
+        links = node.find_all("a")
+        is_link_only_promo = (
+            len(links) == 1
+            and " ".join(links[0].get_text(" ", strip=True).split()) == text
+            and "sb-text--bold" in (links[0].get("class") or [])
+        )
+
+        if text and not is_link_only_promo:
+            paragraphs.append(text)
+
+    return "\n\n".join(paragraphs)
+
+
 SOURCES = [
     {
         "name": "MMA Autoposter local fixture",
         "type": "static",
-        "enabled": True,
+        "enabled": False,
         "items": [
             {
                 "title": "UFC официально объявил титульный бой Ислама Махачева",
@@ -142,20 +164,24 @@ SOURCES = [
         "name": "ONE Championship Russian",
         "type": "rss",
         "url": "https://rss.tech.onefc.com/base-russian.xml",
-        "enabled": False,
+        "enabled": True,
         "limit": 20,
         "source_kind": "official_promotion",
         "language": "ru",
         "translation": "official_ai",
+        "use_feed_content": True,
+        "feed_stop_markers": ("Источник",),
     },
     {
         "name": "Sports.ru UFC/MMA",
         "type": "rss",
         "url": "https://www.sports.ru/rss/tags.xml?id=3109101",
-        "enabled": False,
-        "limit": 30,
+        "enabled": True,
+        "limit": 15,
         "source_kind": "media",
         "language": "ru",
+        "headers": {"Accept-Language": "ru-RU"},
+        "retries": 1,
     },
     {
         "name": "MMA Fighting",
@@ -168,5 +194,7 @@ SOURCES = [
     },
 ]
 
-SOURCE_EXTRACTORS = {}
+SOURCE_EXTRACTORS = {
+    "Sports.ru UFC/MMA": extract_sports_ru_article,
+}
 SOURCE_STOP_MARKERS = {}

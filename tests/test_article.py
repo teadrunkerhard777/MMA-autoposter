@@ -9,6 +9,7 @@ from article.fetcher import (
     extract_article_text,
     fetch_article_html,
 )
+from project.sources import extract_sports_ru_article
 
 
 class ArticleResponse:
@@ -205,3 +206,27 @@ def test_image_metadata_prefers_open_graph_and_resolves_relative_url():
 def test_image_metadata_falls_back_to_twitter():
     html = "<meta name='twitter:image' content='https://cdn.test/image.jpg'>"
     assert extract_article_image_url(html, "https://news.test") == "https://cdn.test/image.jpg"
+
+
+def test_sports_ru_extractor_omits_link_only_related_story():
+    html = """
+    <p>Navigation paragraph</p>
+    <div class="structured-body-wrapper">
+      <p class="sb-paragraph">Useful first paragraph.</p>
+      <p class="sb-paragraph">
+        <a href="/fighter">Useful linked fact</a> remains.
+      </p>
+      <p class="sb-paragraph">
+        <a class="sb-text--bold" href="/next">Related story</a>
+      </p>
+    </div>
+    <footer><p>Footer paragraph</p></footer>
+    """
+
+    text = extract_article_text(
+        html,
+        "Sports.ru UFC/MMA",
+        {"Sports.ru UFC/MMA": extract_sports_ru_article},
+    )
+
+    assert text == "Useful first paragraph.\n\nUseful linked fact remains."

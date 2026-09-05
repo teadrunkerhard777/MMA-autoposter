@@ -98,8 +98,23 @@ Acceptance:
 
 ## Stage 4: Article extraction and source quality
 
+Status: complete. The two validated Russian-language paths are active; English
+sources remain disabled until Russian-language handling is defined.
+
 Validate article body and image extraction for every enabled source. Add exact
 source-specific extractors or stop markers only for reproduced defects.
+
+Implementation:
+
+- ONE's official Russian feed supplies full article text and image in one feed
+  response; its service footer is removed and mixed-discipline entries still
+  have to pass the MMA relevance gate;
+- Sports.ru articles are fetched once and parsed from their structured body;
+  link-only recommendations, navigation, footer content, and direct video URLs
+  are excluded;
+- the local fixture is disabled now that validated live sources are active;
+- UFC Official News and MMA Fighting stay disabled because their current
+  content is English.
 
 Acceptance:
 

@@ -97,3 +97,47 @@ def test_rss_collector_accepts_empty_feed(monkeypatch):
     )
 
     assert collect_rss(source()) == []
+
+
+def test_rss_collector_can_preload_full_feed_content_and_image(monkeypatch):
+    rss = b"""<?xml version="1.0" encoding="UTF-8"?>
+    <rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+      <channel><item>
+        <title>ONE MMA story</title>
+        <link>https://example.test/story</link>
+        <pubDate>Sat, 05 Sep 2026 10:32:00 +0300</pubDate>
+        <description>Summary</description>
+        <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+          <![CDATA[<p>First paragraph.</p><p>Second paragraph.</p><p>Source</p><p>Footer</p>]]>
+        </content:encoded>
+        <media:content url="/images/cover.jpg" />
+      </item></channel>
+    </rss>"""
+    parsed = feedparser.parse(rss)
+    monkeypatch.setattr(
+        "collectors.rss_collector.feedparser.parse",
+        lambda url: parsed,
+    )
+
+    items = collect_rss(
+        source(
+            use_feed_content=True,
+            feed_stop_markers=("Source",),
+        )
+    )
+
+    assert items[0]["article_text"] == "First paragraph.\n\nSecond paragraph."
+    assert items[0]["image_url"] == "https://example.test/images/cover.jpg"
+
+
+def test_rss_collector_leaves_feed_content_opt_in(monkeypatch):
+    parsed = feedparser.parse(RSS)
+    monkeypatch.setattr(
+        "collectors.rss_collector.feedparser.parse",
+        lambda url: parsed,
+    )
+
+    item = collect_rss(source())[0]
+
+    assert "article_text" not in item
+    assert "image_url" not in item

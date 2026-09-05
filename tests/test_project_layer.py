@@ -128,17 +128,35 @@ def test_photo_caption_stays_inside_safe_limit_after_html_escaping():
     assert len(format_photo_caption(news)) <= 1000
 
 
-def test_stage_three_keeps_only_local_source_enabled_before_extraction_review():
+def test_stage_four_enables_only_validated_russian_sources():
     enabled = [source for source in SOURCES if source["enabled"]]
     candidates = [source for source in SOURCES if not source["enabled"]]
 
-    assert len(enabled) == 1
-    assert enabled[0]["type"] == "static"
-    assert all(source["type"] == "rss" for source in candidates)
-    assert all(source["limit"] > 0 for source in candidates)
-    assert {source["language"] for source in candidates} == {"en", "ru"}
+    assert {source["name"] for source in enabled} == {
+        "ONE Championship Russian",
+        "Sports.ru UFC/MMA",
+    }
+    assert all(source["language"] == "ru" for source in enabled)
+    assert any(source["type"] == "static" for source in candidates)
     assert MAX_NEWS_PER_RUN == 5
     assert EVERGREEN_SLOTS_PER_RUN == 2
+
+
+def test_trusted_sports_ru_tag_accepts_mma_story_without_acronym():
+    news = item("Хамзат Чимаев хочет вернуться в октябре")
+    news["source"] = "Sports.ru UFC/MMA"
+
+    assert is_relevant(news) is True
+
+
+def test_sports_ru_direct_video_is_rejected_before_article_fetch():
+    video = item("UFC в Париже — смотрите бои в прямом эфире")
+    video.update(
+        source="Sports.ru UFC/MMA",
+        url="https://video.sports.ru/ufc/event/fight/",
+    )
+
+    assert is_relevant(video) is False
 
 
 def test_evergreen_content_gets_its_own_category_and_format():

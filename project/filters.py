@@ -135,6 +135,8 @@ EVERGREEN_CONTENT_TYPES = {
     "women_mma",
 }
 
+TRUSTED_MMA_SOURCES = {"Sports.ru UFC/MMA"}
+
 
 def is_relevant(news_item):
     """Accept MMA stories and attach project-owned editorial metadata."""
@@ -150,8 +152,11 @@ def is_relevant(news_item):
     )
     has_mma_term = _contains_any(text, MMA_KEYWORDS)
     has_fight_context = _contains_any(text, FIGHT_CONTEXT_KEYWORDS)
-    relevant = bool(
+    trusted_mma_source = news_item.get("source") in TRUSTED_MMA_SOURCES
+    excluded_by_source_policy = _excluded_by_source_policy(news_item)
+    relevant = not excluded_by_source_policy and bool(
         is_evergreen
+        or trusted_mma_source
         or promotions
         or has_mma_term
         or (fighters and has_fight_context)
@@ -231,3 +236,12 @@ def _event_category(text):
 
 def _unique(values):
     return list(dict.fromkeys(value for value in values if value))
+
+
+def _excluded_by_source_policy(news_item):
+    """Reject known non-article records from an exact project source."""
+
+    return (
+        news_item.get("source") == "Sports.ru UFC/MMA"
+        and news_item.get("url", "").startswith("https://video.sports.ru/")
+    )
