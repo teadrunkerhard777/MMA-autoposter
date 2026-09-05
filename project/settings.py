@@ -3,6 +3,7 @@
 NEWS_LOOKBACK_DAYS = 3
 MAX_NEWS_PER_RUN = 5
 MIN_PUBLICATION_SCORE = 5
+EVERGREEN_SLOTS_PER_RUN = 2
 POST_MODE = "single"
 
 # Event dedup is generic; projects tune only its data and thresholds.

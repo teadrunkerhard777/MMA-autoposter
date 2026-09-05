@@ -43,7 +43,7 @@ def clean_description(description):
 def normalize_item(item, source_name):
     """Build the shared news_item contract."""
 
-    return {
+    normalized = {
         "title": " ".join(str(item.get("title", "")).split()),
         "url": str(item.get("url", "")).strip(),
         "published_at": normalize_date(item.get("published_at")),
@@ -55,3 +55,13 @@ def normalize_item(item, source_name):
             if key in item
         },
     }
+
+    for key in ("event_at", "scheduled_at"):
+        if key in item:
+            normalized[key] = normalize_date(item.get(key))
+
+    for key in ("content_queue", "content_type"):
+        if key in item:
+            normalized[key] = str(item.get(key) or "").strip()
+
+    return normalized

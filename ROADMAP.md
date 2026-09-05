@@ -50,6 +50,9 @@ Acceptance:
 
 ## Stage 2: Event priority and scheduled content
 
+Status: complete. The local pipeline now understands event proximity, due
+scheduled items, two editorial queues, and urgent-news slot overrides.
+
 Implement the agreed editorial model locally before choosing live sources.
 Separate reactive news candidates from pre-produced scheduled content and add
 project-owned handling for `event_at` and `scheduled_at`.

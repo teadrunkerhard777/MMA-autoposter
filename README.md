@@ -27,6 +27,8 @@ core/ collectors/ processing/       project/sources.py
 article/ generation/ publishing/ +  project/filters.py
 storage/                             project/scoring.py
                                      project/formatter.py
+                                     project/scheduling.py
+                                     project/selection.py
                                      project/settings.py
 ```
 
@@ -43,10 +45,10 @@ cp .env.example .env
 .venv/bin/python main.py
 ```
 
-The current Stage 1 project uses local synthetic MMA stories. A run therefore
-demonstrates MMA relevance, categorization, rumor labels, scoring, selection,
-and Russian formatting without network access, Telegram calls, or history
-writes.
+The current Stage 2 project uses local synthetic MMA stories. A run therefore
+demonstrates MMA relevance, event-date priority, rumor labels, scheduled
+evergreen slots, scoring, and Russian formatting without network access,
+Telegram calls, or history writes.
 
 To build a real channel, follow [PROJECT_SETUP.md](PROJECT_SETUP.md). For the
 design and LiveCrime mapping, see [ARCHITECTURE.md](ARCHITECTURE.md).

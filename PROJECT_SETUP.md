@@ -46,7 +46,9 @@ this order:
 2. `project/filters.py` — relevance and event categories;
 3. `project/scoring.py` — ranking among relevant items;
 4. `project/formatter.py` — Telegram text and photo captions;
-5. `project/settings.py` — freshness, limits, score threshold, event dedup, and
+5. `project/scheduling.py` — event windows and scheduled-item eligibility;
+6. `project/selection.py` — reactive and evergreen batch allocation;
+7. `project/settings.py` — freshness, limits, score threshold, event dedup, and
    batch diversity.
 
 Reusable collection, processing, article, publishing, and storage behavior
@@ -231,6 +233,7 @@ Edit `project/settings.py`:
 - `NEWS_LOOKBACK_DAYS` controls freshness;
 - `MAX_NEWS_PER_RUN` limits one publication batch;
 - `MIN_PUBLICATION_SCORE` sets the project score threshold;
+- `EVERGREEN_SLOTS_PER_RUN` reserves eligible scheduled-content positions;
 - `EVENT_DEDUP_SETTINGS` answers whether two items describe the same event;
 - `DIVERSITY_SETTINGS` keeps one batch from containing too many related stories.
 
@@ -241,7 +244,7 @@ ranking
 → article loading
 → event deduplication
 → history filtering
-→ diversity selection
+→ project editorial mix with diversity inside each queue
 → selected news
 ```
 
@@ -252,8 +255,15 @@ back to a broader fingerprint containing article text, event category, and
 matched topics. Tune thresholds and language-specific `stop_words` /
 `noise_prefixes` in the project; do not add project vocabulary to generic code.
 
-If diversity settings are absent or `enabled` is false, selection preserves the
-ordinary ranked top-N behavior.
+If diversity settings are absent or `enabled` is false, each editorial queue
+preserves its ordinary ranked order. Set `EVERGREEN_SLOTS_PER_RUN = 0` for the
+original news-only top-N behavior.
+
+Optional `event_at` and `scheduled_at` values must be timezone-aware. The
+generic normalizer preserves them, while `project/scheduling.py` decides when
+an item is eligible and `project/scoring.py` decides how event proximity affects
+rank. Keep `published_at` as the source publication time; do not reuse it as an
+event or schedule time.
 
 ## 12. Run safely in DRY_RUN
 

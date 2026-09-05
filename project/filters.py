@@ -127,6 +127,14 @@ RUMOR_KEYWORDS = (
 
 TOKEN_KEYWORDS = {"ufc", "юфс", "aca", "аса", "pfl", "mma", "мма"}
 
+EVERGREEN_CONTENT_TYPES = {
+    "fact",
+    "fighter",
+    "history",
+    "matchup",
+    "women_mma",
+}
+
 
 def is_relevant(news_item):
     """Accept MMA stories and attach project-owned editorial metadata."""
@@ -134,12 +142,30 @@ def is_relevant(news_item):
     text = _item_text(news_item)
     promotions = _matches_by_name(text, PROMOTION_KEYWORDS)
     fighters = _matches_by_name(text, PRIORITY_FIGHTERS)
+    queue = news_item.get("content_queue") or "news"
+    requested_content_type = news_item.get("content_type")
+    is_evergreen = (
+        queue == "evergreen"
+        and requested_content_type in EVERGREEN_CONTENT_TYPES
+    )
     has_mma_term = _contains_any(text, MMA_KEYWORDS)
     has_fight_context = _contains_any(text, FIGHT_CONTEXT_KEYWORDS)
-    relevant = bool(promotions or has_mma_term or (fighters and has_fight_context))
+    relevant = bool(
+        is_evergreen
+        or promotions
+        or has_mma_term
+        or (fighters and has_fight_context)
+    )
 
-    category = _event_category(text) if relevant else None
-    is_rumor = relevant and _contains_any(text, RUMOR_KEYWORDS)
+    if is_evergreen:
+        category = f"evergreen_{requested_content_type}"
+    else:
+        category = _event_category(text) if relevant else None
+    is_rumor = (
+        relevant
+        and not is_evergreen
+        and _contains_any(text, RUMOR_KEYWORDS)
+    )
     signals = (
         _matches_by_name(text, EDITORIAL_SIGNAL_KEYWORDS)
         if relevant
@@ -159,7 +185,12 @@ def is_relevant(news_item):
     news_item["matched_promotions"] = promotions
     news_item["matched_fighters"] = fighters
     news_item["editorial_signals"] = signals
-    news_item["content_type"] = "rumor" if is_rumor else "news"
+    news_item["content_queue"] = queue
+    news_item["content_type"] = (
+        requested_content_type
+        if is_evergreen
+        else ("rumor" if is_rumor else "news")
+    )
     news_item["is_rumor"] = bool(is_rumor)
     news_item["event_category"] = category
     news_item.setdefault("event_locations", [])

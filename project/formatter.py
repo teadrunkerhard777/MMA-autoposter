@@ -19,6 +19,11 @@ CATEGORY_LABELS = {
     "event_update": "📅 ТУРНИР",
     "statement": "🎙 ЗАЯВЛЕНИЕ",
     "fighter_news": "🥋 MMA",
+    "evergreen_fighter": "🥋 БОЕЦ ДНЯ",
+    "evergreen_women_mma": "✨ ЖЕНЩИНЫ В MMA",
+    "evergreen_matchup": "⚔️ ПРОТИВОСТОЯНИЕ",
+    "evergreen_fact": "📊 MMA-ФАКТ",
+    "evergreen_history": "📚 ИСТОРИЯ MMA",
 }
 
 CATEGORY_TAGS = {
@@ -31,6 +36,11 @@ CATEGORY_TAGS = {
     "event_update": "#MMAEvent",
     "statement": "#MMA",
     "fighter_news": "#MMA",
+    "evergreen_fighter": "#БоецДня",
+    "evergreen_women_mma": "#ЖенщиныMMA",
+    "evergreen_matchup": "#MMAFight",
+    "evergreen_fact": "#MMAFacts",
+    "evergreen_history": "#MMAHistory",
 }
 
 
@@ -62,7 +72,7 @@ def _format(news_item, limit):
     header_blocks.append(f"{label}\n<b>{title}</b>")
 
     footer = (
-        f"📅 {_format_date(news_item.get('published_at'))}\n"
+        f"{_date_line(news_item)}\n"
         f"📰 {source}\n\n"
         f'🔗 <a href="{url}">Источник</a>'
     )
@@ -92,6 +102,17 @@ def _hashtags(news_item):
 
 
 def _format_date(value):
-    if not isinstance(value, datetime):
+    if not isinstance(value, datetime) or value.tzinfo is None:
         return "Дата не указана"
-    return value.strftime("%d.%m.%Y")
+    return value.strftime("%d.%m.%Y %H:%M %Z")
+
+
+def _date_line(news_item):
+    event_at = news_item.get("event_at")
+    if isinstance(event_at, datetime):
+        return f"🥊 Событие: {_format_date(event_at)}"
+
+    if news_item.get("content_queue") == "evergreen":
+        return f"📅 По расписанию: {_format_date(news_item.get('scheduled_at'))}"
+
+    return f"📅 Материал: {_format_date(news_item.get('published_at'))}"

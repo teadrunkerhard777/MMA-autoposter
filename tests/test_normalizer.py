@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
-from collectors.normalizer import normalize_date
+from collectors.normalizer import normalize_date, normalize_item
 
 
 def test_normalize_date_preserves_datetime():
@@ -52,3 +52,26 @@ def test_normalize_date_parses_iso_date_with_offset():
 
 def test_normalize_date_rejects_invalid_value():
     assert normalize_date("not-a-date") is None
+
+
+def test_normalize_item_preserves_project_scheduling_fields():
+    item = {
+        "title": " MMA event ",
+        "url": "https://example.test/event",
+        "published_at": "2026-08-25T10:00:00Z",
+        "event_at": "2026-08-27T10:00:00Z",
+        "scheduled_at": "2026-08-25T12:00:00Z",
+        "content_queue": " evergreen ",
+        "content_type": " fighter ",
+    }
+
+    normalized = normalize_item(item, "Test")
+
+    assert normalized["event_at"] == datetime(
+        2026, 8, 27, 10, tzinfo=timezone.utc
+    )
+    assert normalized["scheduled_at"] == datetime(
+        2026, 8, 25, 12, tzinfo=timezone.utc
+    )
+    assert normalized["content_queue"] == "evergreen"
+    assert normalized["content_type"] == "fighter"

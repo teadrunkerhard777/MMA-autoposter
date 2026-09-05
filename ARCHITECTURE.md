@@ -13,6 +13,8 @@ The reusable layer is ordinary Python modules:
 - `core/` configures TLS and prevents concurrent local runs.
 
 No core module imports topic keywords, channel hashtags, or a domain category.
+The generic normalizer preserves optional `event_at`, `scheduled_at`,
+`content_queue`, and `content_type` fields without deciding how to use them.
 
 ## Project-specific layer
 
@@ -22,6 +24,8 @@ Everything a new channel owner normally changes lives in `project/`:
 - `filters.py`: `is_relevant()` and `event_category` assignment;
 - `scoring.py`: `calculate_score()`;
 - `formatter.py`: text message and photo caption;
+- `scheduling.py`: event windows and scheduled-item eligibility;
+- `selection.py`: reactive versus evergreen batch allocation;
 - `settings.py`: limits and event-dedup thresholds.
 
 ## Control flow
@@ -29,13 +33,13 @@ Everything a new channel owner normally changes lives in `project/`:
 ```text
 enabled sources
 -> shared news_item normalization
--> date filter
+-> project time eligibility for fresh news and due scheduled content
 -> project is_relevant
 -> project score and generic ranking
 -> one article fetch for text + image
 -> URL/title/event dedup
 -> history or DRY_RUN bypass
--> MAX_NEWS_PER_RUN
+-> project editorial mix inside MAX_NEWS_PER_RUN
 -> project formatter
 -> Telegram publisher or DRY_RUN output
 -> confirmed-success history update
@@ -114,4 +118,3 @@ crime stems, severe-outcome combinations, crime score weights, hashtags,
 geography regexes, enabled media list, and verified site DOM selectors. They
 encode one channel's policy or one site's current HTML and therefore belong in a
 concrete project, not reusable core.
-

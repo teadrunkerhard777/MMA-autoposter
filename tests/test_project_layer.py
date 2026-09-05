@@ -8,7 +8,11 @@ from processing.filters import (
 from project.filters import is_relevant
 from project.formatter import format_photo_caption, format_post
 from project.scoring import calculate_score
-from project.settings import MAX_NEWS_PER_RUN, MIN_PUBLICATION_SCORE
+from project.settings import (
+    EVERGREEN_SLOTS_PER_RUN,
+    MAX_NEWS_PER_RUN,
+    MIN_PUBLICATION_SCORE,
+)
 from project.sources import SOURCES
 
 
@@ -129,3 +133,17 @@ def test_stage_one_uses_one_local_source_and_safe_batch_limit():
     assert SOURCES[0]["type"] == "static"
     assert SOURCES[0]["enabled"] is True
     assert MAX_NEWS_PER_RUN == 5
+    assert EVERGREEN_SLOTS_PER_RUN == 2
+
+
+def test_evergreen_content_gets_its_own_category_and_format():
+    profile = item("Женщины в MMA: яркий профиль спортсменки")
+    profile.update(
+        content_queue="evergreen",
+        content_type="women_mma",
+        scheduled_at=datetime(2026, 1, 2, tzinfo=timezone.utc),
+    )
+
+    assert is_relevant(profile) is True
+    assert profile["event_category"] == "evergreen_women_mma"
+    assert "✨ ЖЕНЩИНЫ В MMA" in format_post(profile)

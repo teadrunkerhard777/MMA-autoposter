@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 
 now = datetime.now(timezone.utc)
 
-# Stage 1 is deliberately local. Live sources are added only after each feed or
+# Stage 2 is deliberately local. Live sources are added only after each feed or
 # page has been checked for stable URLs, dates, access, and article extraction.
 SOURCES = [
     {
@@ -17,6 +17,7 @@ SOURCES = [
                 "title": "UFC официально объявил титульный бой Ислама Махачева",
                 "url": "https://example.invalid/mma/makhachev-title-fight",
                 "published_at": now - timedelta(hours=2),
+                "event_at": now + timedelta(hours=36),
                 "description": (
                     "Ислам Махачев проведёт титульный бой на ближайшем "
                     "номерном турнире UFC. Имя соперника подтверждено "
@@ -32,6 +33,7 @@ SOURCES = [
                 "title": "Хамзат Чимаев может получить нового соперника",
                 "url": "https://example.invalid/mma/chimaev-rumor",
                 "published_at": now - timedelta(hours=4),
+                "event_at": now + timedelta(days=5),
                 "description": (
                     "По данным журналиста, UFC ведёт переговоры о новом бое. "
                     "Пока официально поединок не подтверждён."
@@ -46,6 +48,7 @@ SOURCES = [
                 "title": "Боец ACA победил нокаутом в главном бою турнира",
                 "url": "https://example.invalid/mma/aca-knockout-result",
                 "published_at": now - timedelta(hours=6),
+                "event_at": now - timedelta(hours=7),
                 "description": (
                     "Поединок завершился нокаутом во втором раунде. "
                     "Победитель укрепил позиции в дивизионе ACA."
@@ -54,6 +57,66 @@ SOURCES = [
                     "Главный бой турнира ACA завершился нокаутом во втором "
                     "раунде. Рефери остановил поединок после серии ударов."
                 ),
+                "image_url": None,
+            },
+            {
+                "title": "Травма изменила кард турнира UFC",
+                "url": "https://example.invalid/mma/ufc-card-injury",
+                "published_at": now - timedelta(minutes=40),
+                "event_at": now + timedelta(days=5),
+                "description": (
+                    "Участник снялся с боя из-за травмы. UFC готовит замену "
+                    "для карда турнира."
+                ),
+                "article_text": (
+                    "Травма вынудила бойца сняться с турнира UFC. Промоушен "
+                    "объявит нового соперника после завершения переговоров."
+                ),
+                "image_url": None,
+            },
+            {
+                "title": "Женщины в MMA: техника и характер яркой спортсменки",
+                "url": "https://example.invalid/mma/women-profile",
+                "published_at": now - timedelta(days=30),
+                "scheduled_at": now - timedelta(hours=1),
+                "content_queue": "evergreen",
+                "content_type": "women_mma",
+                "description": (
+                    "Локальный пример профиля женщины-бойца: спортивные "
+                    "достижения, стиль и сильный визуальный образ."
+                ),
+                "article_text": (
+                    "Профиль объединяет проверяемые спортивные факты, "
+                    "особенности стиля и яркую визуальную подачу."
+                ),
+                "image_url": None,
+            },
+            {
+                "title": "Боец дня: путь от дебюта до большого турнира",
+                "url": "https://example.invalid/mma/fighter-profile",
+                "published_at": now - timedelta(days=30),
+                "scheduled_at": now - timedelta(minutes=30),
+                "content_queue": "evergreen",
+                "content_type": "fighter",
+                "description": (
+                    "Локальный пример планового профиля бойца с рекордом, "
+                    "стилем и ключевыми достижениями."
+                ),
+                "article_text": (
+                    "Плановый материал рассказывает о развитии бойца, его "
+                    "сильных сторонах и важных этапах карьеры."
+                ),
+                "image_url": None,
+            },
+            {
+                "title": "История MMA: материал для вечерней публикации",
+                "url": "https://example.invalid/mma/future-history",
+                "published_at": now - timedelta(days=30),
+                "scheduled_at": now + timedelta(hours=6),
+                "content_queue": "evergreen",
+                "content_type": "history",
+                "description": "Этот материал ещё не должен попасть в выборку.",
+                "article_text": "Публикация ожидает своего времени.",
                 "image_url": None,
             },
             {

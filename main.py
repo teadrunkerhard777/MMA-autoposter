@@ -16,6 +16,7 @@ from collectors.static_collector import collect_static
 from config import (
     DRY_RUN,
     DIVERSITY_SETTINGS,
+    EVERGREEN_SLOTS_PER_RUN,
     EVENT_DEDUP_SETTINGS,
     MAX_NEWS_PER_RUN,
     MIN_PUBLICATION_SCORE,
@@ -26,10 +27,8 @@ from config import (
 from core.environment import configure_ssl
 from core.run_lock import AlreadyRunningError, single_instance_lock
 from processing.deduplicator import remove_duplicates
-from processing.diversity import select_diverse
 from processing.filters import (
     add_scores,
-    filter_by_date,
     filter_by_minimum_score,
     filter_relevant,
     sort_by_score,
@@ -37,6 +36,8 @@ from processing.filters import (
 from project.filters import is_relevant
 from project.formatter import format_photo_caption, format_post
 from project.scoring import calculate_score
+from project.scheduling import filter_time_eligible
+from project.selection import select_editorial_mix
 from project.sources import SOURCE_EXTRACTORS, SOURCE_STOP_MARKERS
 from publishing.telegram import (
     ImageDownloadError,
@@ -212,8 +213,8 @@ def _source_configs_by_name(sources=None):
 def run():
     configure_ssl()
     all_news = collect_enabled_news()
-    fresh_news = filter_by_date(all_news, NEWS_LOOKBACK_DAYS)
-    relevant_news = filter_relevant(fresh_news, is_relevant)
+    time_eligible_news = filter_time_eligible(all_news, NEWS_LOOKBACK_DAYS)
+    relevant_news = filter_relevant(time_eligible_news, is_relevant)
     add_scores(relevant_news, calculate_score)
     scored_news = filter_by_minimum_score(
         relevant_news,
@@ -238,13 +239,14 @@ def run():
             if not is_published(item, history, EVENT_DEDUP_SETTINGS)
         ]
 
-    selected_news = select_diverse(
+    selected_news = select_editorial_mix(
         new_news,
         MAX_NEWS_PER_RUN,
         DIVERSITY_SETTINGS,
+        EVERGREEN_SLOTS_PER_RUN,
     )
     print(f"Collected: {len(all_news)}")
-    print(f"Fresh: {len(fresh_news)}")
+    print(f"Time eligible: {len(time_eligible_news)}")
     print(f"Relevant: {len(relevant_news)}")
     print(f"Minimum score: {len(scored_news)}")
     print(f"Unique: {len(unique_news)}")

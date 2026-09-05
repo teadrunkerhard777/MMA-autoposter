@@ -20,6 +20,11 @@ load_dotenv()
 
 # Older child projects may not define diversity settings yet.
 DIVERSITY_SETTINGS = getattr(project_settings, "DIVERSITY_SETTINGS", None)
+EVERGREEN_SLOTS_PER_RUN = getattr(
+    project_settings,
+    "EVERGREEN_SLOTS_PER_RUN",
+    0,
+)
 
 
 def _read_boolean_env(name, default):
