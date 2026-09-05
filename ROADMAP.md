@@ -22,7 +22,7 @@ Status on 2026-09-05:
 ## Stage 1: Local MMA editorial MVP
 
 Status: complete. The repository now has a local-only MMA editorial layer; live
-source work remains in Stage 2.
+source work remains in Stage 3.
 
 Replace the ExampleNews project configuration with a safe local MMA fixture.
 Implement project-owned MMA relevance, content categories, rumor handling,
@@ -48,7 +48,36 @@ Acceptance:
 - Telegram is not called;
 - the publication-history hash is unchanged.
 
-## Stage 2: Free source shortlist and collector validation
+## Stage 2: Event priority and scheduled content
+
+Implement the agreed editorial model locally before choosing live sources.
+Separate reactive news candidates from pre-produced scheduled content and add
+project-owned handling for `event_at` and `scheduled_at`.
+
+Priority order:
+
+1. confirmed events in the next 0–48 hours;
+2. confirmed events in the next 3–7 days;
+3. major breaking stories, conflicts, and other current news;
+4. one or two scheduled evergreen posts per day.
+
+Known cancellations, injuries, and urgent card changes may override the normal
+order. Evergreen formats include fighter profiles, women in MMA, facts,
+matchups, and history; attractive presentation must not replace sourced sports
+facts.
+
+Acceptance:
+
+- `published_at`, `event_at`, and `scheduled_at` have distinct semantics;
+- proximity bonuses apply only to reliable timezone-aware `event_at` values;
+- 0–48 hour events rank above otherwise comparable 3–7 day events;
+- urgent cancellations or injuries can outrank ordinary previews;
+- one or two eligible evergreen slots can be selected without filling the feed
+  with weak news;
+- scheduled items cannot be selected before `scheduled_at`;
+- deterministic local tests and DRY_RUN cover both queues.
+
+## Stage 3: Free source shortlist and collector validation
 
 Select several free, complementary sources: official promotions first, then
 reputable MMA media. Verify RSS availability, publication dates, direct article
@@ -61,7 +90,7 @@ Acceptance:
 - collector tests use saved fixtures, never live network services;
 - enabled sources provide timezone-aware dates and direct article URLs.
 
-## Stage 3: Article extraction and source quality
+## Stage 4: Article extraction and source quality
 
 Validate article body and image extraction for every enabled source. Add exact
 source-specific extractors or stop markers only for reproduced defects.
@@ -73,7 +102,7 @@ Acceptance:
 - source-specific fixes do not alter unrelated sources;
 - missing text or image degrades safely.
 
-## Stage 4: Event identity, freshness, and deduplication
+## Stage 5: Event identity, freshness, and deduplication
 
 Tune Russian and English event fingerprints, fighter aliases, categories, and
 time windows. Keep article publication time distinct from event freshness when
@@ -86,7 +115,7 @@ Acceptance:
 - an old event republished by a new site does not become fresh automatically;
 - unrelated fights involving the same promotion are not merged.
 
-## Stage 5: Editorial mix and evergreen content
+## Stage 6: Editorial mix and evergreen content
 
 Add project-level data and producers for Fighter, VS, Fact, Quote, Event,
 Result, and MMA History posts. Use only traceable facts and real sourced quotes.
@@ -98,7 +127,7 @@ Acceptance:
 - every quote and factual card retains provenance;
 - content-mix selection remains deterministic and testable.
 
-## Stage 6: Visual pipeline
+## Stage 7: Visual pipeline
 
 Define NEWS, FIGHTER, VS, QUOTE, EVENT, FACT, and RESULT image paths. Start with
 reliably sourced article images and reusable local card composition; do not make
@@ -111,7 +140,7 @@ Acceptance:
 - temporary files are always removed;
 - media rights and source attribution rules are documented.
 
-## Stage 7: Test-channel validation
+## Stage 8: Test-channel validation
 
 After explicit authorization, configure credentials locally and make a limited
 test-channel run. Preserve the publisher's confirmed-versus-uncertain delivery
@@ -124,7 +153,7 @@ Acceptance:
 - Telegram result and history update agree;
 - no credential or Bot API URL appears in output or Git.
 
-## Stage 8: Production scheduling and observation
+## Stage 9: Production scheduling and observation
 
 Enable the production channel only after editorial review of repeated DRY_RUN
 results. Add conservative scheduling, concurrency protection, and operational
