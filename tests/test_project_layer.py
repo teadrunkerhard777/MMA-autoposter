@@ -133,6 +133,15 @@ def test_formatter_separates_category_label_from_title():
     ) in post
 
 
+def test_formatter_shows_publication_date_without_time_or_timezone():
+    news = item("Мовсар Евлоев сделал заявление")
+
+    post = format_post(news)
+
+    assert "📅 Материал: 02.01.2026" in post
+    assert "12:00 UTC" not in post
+
+
 def test_rumor_formatter_never_presents_unconfirmed_item_without_warning():
     news = item(
         "Хамзат Чимаев может получить соперника",

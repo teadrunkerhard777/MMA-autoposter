@@ -107,6 +107,12 @@ def _format_date(value):
     return value.strftime("%d.%m.%Y %H:%M %Z")
 
 
+def _format_calendar_date(value):
+    if not isinstance(value, datetime) or value.tzinfo is None:
+        return "Дата не указана"
+    return value.strftime("%d.%m.%Y")
+
+
 def _date_line(news_item):
     event_at = news_item.get("event_at")
     if isinstance(event_at, datetime):
@@ -132,4 +138,7 @@ def _date_line(news_item):
     if news_item.get("content_queue") == "evergreen":
         return f"📅 По расписанию: {_format_date(news_item.get('scheduled_at'))}"
 
-    return f"📅 Материал: {_format_date(news_item.get('published_at'))}"
+    return (
+        "📅 Материал: "
+        f"{_format_calendar_date(news_item.get('published_at'))}"
+    )
