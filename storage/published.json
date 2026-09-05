@@ -1096,5 +1096,40 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Хамзат Чимаев досрочно победил Тайрона Вудли на турнире RAF",
+    "url": "https://www.sports.ru/boxing/1117360146-xamzat-chimaev-dosrochno-pobedil-tajrona-vudli-na-turnire-raf.html",
+    "published_at": "2026-09-05T22:35:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_result"
+      ],
+      "tokens": [
+        "взял",
+        "вудли",
+        "досрочно",
+        "досрочную",
+        "мытищах",
+        "оформил",
+        "первом",
+        "периоде",
+        "победил",
+        "победу",
+        "тайрона",
+        "турнире",
+        "туше",
+        "хамзат",
+        "чимаев",
+        "экс-чемпион"
+      ],
+      "participants": [
+        "khamzat_chimaev"
+      ],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
