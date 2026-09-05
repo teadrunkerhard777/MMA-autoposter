@@ -198,6 +198,13 @@ Acceptance:
 
 ## Stage 8: Test-channel validation
 
+Status: complete on 2026-09-05. One explicitly approved Sports.ru post about
+Roberto Soldic signing with UFC was delivered to the configured test channel.
+The first attempt was rejected because the bot was not yet a channel member;
+that attempt created no history entry. After the bot was added, Telegram
+confirmed the single-item send and exactly one fingerprinted history entry was
+saved.
+
 After explicit authorization, configure credentials locally and make a limited
 test-channel run. Preserve the publisher's confirmed-versus-uncertain delivery
 semantics and update history only after confirmed success.
