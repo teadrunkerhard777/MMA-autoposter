@@ -158,11 +158,11 @@
   ],
   "image": {
     "local_path": "project/content/fighters/natalia_silva/photo.jpg",
-    "source_page": null,
-    "creator": null,
-    "license": null,
-    "rights_status": "pending",
-    "publication_ready": false
+    "source_page": "https://commons.wikimedia.org/wiki/File:Nat%C3%A1lia_Silva_2025.jpg",
+    "creator": "Sexto Round",
+    "license": "CC BY 3.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
   },
   "last_posted_at": null,
   "enabled": true

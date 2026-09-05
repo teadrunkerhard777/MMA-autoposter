@@ -180,11 +180,11 @@
   ],
   "image": {
     "local_path": "project/content/fighters/kayla_harrison/photo.jpg",
-    "source_page": null,
-    "creator": null,
-    "license": null,
-    "rights_status": "pending",
-    "publication_ready": false
+    "source_page": "https://commons.wikimedia.org/wiki/File:JUDOCA_KAYLA_HARRISON_%C3%89_OURO_NA_RIO_2016_(28889814216).jpg",
+    "creator": "Fernando Frazão / Agência Brasil",
+    "license": "CC BY 2.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
   },
   "last_posted_at": null,
   "enabled": true

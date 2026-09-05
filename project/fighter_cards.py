@@ -8,6 +8,10 @@ from pathlib import Path
 
 FIGHTERS_ROOT = Path(__file__).parent / "content" / "fighters"
 REQUIRED_TITLE_GROUPS = {"current", "former", "other"}
+PUBLICATION_READY_RIGHTS = {
+    "cleared_no_public_credit",
+    "cleared_with_embedded_attribution",
+}
 
 
 def load_fighter_cards(root: Path = FIGHTERS_ROOT) -> list[dict]:
@@ -103,7 +107,10 @@ def validate_fighter_card(card: dict) -> list[str]:
     image_missing = sorted(image_required - image.keys())
     if image_missing:
         errors.append(f"image missing fields: {', '.join(image_missing)}")
-    if image.get("publication_ready") and image.get("rights_status") != "cleared_no_public_credit":
-        errors.append("publication-ready image rights must allow use without public credit")
+    if image.get("publication_ready") and image.get("rights_status") not in PUBLICATION_READY_RIGHTS:
+        errors.append("publication-ready image rights must be cleared for the selected credit mode")
+    if image.get("rights_status") == "cleared_with_embedded_attribution":
+        if not all(image.get(field) for field in ("source_page", "creator", "license")):
+            errors.append("attributed image must include source, creator and license")
 
     return errors
