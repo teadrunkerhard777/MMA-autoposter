@@ -1,6 +1,7 @@
 import re
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 DEFAULTS = {
@@ -10,9 +11,13 @@ DEFAULTS = {
     "min_token_overlap": 0.45,
     "min_token_jaccard": 0.20,
     "dense_match_tokens": 7,
+    "event_time_window_hours": 24,
+    "min_shared_participants": 2,
     "stop_words": set(),
     "noise_prefixes": (),
 }
+
+TRACKING_QUERY_KEYS = {"fbclid", "gclid", "ref", "source"}
 
 
 def normalize_title(title):
@@ -32,6 +37,30 @@ def titles_are_similar(first, second, threshold=0.75):
     return title_similarity(first, second) >= threshold
 
 
+def normalize_url(url):
+    """Remove fragments and known tracking parameters from an article URL."""
+
+    try:
+        parts = urlsplit(url or "")
+    except (TypeError, ValueError):
+        return str(url or "").strip()
+
+    query = urlencode(sorted(
+        (key, value)
+        for key, value in parse_qsl(parts.query, keep_blank_values=True)
+        if not key.casefold().startswith("utm_")
+        and key.casefold() not in TRACKING_QUERY_KEYS
+    ))
+    path = parts.path.rstrip("/") or "/"
+    return urlunsplit((
+        parts.scheme.casefold(),
+        parts.netloc.casefold(),
+        path,
+        query,
+        "",
+    ))
+
+
 def meaningful_tokens(text, settings=None):
     """Return generic normalized tokens shared by dedup and selection."""
 
@@ -45,16 +74,19 @@ def remove_duplicates(news_items, settings=None, debug=False):
     seen_urls = set()
 
     for item in news_items:
-        url = item.get("url", "")
+        url = normalize_url(item.get("url", ""))
 
-        if url in seen_urls:
+        if url and url in seen_urls:
             continue
 
         duplicate_index = None
         event_details = None
 
         for index, existing in enumerate(unique):
-            if titles_are_similar(item.get("title"), existing.get("title")):
+            if (
+                titles_are_similar(item.get("title"), existing.get("title"))
+                and not _participants_conflict(item, existing, settings)
+            ):
                 duplicate_index = index
                 break
 
@@ -66,11 +98,13 @@ def remove_duplicates(news_items, settings=None, debug=False):
                 break
 
         if duplicate_index is None:
-            seen_urls.add(url)
+            if url:
+                seen_urls.add(url)
             unique.append(item)
             continue
 
-        seen_urls.add(url)
+        if url:
+            seen_urls.add(url)
 
         # Title duplicates preserve stable first occurrence.
         if event_details is None:
@@ -99,10 +133,13 @@ def build_event_fingerprint(news_item, settings=None):
     body = news_item.get("article_text") or news_item.get("description", "")
     text = f"{news_item.get('title', '')} {body[:values['text_limit']]}"
     category = news_item.get("event_category")
+    event_at = _parse_event_datetime(news_item.get("event_at"))
 
     return {
         "categories": [category] if category else [],
         "tokens": sorted(_meaningful_tokens(text, values)),
+        "participants": sorted(set(news_item.get("event_participants", []))),
+        "event_at": event_at.isoformat() if event_at else None,
         # Geography is optional project data, never a global requirement.
         "locations": sorted(set(news_item.get("event_locations", []))),
     }
@@ -117,28 +154,41 @@ def compare_event_fingerprints(first, second, settings=None):
         "shared_tokens": [],
         "shared_categories": [],
         "shared_locations": [],
+        "shared_participants": [],
         "token_overlap": 0.0,
         "token_jaccard": 0.0,
         "time_delta_hours": None,
+        "event_time_delta_hours": None,
     }
 
     if first.get("source") and first.get("source") == second.get("source"):
         return result
 
-    first_date = _parse_datetime(first.get("published_at"))
-    second_date = _parse_datetime(second.get("published_at"))
-
-    if first_date is None or second_date is None:
-        return result
-
-    delta = abs(first_date - second_date)
-    result["time_delta_hours"] = delta.total_seconds() / 3600
-
-    if delta > timedelta(hours=values["time_window_hours"]):
-        return result
-
     first_fp = _read_or_build(first, values)
     second_fp = _read_or_build(second, values)
+    first_event_at = _parse_event_datetime(first_fp.get("event_at"))
+    second_event_at = _parse_event_datetime(second_fp.get("event_at"))
+
+    if first_event_at is not None and second_event_at is not None:
+        event_delta = abs(first_event_at - second_event_at)
+        result["event_time_delta_hours"] = (
+            event_delta.total_seconds() / 3600
+        )
+        if event_delta > timedelta(hours=values["event_time_window_hours"]):
+            return result
+    else:
+        first_date = _parse_datetime(first.get("published_at"))
+        second_date = _parse_datetime(second.get("published_at"))
+
+        if first_date is None or second_date is None:
+            return result
+
+        delta = abs(first_date - second_date)
+        result["time_delta_hours"] = delta.total_seconds() / 3600
+
+        if delta > timedelta(hours=values["time_window_hours"]):
+            return result
+
     shared_categories = (
         set(first_fp.get("categories", []))
         & set(second_fp.get("categories", []))
@@ -149,6 +199,19 @@ def compare_event_fingerprints(first, second, settings=None):
 
     first_tokens = set(first_fp.get("tokens", []))
     second_tokens = set(second_fp.get("tokens", []))
+    first_participants = set(first_fp.get("participants", []))
+    second_participants = set(second_fp.get("participants", []))
+    shared_participants = first_participants & second_participants
+
+    if first_participants and second_participants:
+        if len(shared_participants) < values["min_shared_participants"]:
+            return result
+        return {
+            **result,
+            "is_duplicate": True,
+            "shared_categories": sorted(shared_categories),
+            "shared_participants": sorted(shared_participants),
+        }
 
     if not first_tokens or not second_tokens:
         return result
@@ -175,6 +238,7 @@ def compare_event_fingerprints(first, second, settings=None):
         "shared_tokens": sorted(shared_tokens),
         "shared_categories": sorted(shared_categories),
         "shared_locations": sorted(shared_locations),
+        "shared_participants": sorted(shared_participants),
         "token_overlap": token_overlap,
         "token_jaccard": token_jaccard,
     }
@@ -187,6 +251,23 @@ def _settings(settings):
 def _read_or_build(item, settings):
     fingerprint = item.get("event_fingerprint")
     return fingerprint if isinstance(fingerprint, dict) else build_event_fingerprint(item, settings)
+
+
+def _participants_conflict(first, second, settings=None):
+    values = _settings(settings)
+    first_participants = set(
+        _read_or_build(first, values).get("participants", [])
+    )
+    second_participants = set(
+        _read_or_build(second, values).get("participants", [])
+    )
+
+    return bool(
+        first_participants
+        and second_participants
+        and len(first_participants & second_participants)
+        < values["min_shared_participants"]
+    )
 
 
 def _meaningful_tokens(text, settings):
@@ -220,6 +301,21 @@ def _parse_datetime(value):
 
     if value.tzinfo is None:
         value = value.replace(tzinfo=timezone.utc)
+
+    return value.astimezone(timezone.utc)
+
+
+def _parse_event_datetime(value):
+    """Parse only event times that already contain a reliable timezone."""
+
+    if isinstance(value, str):
+        try:
+            value = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+
+    if not isinstance(value, datetime) or value.tzinfo is None:
+        return None
 
     return value.astimezone(timezone.utc)
 

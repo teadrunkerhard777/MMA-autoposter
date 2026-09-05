@@ -64,6 +64,16 @@ def test_project_assigns_meaningful_event_categories():
     assert result["event_category"] == "fight_result"
 
 
+def test_quote_about_opponents_is_a_statement_not_a_fight_announcement():
+    quote = item(
+        "Стерлинг – про Умара: «Ему нужно привыкнуть к уровню соперников»"
+    )
+    quote["source"] = "Sports.ru UFC/MMA"
+
+    assert is_relevant(quote) is True
+    assert quote["event_category"] == "statement"
+
+
 def test_rumor_is_attached_as_separate_editorial_metadata():
     news = item(
         "Хамзат Чимаев может получить нового соперника",
@@ -157,6 +167,28 @@ def test_sports_ru_direct_video_is_rejected_before_article_fetch():
     )
 
     assert is_relevant(video) is False
+
+
+def test_fighter_and_location_aliases_attach_event_identity():
+    news = item(
+        "Царукян – Руффи проведут бой UFC в Париже",
+    )
+
+    assert is_relevant(news) is True
+    assert news["event_participants"] == [
+        "arman_tsarukyan",
+        "mauricio_ruffy",
+    ]
+    assert news["event_locations"] == ["paris"]
+
+
+def test_russian_and_english_fighter_aliases_share_canonical_identity():
+    russian = item("Царукян – Руффи проведут бой UFC")
+    english = item("Arman Tsarukyan faces Mauricio Ruffy at UFC")
+
+    assert is_relevant(russian) is True
+    assert is_relevant(english) is True
+    assert russian["event_participants"] == english["event_participants"]
 
 
 def test_evergreen_content_gets_its_own_category_and_format():

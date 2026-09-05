@@ -21,6 +21,13 @@ def filter_time_eligible(news_items, lookback_days, now=None):
             if scheduled_at is not None and scheduled_at <= current_time:
                 evergreen.append(item)
             continue
+
+        event_at = reliable_datetime(item.get("event_at"))
+        if (
+            event_at is not None
+            and event_at < current_time - timedelta(days=lookback_days)
+        ):
+            continue
         news.append(item)
 
     return filter_by_date(news, lookback_days, current_time) + evergreen

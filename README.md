@@ -9,7 +9,7 @@ template and keeps local execution safe by default.
 - RSS, declarative HTML, and local static collectors.
 - A shared `news_item` data shape.
 - Date filtering, project-owned relevance, scoring, and stable ranking.
-- URL, title, and conservative cross-source event deduplication.
+- Canonical URL, title, fighter-pair, and cross-source event deduplication.
 - Generic article text and `og:image` / `twitter:image` extraction.
 - Isolated source-specific article extractors and stop markers.
 - Telegram text/photo publishing with temporary-file fallback.

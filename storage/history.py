@@ -4,6 +4,7 @@ from pathlib import Path
 from processing.deduplicator import (
     build_event_fingerprint,
     compare_event_fingerprints,
+    normalize_url,
 )
 
 
@@ -30,15 +31,22 @@ def save_history(history, path=HISTORY_FILE):
 
 
 def is_published(news_item, history, event_settings=None):
+    news_url = normalize_url(news_item.get("url"))
+
     for entry in history:
-        if entry.get("url") == news_item.get("url"):
+        if news_url and normalize_url(entry.get("url")) == news_url:
             return True
 
         # Legacy entries without fingerprints remain URL-only.
         if not isinstance(entry.get("event_fingerprint"), dict):
             continue
 
-        if compare_event_fingerprints(news_item, entry, event_settings)["is_duplicate"]:
+        details = compare_event_fingerprints(
+            news_item,
+            entry,
+            event_settings,
+        )
+        if details["is_duplicate"]:
             return True
 
     return False
@@ -54,4 +62,3 @@ def add_to_history(news_item, history, event_settings=None):
         "event_fingerprint": build_event_fingerprint(news_item, event_settings),
     })
     return history
-

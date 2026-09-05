@@ -14,6 +14,8 @@ EVENT_DEDUP_SETTINGS = {
     "min_token_overlap": 0.45,
     "min_token_jaccard": 0.20,
     "dense_match_tokens": 7,
+    "event_time_window_hours": 24,
+    "min_shared_participants": 2,
     "stop_words": {
         "about", "after", "also", "from", "into", "more", "that",
         "their", "this", "with", "will", "your", "будет", "были",

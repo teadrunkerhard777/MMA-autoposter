@@ -62,6 +62,33 @@ def test_time_filter_keeps_fresh_news_and_only_due_evergreen_items():
     ) == [fresh, ready]
 
 
+def test_old_event_is_not_made_fresh_by_a_new_article_date():
+    republished = news(
+        "Новый материал о старом турнире UFC",
+        published_at=NOW - timedelta(hours=1),
+        event_at=NOW - timedelta(days=30),
+    )
+
+    assert filter_time_eligible(
+        [republished],
+        lookback_days=3,
+        now=NOW,
+    ) == []
+
+
+def test_recent_result_with_reliable_event_date_remains_eligible():
+    result = news(
+        "Результат вчерашнего турнира UFC",
+        event_at=NOW - timedelta(days=1),
+    )
+
+    assert filter_time_eligible(
+        [result],
+        lookback_days=3,
+        now=NOW,
+    ) == [result]
+
+
 def test_next_48_hour_event_scores_above_comparable_week_event():
     near = score(news(event_at=NOW + timedelta(hours=24)))
     week = score(news(event_at=NOW + timedelta(days=5)))

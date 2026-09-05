@@ -161,6 +161,7 @@ def is_relevant(news_item):
     accepted = "release" in text
     news_item["matched_topics"] = ["release"] if accepted else []
     news_item["event_category"] = "release" if accepted else None
+    news_item["event_participants"] = []  # Optional canonical identities.
     news_item["event_locations"] = []  # Optional event signal.
     return accepted
 ```
@@ -259,6 +260,14 @@ back to a broader fingerprint containing article text, event category, and
 matched topics. Tune thresholds and language-specific `stop_words` /
 `noise_prefixes` in the project; do not add project vocabulary to generic code.
 
+For cross-language event identity, attach project-owned canonical values such
+as `event_participants=["fighter_a", "fighter_b"]`. When both stories provide
+participants, the configured minimum shared count must match; this prevents two
+different fights from being merged merely because they share a promotion or
+card. A reliable `event_at` can match the same event beyond the normal article
+publication window and separates later rematches. URL deduplication removes
+fragments and common tracking parameters but preserves identifying query data.
+
 If diversity settings are absent or `enabled` is false, each editorial queue
 preserves its ordinary ranked order. Set `EVERGREEN_SLOTS_PER_RUN = 0` for the
 original news-only top-N behavior.
@@ -266,8 +275,9 @@ original news-only top-N behavior.
 Optional `event_at` and `scheduled_at` values must be timezone-aware. The
 generic normalizer preserves them, while `project/scheduling.py` decides when
 an item is eligible and `project/scoring.py` decides how event proximity affects
-rank. Keep `published_at` as the source publication time; do not reuse it as an
-event or schedule time.
+rank. A news item with a reliable event time older than the configured lookback
+is stale even if a new article republishes it. Keep `published_at` as the source
+publication time; do not reuse it as an event or schedule time.
 
 ## 12. Run safely in DRY_RUN
 

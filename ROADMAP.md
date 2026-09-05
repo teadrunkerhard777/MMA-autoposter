@@ -125,9 +125,26 @@ Acceptance:
 
 ## Stage 5: Event identity, freshness, and deduplication
 
+Status: complete. Event identity now uses canonical fighter aliases and an
+optional reliable event time in addition to conservative text facts.
+
 Tune Russian and English event fingerprints, fighter aliases, categories, and
 time windows. Keep article publication time distinct from event freshness when
 reliable event data is available.
+
+Implementation:
+
+- known Russian and English fighter spellings map to canonical participant
+  identifiers owned by the MMA project;
+- two shared participants plus a compatible category and time identify the
+  same fight across languages, while different participant pairs protect
+  separate fights on the same card;
+- a reliable timezone-aware `event_at` separates rematches and lets publication
+  history recognize an old event even when another site republishes it later;
+- fresh articles whose reliable event time is older than the news lookback are
+  not treated as current news;
+- URL matching ignores fragments and common tracking parameters without
+  discarding query parameters that may identify the article.
 
 Acceptance:
 

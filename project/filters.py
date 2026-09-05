@@ -29,6 +29,73 @@ PRIORITY_FIGHTERS = {
     "conor_mcgregor": ("конор макгрегор", "conor mcgregor"),
 }
 
+FIGHTER_ALIASES = {
+    **PRIORITY_FIGHTERS,
+    "islam_makhachev": (
+        *PRIORITY_FIGHTERS["islam_makhachev"],
+        "махачев",
+        "makhachev",
+    ),
+    "khamzat_chimaev": (
+        *PRIORITY_FIGHTERS["khamzat_chimaev"],
+        "чимаев",
+        "chimaev",
+    ),
+    "ilia_topuria": (
+        *PRIORITY_FIGHTERS["ilia_topuria"],
+        "топурия",
+        "topuria",
+    ),
+    "arman_tsarukyan": (
+        "арман царукян",
+        "arman tsarukyan",
+        "царукян",
+        "tsarukyan",
+    ),
+    "mauricio_ruffy": (
+        "маурисио руффи",
+        "mauricio ruffy",
+        "руффи",
+        "ruffy",
+    ),
+    "umar_nurmagomedov": (
+        "умар нурмагомедов",
+        "umar nurmagomedov",
+        "умар",
+        "umar",
+    ),
+    "song_yadong": ("сун ядун", "song yadong", "ядуна", "yadong"),
+    "dan_hooker": (
+        "дэн хукер", "дан хукер", "dan hooker", "хукер", "hooker",
+    ),
+    "salahdine_parnasse": (
+        "саладин парнасс",
+        "салахдин парнасс",
+        "salahdine parnasse",
+        "парнасс",
+        "parnasse",
+    ),
+    "michael_page": ("майкл пейдж", "michael page", "пейдж"),
+    "nursulton_ruziboev": (
+        "нурсултон рузибоев",
+        "nursulton ruziboev",
+        "рузибоев",
+        "ruziboev",
+    ),
+    "valentina_shevchenko": (
+        "валентина шевченко",
+        "valentina shevchenko",
+    ),
+}
+
+EVENT_LOCATION_KEYWORDS = {
+    "abu_dhabi": ("абу-даби", "abu dhabi"),
+    "bangkok": ("бангкок", "bangkok"),
+    "las_vegas": ("лас-вегас", "las vegas"),
+    "moscow": ("москва", "moscow"),
+    "paris": ("париж", "paris"),
+}
+
 MMA_KEYWORDS = (
     "mma",
     "мма",
@@ -102,6 +169,17 @@ EVENT_CATEGORY_KEYWORDS = (
     ),
 )
 
+STRONG_FIGHT_ANNOUNCEMENT_KEYWORDS = (
+    "объявил бой",
+    "объявила бой",
+    "проведёт бой",
+    "проведет бой",
+    "встретится",
+    "booked",
+    "will face",
+    "faces",
+)
+
 EDITORIAL_SIGNAL_KEYWORDS = {
     "title_stakes": ("титул", "чемпион", "title", "champion"),
     "official": ("официально", "official", "confirmed", "подтвержд"),
@@ -144,6 +222,8 @@ def is_relevant(news_item):
     text = _item_text(news_item)
     promotions = _matches_by_name(text, PROMOTION_KEYWORDS)
     fighters = _matches_by_name(text, PRIORITY_FIGHTERS)
+    event_participants = _matches_by_name(text, FIGHTER_ALIASES)
+    event_locations = _matches_by_name(text, EVENT_LOCATION_KEYWORDS)
     queue = news_item.get("content_queue") or "news"
     requested_content_type = news_item.get("content_type")
     is_evergreen = (
@@ -189,6 +269,7 @@ def is_relevant(news_item):
     news_item["matched_topics"] = _unique(topics)
     news_item["matched_promotions"] = promotions
     news_item["matched_fighters"] = fighters
+    news_item["event_participants"] = event_participants if relevant else []
     news_item["editorial_signals"] = signals
     news_item["content_queue"] = queue
     news_item["content_type"] = (
@@ -198,7 +279,12 @@ def is_relevant(news_item):
     )
     news_item["is_rumor"] = bool(is_rumor)
     news_item["event_category"] = category
-    news_item.setdefault("event_locations", [])
+    if relevant:
+        news_item["event_locations"] = _unique(
+            [*news_item.get("event_locations", []), *event_locations]
+        )
+    else:
+        news_item["event_locations"] = []
     return relevant
 
 
@@ -228,6 +314,12 @@ def _matches_by_name(text, groups):
 
 
 def _event_category(text):
+    if (
+        (": «" in text or " – про " in text)
+        and not _contains_any(text, STRONG_FIGHT_ANNOUNCEMENT_KEYWORDS)
+    ):
+        return "statement"
+
     for category, keywords in EVENT_CATEGORY_KEYWORDS:
         if _contains_any(text, keywords):
             return category
