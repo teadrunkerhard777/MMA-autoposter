@@ -118,6 +118,21 @@ def test_formatter_escapes_html_and_keeps_russian_source_footer():
     assert ">Источник</a>" in post
 
 
+def test_formatter_separates_category_label_from_title():
+    news = item(
+        "Мовсар Евлоев: «Я здесь, чтобы стать чемпионом»",
+        "Заявление бойца UFC.",
+    )
+    news["event_category"] = "statement"
+
+    post = format_post(news)
+
+    assert (
+        "🎙 ЗАЯВЛЕНИЕ\n\n"
+        "<b>Мовсар Евлоев: «Я здесь, чтобы стать чемпионом»</b>"
+    ) in post
+
+
 def test_rumor_formatter_never_presents_unconfirmed_item_without_warning():
     news = item(
         "Хамзат Чимаев может получить соперника",

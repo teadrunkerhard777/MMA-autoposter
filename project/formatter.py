@@ -69,7 +69,7 @@ def _format(news_item, limit):
         header_blocks.append(
             "👀 <b>СЛУХ</b>\nПока официально не подтверждено."
         )
-    header_blocks.append(f"{label}\n<b>{title}</b>")
+    header_blocks.append(f"{label}\n\n<b>{title}</b>")
 
     footer = (
         f"{_date_line(news_item)}\n"
