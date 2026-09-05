@@ -172,11 +172,11 @@
   ],
   "image": {
     "local_path": "project/content/fighters/charles_oliveira/photo.jpg",
-    "source_page": null,
-    "creator": null,
-    "license": null,
-    "rights_status": "pending",
-    "publication_ready": false
+    "source_page": "https://commons.wikimedia.org/wiki/File:Charles_Oliveira_UFC.jpg",
+    "creator": "Renan Silva",
+    "license": "CC0 1.0 Universal",
+    "rights_status": "cleared_no_public_credit",
+    "publication_ready": true
   },
   "last_posted_at": null,
   "enabled": true

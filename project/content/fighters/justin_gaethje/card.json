@@ -192,11 +192,11 @@
   ],
   "image": {
     "local_path": "project/content/fighters/justin_gaethje/photo.jpg",
-    "source_page": null,
-    "creator": null,
-    "license": null,
-    "rights_status": "pending",
-    "publication_ready": false
+    "source_page": "https://commons.wikimedia.org/wiki/File:UFC_Freedom_250_Ceremonial_Weigh-In_at_the_Ellipse_in_Washington,_D.C.,_June_13,_2026_-_23.jpg",
+    "creator": "Sgt. 1st Class Brittany Primavera / U.S. Army",
+    "license": "Public Domain — U.S. Army work",
+    "rights_status": "cleared_no_public_credit",
+    "publication_ready": true
   },
   "last_posted_at": null,
   "enabled": true

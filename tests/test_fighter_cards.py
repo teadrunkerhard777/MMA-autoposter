@@ -39,9 +39,24 @@ def test_index_ids_match_card_directories_and_card_ids():
 
 
 def test_sources_stay_internal_and_images_are_not_falsely_cleared():
+    cleared_ids = {
+        "alex_pereira",
+        "charles_oliveira",
+        "ilia_topuria",
+        "justin_gaethje",
+        "merab_dvalishvili",
+        "valentina_shevchenko",
+    }
     for card in load_fighter_cards():
         assert "post" not in card
         assert all(source["url"].startswith("https://") for source in card["sources"])
-        assert card["image"]["publication_ready"] is False
-        assert card["image"]["rights_status"] == "pending"
-        assert not (Path(FIGHTERS_ROOT.parent.parent.parent) / card["image"]["local_path"]).exists()
+        image_path = Path(FIGHTERS_ROOT.parent.parent.parent) / card["image"]["local_path"]
+        if card["id"] in cleared_ids:
+            assert card["image"]["publication_ready"] is True
+            assert card["image"]["rights_status"] == "cleared_no_public_credit"
+            assert card["image"]["source_page"].startswith("https://commons.wikimedia.org/")
+            assert image_path.is_file()
+        else:
+            assert card["image"]["publication_ready"] is False
+            assert card["image"]["rights_status"] == "pending"
+            assert not image_path.exists()

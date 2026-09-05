@@ -170,11 +170,11 @@
   ],
   "image": {
     "local_path": "project/content/fighters/ilia_topuria/photo.jpg",
-    "source_page": null,
-    "creator": null,
-    "license": null,
-    "rights_status": "pending",
-    "publication_ready": false
+    "source_page": "https://commons.wikimedia.org/wiki/File:UFC_Freedom_250_Ceremonial_Weigh_In_(9748627)(cropped2).jpg",
+    "creator": "Sgt. 1st Class Brittany Primavera / U.S. Army",
+    "license": "Public Domain — U.S. Army work",
+    "rights_status": "cleared_no_public_credit",
+    "publication_ready": true
   },
   "last_posted_at": null,
   "enabled": true
