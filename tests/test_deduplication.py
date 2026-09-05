@@ -199,3 +199,30 @@ def test_timezone_naive_event_date_cannot_bypass_publication_window():
         second,
         EVENT_DEDUP_SETTINGS,
     )["is_duplicate"] is False
+
+
+def test_same_explicit_event_date_matches_beyond_publication_window():
+    first = make_item(
+        "one",
+        "Царукян против Руффи",
+        "Первый материал",
+        category="fight_announcement",
+    )
+    second = make_item(
+        "two",
+        "Tsarukyan versus Ruffy",
+        "Second report",
+        category="fight_announcement",
+        hours=24 * 30,
+    )
+    for item in (first, second):
+        item.update(
+            event_date="2026-02-01",
+            event_participants=["arman_tsarukyan", "mauricio_ruffy"],
+        )
+
+    assert compare_event_fingerprints(
+        first,
+        second,
+        EVENT_DEDUP_SETTINGS,
+    )["is_duplicate"] is True

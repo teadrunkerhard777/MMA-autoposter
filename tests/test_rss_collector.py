@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
 import feedparser
+import requests
 
 from collectors.rss_collector import collect_rss
 
@@ -141,3 +142,46 @@ def test_rss_collector_leaves_feed_content_opt_in(monkeypatch):
 
     assert "article_text" not in item
     assert "image_url" not in item
+
+
+def test_rss_collector_bounds_live_feed_request(monkeypatch):
+    class Response:
+        content = RSS
+
+        def raise_for_status(self):
+            return None
+
+    request = {}
+
+    def get(url, **kwargs):
+        request.update(url=url, **kwargs)
+        return Response()
+
+    monkeypatch.setattr("collectors.rss_collector.requests.get", get)
+
+    items = collect_rss(
+        source(
+            feed_timeout=12,
+            headers={"Accept-Language": "ru-RU"},
+        )
+    )
+
+    assert len(items) == 2
+    assert request == {
+        "url": "https://example.test/feed.xml",
+        "headers": {"Accept-Language": "ru-RU"},
+        "timeout": 12.0,
+    }
+
+
+def test_rss_collector_isolates_feed_timeout(monkeypatch, capsys):
+    def timeout(*args, **kwargs):
+        raise requests.ConnectTimeout("slow feed")
+
+    monkeypatch.setattr(
+        "collectors.rss_collector.requests.get",
+        timeout,
+    )
+
+    assert collect_rss(source(feed_timeout=1)) == []
+    assert "ConnectTimeout" in capsys.readouterr().out

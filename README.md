@@ -21,6 +21,7 @@ template and keeps local execution safe by default.
 No paid API, AI service, database, browser automation, or framework is needed.
 
 See `MEDIA_POLICY.md` before enabling production image publication.
+See `EDITORIAL_POLICY.md` for the strict publication-priority order.
 
 ## Architecture
 

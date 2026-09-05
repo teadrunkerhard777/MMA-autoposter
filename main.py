@@ -33,11 +33,12 @@ from processing.filters import (
     filter_relevant,
     sort_by_score,
 )
+from project.events import enrich_event_timing
 from project.filters import is_relevant
 from project.formatter import format_photo_caption, format_post
 from project.scoring import calculate_score
 from project.scheduling import filter_time_eligible
-from project.selection import select_editorial_mix
+from project.selection import select_editorial_mix, sort_by_editorial_priority
 from project.sources import SOURCE_EXTRACTORS, SOURCE_STOP_MARKERS
 from publishing.telegram import (
     ImageDownloadError,
@@ -175,6 +176,10 @@ def publish_selected_news(
                         temporary_image.path.unlink()
 
             print("[DRY RUN] Telegram was not called")
+            print(
+                "Editorial priority: "
+                f"{item.get('editorial_priority') or 'standard'}"
+            )
             print(f"Visual type: {item.get('visual_type') or 'NEWS'}")
             print(f"Image URL: {validated_image_url or 'NOT FOUND'}")
             print(caption if validated_image_url else post)
@@ -259,6 +264,13 @@ def run():
 
     # Generic event fingerprints use article facts, so loading precedes dedup.
     load_article_data(ranked_news)
+    for item in ranked_news:
+        enrich_event_timing(item)
+
+    # Explicit article event dates can change editorial priority or freshness.
+    ranked_news = filter_time_eligible(ranked_news, NEWS_LOOKBACK_DAYS)
+    add_scores(ranked_news, calculate_score)
+    ranked_news = sort_by_editorial_priority(ranked_news)
     unique_news = remove_duplicates(
         ranked_news,
         EVENT_DEDUP_SETTINGS,

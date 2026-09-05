@@ -1,5 +1,5 @@
 import re
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
@@ -12,6 +12,7 @@ DEFAULTS = {
     "min_token_jaccard": 0.20,
     "dense_match_tokens": 7,
     "event_time_window_hours": 24,
+    "event_date_window_days": 0,
     "min_shared_participants": 2,
     "stop_words": set(),
     "noise_prefixes": (),
@@ -134,12 +135,14 @@ def build_event_fingerprint(news_item, settings=None):
     text = f"{news_item.get('title', '')} {body[:values['text_limit']]}"
     category = news_item.get("event_category")
     event_at = _parse_event_datetime(news_item.get("event_at"))
+    event_date = _parse_event_date(news_item.get("event_date"))
 
     return {
         "categories": [category] if category else [],
         "tokens": sorted(_meaningful_tokens(text, values)),
         "participants": sorted(set(news_item.get("event_participants", []))),
         "event_at": event_at.isoformat() if event_at else None,
+        "event_date": event_date.isoformat() if event_date else None,
         # Geography is optional project data, never a global requirement.
         "locations": sorted(set(news_item.get("event_locations", []))),
     }
@@ -159,6 +162,7 @@ def compare_event_fingerprints(first, second, settings=None):
         "token_jaccard": 0.0,
         "time_delta_hours": None,
         "event_time_delta_hours": None,
+        "event_date_delta_days": None,
     }
 
     if first.get("source") and first.get("source") == second.get("source"):
@@ -168,6 +172,8 @@ def compare_event_fingerprints(first, second, settings=None):
     second_fp = _read_or_build(second, values)
     first_event_at = _parse_event_datetime(first_fp.get("event_at"))
     second_event_at = _parse_event_datetime(second_fp.get("event_at"))
+    first_event_date = _parse_event_date(first_fp.get("event_date"))
+    second_event_date = _parse_event_date(second_fp.get("event_date"))
 
     if first_event_at is not None and second_event_at is not None:
         event_delta = abs(first_event_at - second_event_at)
@@ -175,6 +181,11 @@ def compare_event_fingerprints(first, second, settings=None):
             event_delta.total_seconds() / 3600
         )
         if event_delta > timedelta(hours=values["event_time_window_hours"]):
+            return result
+    elif first_event_date is not None and second_event_date is not None:
+        event_date_delta = abs((first_event_date - second_event_date).days)
+        result["event_date_delta_days"] = event_date_delta
+        if event_date_delta > values["event_date_window_days"]:
             return result
     else:
         first_date = _parse_datetime(first.get("published_at"))
@@ -318,6 +329,22 @@ def _parse_event_datetime(value):
         return None
 
     return value.astimezone(timezone.utc)
+
+
+def _parse_event_date(value):
+    """Parse an explicit ISO calendar date without inventing a clock time."""
+
+    if isinstance(value, datetime):
+        return value.date()
+    if isinstance(value, date):
+        return value
+    if not isinstance(value, str):
+        return None
+
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        return None
 
 
 def _choose_preferred(first, second):

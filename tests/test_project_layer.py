@@ -139,6 +139,14 @@ def test_photo_caption_stays_inside_safe_limit_after_html_escaping():
     assert len(format_photo_caption(news)) <= 1000
 
 
+def test_formatter_shows_explicit_event_date_without_invented_time():
+    news = item("UFC объявил новый турнир")
+    news["event_date"] = "2026-09-10"
+    is_relevant(news)
+
+    assert "🥊 Событие: 10.09.2026 (время уточняется)" in format_post(news)
+
+
 def test_stage_four_enables_only_validated_russian_sources():
     enabled = [source for source in SOURCES if source["enabled"]]
     candidates = [source for source in SOURCES if not source["enabled"]]

@@ -284,6 +284,11 @@ rank. A news item with a reliable event time older than the configured lookback
 is stale even if a new article republishes it. Keep `published_at` as the source
 publication time; do not reuse it as an event or schedule time.
 
+When a source gives a reliable calendar date but no clock time, store ISO
+`event_date` such as `2026-09-10` instead of inventing midnight. Project code
+may use that date for day-level priority while presentation explicitly says
+that the time is still unknown.
+
 ## 12. Run safely in DRY_RUN
 
 Copy `.env.example` to `.env` and leave safe mode enabled:

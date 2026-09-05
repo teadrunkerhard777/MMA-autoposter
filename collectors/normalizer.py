@@ -1,5 +1,5 @@
 import re
-from datetime import datetime
+from datetime import date, datetime
 from email.utils import parsedate_to_datetime
 from html import unescape
 
@@ -40,6 +40,22 @@ def clean_description(description):
     return " ".join(cleaned.split())
 
 
+def normalize_event_date(value):
+    """Return an explicit calendar date without adding an invented time."""
+
+    if isinstance(value, datetime):
+        return value.date().isoformat()
+    if isinstance(value, date):
+        return value.isoformat()
+    if not isinstance(value, str):
+        return None
+
+    try:
+        return date.fromisoformat(value.strip()).isoformat()
+    except ValueError:
+        return None
+
+
 def normalize_item(item, source_name):
     """Build the shared news_item contract."""
 
@@ -59,6 +75,11 @@ def normalize_item(item, source_name):
     for key in ("event_at", "scheduled_at"):
         if key in item:
             normalized[key] = normalize_date(item.get(key))
+
+    if "event_date" in item:
+        normalized["event_date"] = normalize_event_date(
+            item.get("event_date")
+        )
 
     for key in ("content_queue", "content_type"):
         if key in item:

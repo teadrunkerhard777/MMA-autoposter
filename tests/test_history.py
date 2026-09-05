@@ -25,6 +25,7 @@ def test_new_history_entry_contains_compact_fingerprint():
     item = news()
     item.update(
         event_at=datetime(2026, 2, 1, tzinfo=timezone.utc),
+        event_date="2026-02-01",
         event_participants=["fighter_a", "fighter_b"],
     )
     add_to_history(item, history)
@@ -33,6 +34,7 @@ def test_new_history_entry_contains_compact_fingerprint():
     assert history[0]["event_fingerprint"]["event_at"] == (
         "2026-02-01T00:00:00+00:00"
     )
+    assert history[0]["event_fingerprint"]["event_date"] == "2026-02-01"
     assert history[0]["event_fingerprint"]["participants"] == [
         "fighter_a",
         "fighter_b",

@@ -15,6 +15,7 @@ EVENT_DEDUP_SETTINGS = {
     "min_token_jaccard": 0.20,
     "dense_match_tokens": 7,
     "event_time_window_hours": 24,
+    "event_date_window_days": 0,
     "min_shared_participants": 2,
     "stop_words": {
         "about", "after", "also", "from", "into", "more", "that",

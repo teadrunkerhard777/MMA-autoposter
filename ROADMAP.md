@@ -218,6 +218,12 @@ Acceptance:
 
 ## Stage 9: Production scheduling and observation
 
+Status: editorial priority pass complete; unattended production scheduling is
+not enabled. Strict tiers now order breaking changes, events within 48 hours,
+events within seven days, major conflicts, standard news, and deferred
+scheduled content. Explicit Russian event dates are extracted after the single
+article fetch and the final ranking is refreshed before deduplication.
+
 Enable the production channel only after editorial review of repeated DRY_RUN
 results. Add conservative scheduling, concurrency protection, and operational
 reporting without expanding the architecture into a framework.

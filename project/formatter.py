@@ -112,6 +112,23 @@ def _date_line(news_item):
     if isinstance(event_at, datetime):
         return f"🥊 Событие: {_format_date(event_at)}"
 
+    event_date = news_item.get("event_date")
+    if isinstance(event_date, str):
+        try:
+            parsed_event_date = datetime.strptime(
+                event_date,
+                "%Y-%m-%d",
+            )
+        except ValueError:
+            parsed_event_date = None
+
+        if parsed_event_date is not None:
+            return (
+                "🥊 Событие: "
+                f"{parsed_event_date.strftime('%d.%m.%Y')} "
+                "(время уточняется)"
+            )
+
     if news_item.get("content_queue") == "evergreen":
         return f"📅 По расписанию: {_format_date(news_item.get('scheduled_at'))}"
 

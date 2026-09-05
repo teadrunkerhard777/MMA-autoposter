@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 
 import feedparser
+import requests
 from bs4 import BeautifulSoup
 
 from collectors.normalizer import normalize_item
@@ -10,8 +11,13 @@ def collect_rss(source):
     """Collect one RSS feed into the shared news_item format."""
 
     try:
-        feed = feedparser.parse(source["url"])
-    except (OSError, TypeError, ValueError) as error:
+        feed = _parse_feed(source)
+    except (
+        OSError,
+        TypeError,
+        ValueError,
+        requests.RequestException,
+    ) as error:
         print(f"RSS warning ({source['name']}): {type(error).__name__}")
         return []
 
@@ -39,6 +45,20 @@ def collect_rss(source):
         items.append(normalize_item(raw_item, source["name"]))
 
     return items
+
+
+def _parse_feed(source):
+    timeout = source.get("feed_timeout")
+    if timeout is None:
+        return feedparser.parse(source["url"])
+
+    response = requests.get(
+        source["url"],
+        headers=source.get("headers") or {},
+        timeout=max(1, float(timeout)),
+    )
+    response.raise_for_status()
+    return feedparser.parse(response.content)
 
 
 def _extract_feed_article(entry, source):

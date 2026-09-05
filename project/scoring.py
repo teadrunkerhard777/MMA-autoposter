@@ -33,7 +33,7 @@ SIGNAL_SCORES = {
     "title_stakes": 3,
     "official": 2,
     "knockout": 2,
-    "conflict": 1,
+    "conflict": 3,
     "comeback": 2,
 }
 
@@ -74,18 +74,30 @@ def calculate_score(news_item, now=None):
     if news_item.get("is_rumor"):
         score -= RUMOR_PENALTY
 
-    window = event_window(news_item.get("event_at"), now)
+    window = event_window(
+        news_item.get("event_at"),
+        now,
+        news_item.get("event_date"),
+    )
     news_item["event_window"] = window
-    score += EVENT_WINDOW_SCORES.get(window, 0)
+    is_confirmed = not news_item.get("is_rumor")
+    if is_confirmed:
+        score += EVENT_WINDOW_SCORES.get(window, 0)
 
     category = news_item.get("event_category")
-    score += BREAKING_CATEGORY_SCORES.get(category, 0)
-    if category in BREAKING_CATEGORY_SCORES:
+    if is_confirmed:
+        score += BREAKING_CATEGORY_SCORES.get(category, 0)
+    if is_confirmed and category in BREAKING_CATEGORY_SCORES:
         news_item["editorial_priority"] = "breaking"
-    elif window == "next_48_hours":
+    elif is_confirmed and window == "next_48_hours":
         news_item["editorial_priority"] = "next_48_hours"
-    elif window == "next_7_days":
+    elif is_confirmed and window == "next_7_days":
         news_item["editorial_priority"] = "next_7_days"
+    elif (
+        is_confirmed
+        and "conflict" in news_item.get("editorial_signals", [])
+    ):
+        news_item["editorial_priority"] = "major_story"
     elif news_item.get("content_queue") == "evergreen":
         news_item["editorial_priority"] = "scheduled"
     else:
