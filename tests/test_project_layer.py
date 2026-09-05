@@ -157,7 +157,7 @@ def test_stage_four_enables_only_validated_russian_sources():
     }
     assert all(source["language"] == "ru" for source in enabled)
     assert any(source["type"] == "static" for source in candidates)
-    assert MAX_NEWS_PER_RUN == 5
+    assert MAX_NEWS_PER_RUN == 1
     assert EVERGREEN_SLOTS_PER_RUN == 2
 
 

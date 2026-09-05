@@ -1,7 +1,7 @@
 """Settings a new autoposter owner is expected to edit first."""
 
 NEWS_LOOKBACK_DAYS = 3
-MAX_NEWS_PER_RUN = 5
+MAX_NEWS_PER_RUN = 1
 MIN_PUBLICATION_SCORE = 5
 EVERGREEN_SLOTS_PER_RUN = 2
 POST_MODE = "single"
