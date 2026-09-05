@@ -12,12 +12,15 @@ template and keeps local execution safe by default.
 - Canonical URL, title, fighter-pair, and cross-source event deduplication.
 - Generic article text and `og:image` / `twitter:image` extraction.
 - Isolated source-specific article extractors and stop markers.
+- Project-owned visual roles and validated DRY_RUN image previews.
 - Telegram text/photo publishing with temporary-file fallback.
 - Duplicate protection for uncertain Telegram network outcomes.
 - JSON publication history with backward-compatible fingerprints.
 - Safe `DRY_RUN=True`, a local process lock, tests, and GitHub Actions.
 
 No paid API, AI service, database, browser automation, or framework is needed.
+
+See `MEDIA_POLICY.md` before enabling production image publication.
 
 ## Architecture
 

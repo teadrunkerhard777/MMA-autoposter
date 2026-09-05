@@ -231,6 +231,11 @@ During DRY_RUN, inspect the final caption and the printed `image_url`. Confirm
 that article text comes from the intended body, the image is the intended
 `og:image`/`twitter:image`, and source footer blocks are absent.
 
+Selected remote images are downloaded once during DRY_RUN for validation, then
+their temporary files are removed. Only credential-free HTTPS JPEG, PNG, and
+WebP URLs with matching file signatures are accepted. An invalid image must
+produce the normal text preview instead of failing the run.
+
 ## 11. Tune event deduplication and diversity
 
 Edit `project/settings.py`:

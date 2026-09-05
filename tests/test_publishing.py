@@ -12,6 +12,7 @@ from publishing.telegram import (
     TelegramSendResult,
     TemporaryImage,
     download_image_temp,
+    is_supported_remote_image_url,
     send_telegram_photo,
 )
 
@@ -34,8 +35,14 @@ def fail_if_called(*args, **kwargs):
     raise AssertionError("external function must not be called")
 
 
-def test_dry_run_never_publishes_or_changes_history():
+def test_dry_run_validates_and_removes_image_without_publishing(tmp_path):
     history = []
+    image_path = tmp_path / "preview.jpg"
+    image_path.write_bytes(b"preview")
+
+    def download_image(url, source_config=None):
+        return TemporaryImage(image_path, "image/jpeg", 7)
+
     changed = publish_selected_news(
         [news("https://img.test/photo.jpg")],
         history,
@@ -43,12 +50,35 @@ def test_dry_run_never_publishes_or_changes_history():
         "single",
         send_post=fail_if_called,
         send_photo=fail_if_called,
-        download_image=fail_if_called,
+        download_image=download_image,
         add_history=fail_if_called,
     )
 
     assert changed is False
     assert history == []
+    assert image_path.exists() is False
+
+
+def test_dry_run_rejects_invalid_image_and_uses_text_preview(capsys):
+    def reject_image(*args, **kwargs):
+        raise ImageDownloadError("invalid image")
+
+    changed = publish_selected_news(
+        [news("https://img.test/not-an-image")],
+        [],
+        True,
+        "single",
+        send_post=fail_if_called,
+        send_photo=fail_if_called,
+        download_image=reject_image,
+        add_history=fail_if_called,
+    )
+
+    output = capsys.readouterr().out
+    assert changed is False
+    assert "Image rejected: ImageDownloadError" in output
+    assert "Image URL: NOT FOUND" in output
+    assert "Telegram was not called" in output
 
 
 def test_history_changes_once_after_confirmed_text_success():
@@ -86,6 +116,29 @@ def test_successful_remote_photo_does_not_call_text_fallback():
 
     assert changed is True
     assert len(history) == 1
+
+
+def test_unsupported_remote_image_url_uses_text_without_photo_call():
+    history = []
+    changed = publish_selected_news(
+        [news("http://img.test/photo.jpg")],
+        history,
+        False,
+        "single",
+        send_post=lambda text: TelegramSendResult(True),
+        send_photo=fail_if_called,
+        download_image=fail_if_called,
+    )
+
+    assert changed is True
+    assert len(history) == 1
+
+
+def test_image_url_policy_requires_credential_free_https():
+    assert is_supported_remote_image_url("https://img.test/photo.jpg") is True
+    assert is_supported_remote_image_url("http://img.test/photo.jpg") is False
+    assert is_supported_remote_image_url("https://user:pass@img.test/a") is False
+    assert is_supported_remote_image_url("not a url") is False
 
 
 def test_confirmed_remote_fetch_error_uses_temporary_file(tmp_path):
@@ -137,7 +190,7 @@ class ImageResponse:
         self.headers = {"Content-Type": content_type}
         if size is not None:
             self.headers["Content-Length"] = str(size)
-        self.chunks = [b"image"] if chunks is None else chunks
+        self.chunks = [b"\xff\xd8\xff\xe0image"] if chunks is None else chunks
         self.closed = False
 
     def raise_for_status(self):
@@ -224,14 +277,27 @@ def test_image_download_raises_after_retries_are_exhausted(monkeypatch):
     assert len(calls) == 3
 
 
-def test_image_download_rejects_non_image_content_type(monkeypatch):
+def test_image_download_rejects_unsupported_content_type(monkeypatch):
     response = ImageResponse(content_type="text/html")
     monkeypatch.setattr(
         "publishing.telegram.requests.get",
         lambda *args, **kwargs: response,
     )
 
-    with pytest.raises(ImageDownloadError, match="invalid Content-Type"):
+    with pytest.raises(ImageDownloadError, match="unsupported Content-Type"):
+        download_image_temp("https://img.test/photo.jpg")
+
+    assert response.closed is True
+
+
+def test_image_download_rejects_mismatched_file_signature(monkeypatch):
+    response = ImageResponse(chunks=[b"this is really HTML"])
+    monkeypatch.setattr(
+        "publishing.telegram.requests.get",
+        lambda *args, **kwargs: response,
+    )
+
+    with pytest.raises(ImageDownloadError, match="do not match"):
         download_image_temp("https://img.test/photo.jpg")
 
     assert response.closed is True

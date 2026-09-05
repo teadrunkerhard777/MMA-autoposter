@@ -155,6 +155,9 @@ Acceptance:
 
 ## Stage 6: Editorial mix and evergreen content
 
+Status: postponed by editorial decision. The queue and selection rules remain
+available, but real scheduled content and its timetable will be added later.
+
 Add project-level data and producers for Fighter, VS, Fact, Quote, Event,
 Result, and MMA History posts. Use only traceable facts and real sourced quotes.
 
@@ -167,9 +170,24 @@ Acceptance:
 
 ## Stage 7: Visual pipeline
 
+Status: current-news path complete. Live news now has explicit visual roles and
+validated source-image previews; local evergreen card generation is postponed
+with Stage 6.
+
 Define NEWS, FIGHTER, VS, QUOTE, EVENT, FACT, and RESULT image paths. Start with
 reliably sourced article images and reusable local card composition; do not make
 paid or AI image APIs required dependencies.
+
+Implementation:
+
+- every editorial category maps to one of the seven visual roles;
+- current live posts use source images for NEWS, QUOTE, EVENT, and RESULT;
+- only credential-free HTTPS JPEG, PNG, and WebP images with matching file
+  signatures are accepted;
+- DRY_RUN validates selected images and removes every temporary file;
+- invalid or missing images fall back to the full text post;
+- media provenance, attribution, and production rights checks are documented
+  in `MEDIA_POLICY.md`.
 
 Acceptance:
 

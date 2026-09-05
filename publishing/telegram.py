@@ -3,6 +3,7 @@ import tempfile
 import time
 from dataclasses import dataclass, replace
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import requests
 from dotenv import load_dotenv
@@ -28,6 +29,16 @@ IMAGE_SUFFIXES = {
     "image/webp": ".webp",
 }
 
+IMAGE_SIGNATURES = {
+    "image/jpeg": lambda header: header.startswith(b"\xff\xd8\xff"),
+    "image/png": lambda header: header.startswith(
+        b"\x89PNG\r\n\x1a\n"
+    ),
+    "image/webp": lambda header: (
+        header.startswith(b"RIFF") and header[8:12] == b"WEBP"
+    ),
+}
+
 
 @dataclass(frozen=True)
 class TelegramSendResult:
@@ -50,6 +61,25 @@ class TemporaryImage:
 
 class ImageDownloadError(Exception):
     """Expected failure while preparing a Telegram-compatible image."""
+
+
+def is_supported_remote_image_url(image_url):
+    """Accept only credential-free HTTPS image locations."""
+
+    if not isinstance(image_url, str):
+        return False
+
+    try:
+        parts = urlsplit(image_url.strip())
+    except ValueError:
+        return False
+
+    return bool(
+        parts.scheme == "https"
+        and parts.hostname
+        and parts.username is None
+        and parts.password is None
+    )
 
 
 def send_telegram_post(text):
@@ -152,9 +182,9 @@ def _download_image_once(image_url, headers):
         mime_type = response.headers.get("Content-Type", "")
         mime_type = mime_type.split(";", 1)[0].strip().casefold()
 
-        if not mime_type.startswith("image/"):
+        if mime_type not in IMAGE_SUFFIXES:
             raise ImageDownloadError(
-                f"invalid Content-Type: {mime_type or 'missing'}"
+                f"unsupported Content-Type: {mime_type or 'missing'}"
             )
 
         content_length = response.headers.get("Content-Length")
@@ -191,6 +221,14 @@ def _download_image_once(image_url, headers):
 
         if downloaded_size == 0:
             raise ImageDownloadError("server returned an empty image")
+
+        with temp_path.open("rb") as image_file:
+            header = image_file.read(16)
+
+        if not IMAGE_SIGNATURES[mime_type](header):
+            raise ImageDownloadError(
+                "image bytes do not match Content-Type"
+            )
 
         result = TemporaryImage(temp_path, mime_type, downloaded_size)
         completed = True

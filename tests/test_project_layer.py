@@ -14,6 +14,7 @@ from project.settings import (
     MIN_PUBLICATION_SCORE,
 )
 from project.sources import SOURCES
+from project.visuals import VISUAL_TYPES
 
 
 def item(title, description=""):
@@ -189,6 +190,22 @@ def test_russian_and_english_fighter_aliases_share_canonical_identity():
     assert is_relevant(russian) is True
     assert is_relevant(english) is True
     assert russian["event_participants"] == english["event_participants"]
+
+
+def test_editorial_categories_select_their_visual_treatment():
+    quote = item("Боец UFC заявил: «Я вернусь сильнее»")
+    result = item("Боец UFC победил нокаутом")
+    event = item("UFC проведёт турнир в Париже")
+
+    assert is_relevant(quote) is True
+    assert is_relevant(result) is True
+    assert is_relevant(event) is True
+    assert quote["visual_type"] == "QUOTE"
+    assert result["visual_type"] == "RESULT"
+    assert event["visual_type"] == "EVENT"
+    assert {
+        "NEWS", "FIGHTER", "VS", "QUOTE", "EVENT", "FACT", "RESULT",
+    } == VISUAL_TYPES
 
 
 def test_evergreen_content_gets_its_own_category_and_format():

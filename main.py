@@ -42,6 +42,7 @@ from project.sources import SOURCE_EXTRACTORS, SOURCE_STOP_MARKERS
 from publishing.telegram import (
     ImageDownloadError,
     download_image_temp,
+    is_supported_remote_image_url,
     send_telegram_photo,
     send_telegram_post,
 )
@@ -137,12 +138,46 @@ def publish_selected_news(
     for item in selected_news:
         post = format_post(item)
         caption = format_photo_caption(item)
-        image_url = item.get("image_url")
+        raw_image_url = item.get("image_url")
+        image_url = (
+            raw_image_url
+            if is_supported_remote_image_url(raw_image_url)
+            else None
+        )
+
+        if raw_image_url and image_url is None:
+            print("Image warning: unsupported remote URL")
 
         if dry_run:
+            validated_image_url = None
+            temporary_image = None
+
+            if image_url:
+                try:
+                    source_config = source_configs.get(item.get("source"))
+                    temporary_image = download_image(
+                        image_url,
+                        source_config=source_config,
+                    )
+                    validated_image_url = image_url
+                    print(
+                        "[DRY RUN] Image validated: "
+                        f"{temporary_image.mime_type}, "
+                        f"{temporary_image.size_bytes} bytes"
+                    )
+                except (ImageDownloadError, OSError) as error:
+                    print(
+                        "[DRY RUN] Image rejected: "
+                        f"{type(error).__name__}"
+                    )
+                finally:
+                    if temporary_image and temporary_image.path.exists():
+                        temporary_image.path.unlink()
+
             print("[DRY RUN] Telegram was not called")
-            print(f"Image URL: {image_url or 'NOT FOUND'}")
-            print(caption if image_url else post)
+            print(f"Visual type: {item.get('visual_type') or 'NEWS'}")
+            print(f"Image URL: {validated_image_url or 'NOT FOUND'}")
+            print(caption if validated_image_url else post)
             continue
 
         if post_mode != "single":

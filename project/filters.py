@@ -2,6 +2,8 @@
 
 import re
 
+from project.visuals import visual_type_for
+
 
 PROMOTION_KEYWORDS = {
     "ufc": ("ufc", "юфс"),
@@ -279,6 +281,7 @@ def is_relevant(news_item):
     )
     news_item["is_rumor"] = bool(is_rumor)
     news_item["event_category"] = category
+    news_item["visual_type"] = visual_type_for(news_item) if relevant else None
     if relevant:
         news_item["event_locations"] = _unique(
             [*news_item.get("event_locations", []), *event_locations]
