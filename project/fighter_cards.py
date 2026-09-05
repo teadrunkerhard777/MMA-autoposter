@@ -12,6 +12,7 @@ PUBLICATION_READY_RIGHTS = {
     "cleared_no_public_credit",
     "cleared_with_embedded_attribution",
 }
+SUPPORTED_IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
 
 
 def load_fighter_cards(root: Path = FIGHTERS_ROOT) -> list[dict]:
@@ -113,4 +114,34 @@ def validate_fighter_card(card: dict) -> list[str]:
         if not all(image.get(field) for field in ("source_page", "creator", "license")):
             errors.append("attributed image must include source, creator and license")
 
+    return errors
+
+
+def validate_fighter_image(card: dict, project_root: Path | None = None) -> list[str]:
+    """Validate local media and its publication rights for one fighter."""
+    image = card.get("image")
+    if not isinstance(image, dict):
+        return ["image metadata must be an object"]
+
+    errors = []
+    if not image.get("publication_ready"):
+        errors.append("image is not publication-ready")
+    if image.get("rights_status") not in PUBLICATION_READY_RIGHTS:
+        errors.append("image rights are not cleared")
+    if not all(image.get(field) for field in ("source_page", "creator", "license")):
+        errors.append("image source, creator and license are required")
+
+    root = Path(project_root or Path(__file__).parent.parent).resolve()
+    relative_path = Path(str(image.get("local_path") or ""))
+    image_path = (root / relative_path).resolve()
+    try:
+        image_path.relative_to(root)
+    except ValueError:
+        errors.append("image path must stay inside the project")
+        return errors
+
+    if image_path.suffix.lower() not in SUPPORTED_IMAGE_SUFFIXES:
+        errors.append("image format is not supported")
+    if not image_path.is_file() or image_path.stat().st_size == 0:
+        errors.append("local image file is missing or empty")
     return errors
