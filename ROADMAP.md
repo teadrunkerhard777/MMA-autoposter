@@ -82,6 +82,9 @@ Acceptance:
 
 ## Stage 3: Free source shortlist and collector validation
 
+Status: complete. Four working feeds are registered but remain disabled until
+their article bodies, images, and language behavior pass Stage 4.
+
 Select several free, complementary sources: official promotions first, then
 reputable MMA media. Verify RSS availability, publication dates, direct article
 URLs, access reliability, and image metadata before enabling each source.

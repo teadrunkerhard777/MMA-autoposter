@@ -70,6 +70,10 @@ only a stable feed URL:
 ```
 
 Use direct article URLs and feeds with reliable publication dates.
+Use an optional positive `limit` to cap how many of the newest feed entries are
+collected in one run. This keeps later article loading bounded. An expected
+parser failure or an empty feed returns no items for that source and does not
+stop other sources.
 
 ## 5. Add a declarative HTML source
 

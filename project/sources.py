@@ -5,8 +5,8 @@ from datetime import datetime, timedelta, timezone
 
 now = datetime.now(timezone.utc)
 
-# Stage 2 is deliberately local. Live sources are added only after each feed or
-# page has been checked for stable URLs, dates, access, and article extraction.
+# Stage 3 keeps the verified live feeds disabled until their article text and
+# images pass the source-specific checks in Stage 4.
 SOURCES = [
     {
         "name": "MMA Autoposter local fixture",
@@ -128,6 +128,43 @@ SOURCES = [
                 "image_url": None,
             },
         ],
+    },
+    {
+        "name": "UFC Official News",
+        "type": "rss",
+        "url": "https://www.ufc.com/rss/news",
+        "enabled": False,
+        "limit": 20,
+        "source_kind": "official_promotion",
+        "language": "en",
+    },
+    {
+        "name": "ONE Championship Russian",
+        "type": "rss",
+        "url": "https://rss.tech.onefc.com/base-russian.xml",
+        "enabled": False,
+        "limit": 20,
+        "source_kind": "official_promotion",
+        "language": "ru",
+        "translation": "official_ai",
+    },
+    {
+        "name": "Sports.ru UFC/MMA",
+        "type": "rss",
+        "url": "https://www.sports.ru/rss/tags.xml?id=3109101",
+        "enabled": False,
+        "limit": 30,
+        "source_kind": "media",
+        "language": "ru",
+    },
+    {
+        "name": "MMA Fighting",
+        "type": "rss",
+        "url": "https://www.mmafighting.com/rss/index.xml",
+        "enabled": False,
+        "limit": 20,
+        "source_kind": "media",
+        "language": "en",
     },
 ]
 

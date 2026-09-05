@@ -128,10 +128,15 @@ def test_photo_caption_stays_inside_safe_limit_after_html_escaping():
     assert len(format_photo_caption(news)) <= 1000
 
 
-def test_stage_one_uses_one_local_source_and_safe_batch_limit():
-    assert len(SOURCES) == 1
-    assert SOURCES[0]["type"] == "static"
-    assert SOURCES[0]["enabled"] is True
+def test_stage_three_keeps_only_local_source_enabled_before_extraction_review():
+    enabled = [source for source in SOURCES if source["enabled"]]
+    candidates = [source for source in SOURCES if not source["enabled"]]
+
+    assert len(enabled) == 1
+    assert enabled[0]["type"] == "static"
+    assert all(source["type"] == "rss" for source in candidates)
+    assert all(source["limit"] > 0 for source in candidates)
+    assert {source["language"] for source in candidates} == {"en", "ru"}
     assert MAX_NEWS_PER_RUN == 5
     assert EVERGREEN_SLOTS_PER_RUN == 2
 
