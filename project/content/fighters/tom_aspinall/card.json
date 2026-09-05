@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "id": "tom_aspinall",
+  "name_ru": "Том Аспиналл",
+  "name_en": "Tom Aspinall",
+  "gender": "male",
+  "country": "Великобритания",
+  "promotion": "UFC",
+  "weight_class": "тяжёлый вес",
+  "positioning": "Редко быстрый и техничный тяжеловес, способный завершить бой любой атакой — серией в стойке или приёмом на земле.",
+  "career_story": [
+    "Начал профессиональную карьеру в 2014 году и дебютировал в UFC в 2020-м.",
+    "Завоевал временный пояс в 2023 году и в июне 2025-го стал полноценным чемпионом UFC."
+  ],
+  "fighting_style": [
+    "Быстрый бокс для тяжёлого веса и отличная работа ног.",
+    "Разносторонний грэпплинг с эффективными удушающими и болевыми приёмами."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "тяжёлый вес",
+        "won_at": "2025-06",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Временный чемпион UFC",
+        "division": "тяжёлый вес",
+        "won_at": "2023-11",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Чемпион UFC в тяжёлом весе.",
+    "Четырнадцать побед в первом раунде.",
+    "Среднее время боя в UFC на дату проверки — около 2 минут 18 секунд."
+  ],
+  "distinctive_features": [
+    "Двигается легче большинства тяжеловесов.",
+    "Не зависит от одного способа финиша."
+  ],
+  "stats": {
+    "record": {
+      "wins": 15,
+      "losses": 3,
+      "draws": 0,
+      "no_contests": 1
+    },
+    "wins_by": {
+      "ko_tko": 12,
+      "submission": 3,
+      "decision": 0
+    },
+    "current_streak": null,
+    "promotion_rank": null,
+    "pound_for_pound_rank": 6,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Четырнадцать профессиональных побед одержал в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Ни одна из его побед не дошла до решения судей.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Двенадцать побед завершил ударами, ещё три — сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Временный титул UFC завоевал в 2023 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В июне 2025 года был повышен до полноценного чемпиона.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Среднее время его боя в UFC — одно из самых коротких среди бойцов организации.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Скорость тяжеловеса",
+      "focus": "Почему движение Аспиналла меняет ожидания от дивизиона.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Финишер без решений",
+      "focus": "Разные способы завершать бой.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "От временного к полному",
+      "focus": "История чемпионского статуса.",
+      "fact_ids": [
+        "fact_4",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Бокс плюс грэпплинг",
+      "focus": "Как универсальность создаёт быстрые победы.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Tom Aspinall — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/tom-aspinall",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/tom_aspinall/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

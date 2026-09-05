@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "id": "song_yadong",
+  "name_ru": "Сон Ядун",
+  "name_en": "Song Yadong",
+  "gender": "male",
+  "country": "Китай",
+  "promotion": "UFC",
+  "weight_class": "легчайший вес",
+  "positioning": "Быстрый китайский панчер с компактной техникой, взрывными сериями и опытом главных боёв UFC.",
+  "career_story": [
+    "Начал профессиональную карьеру в юном возрасте в 2013 году и дебютировал в UFC в 2017-м.",
+    "В августе 2026 года одержал одну из главных побед карьеры, нокаутировав Умара Нурмагомедова."
+  ],
+  "fighting_style": [
+    "Скоростной бокс, контратаки и мощный правый удар.",
+    "Хорошая защита от переводов и атлетичная работа на ногах."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Один из лидеров китайского MMA.",
+    "Десять побед нокаутом.",
+    "Победа нокаутом над Умаром Нурмагомедовым в 2026 году."
+  ],
+  "distinctive_features": [
+    "Компактно выбрасывает силовые удары без большого замаха.",
+    "Сочетает молодость с длинным профессиональным стажем."
+  ],
+  "stats": {
+    "record": {
+      "wins": 24,
+      "losses": 9,
+      "draws": 1,
+      "no_contests": 1
+    },
+    "wins_by": {
+      "ko_tko": 10,
+      "submission": 4,
+      "decision": 10
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 1
+    },
+    "promotion_rank": 3,
+    "pound_for_pound_rank": null,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_shanghai_results",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начал в 2013 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "В UFC дебютировал в 2017 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Тренировался в Team Alpha Male в Калифорнии.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Поровну распределил победы между нокаутами и решениями — по десять.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В августе 2026 года нокаутировал Умара Нурмагомедова во втором раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Представляет новое поколение китайских бойцов в верхней части рейтинга UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Юный ветеран",
+      "focus": "Как ранний старт дал большой опыт к пику карьеры.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Китай и Калифорния",
+      "focus": "Сочетание разных тренировочных школ.",
+      "fact_ids": [
+        "fact_3",
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Компактная мощь",
+      "focus": "Почему его удары не требуют большого замаха.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Главный нокаут",
+      "focus": "Разбор значения победы над Умаром.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Song Yadong — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/song-yadong",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_shanghai_results",
+      "title": "UFC Shanghai official results",
+      "url": "https://www.ufc.com/news/ufc-shanghai-official-scorecards-nurmagomedov-vs-song",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/song_yadong/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

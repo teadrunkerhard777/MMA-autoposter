@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "id": "petr_yan",
+  "name_ru": "Пётр Ян",
+  "name_en": "Petr Yan",
+  "gender": "male",
+  "country": "Россия",
+  "promotion": "UFC",
+  "weight_class": "легчайший вес",
+  "positioning": "Техничный чемпион-ударник, который разбирает соперника точным боксом, серийной работой и постоянным ростом давления.",
+  "career_story": [
+    "Стал профессионалом в 2014 году, завоевал пояс ACB и дебютировал в UFC в 2018-м.",
+    "Вернул себе титул UFC в декабре 2025 года, победив Мераба Двалишвили."
+  ],
+  "fighting_style": [
+    "Плотный бокс, смена стоек и атаки сериями.",
+    "Сильная защита от борьбы и умение читать соперника по ходу раундов."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "легчайший вес",
+        "won_at": "2025-12",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Временный чемпион UFC",
+        "division": "легчайший вес",
+        "won_at": "2021-10",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "ACB",
+        "name_ru": "Чемпион ACB",
+        "division": "легчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Двукратный обладатель полноценного титула UFC.",
+    "Бывший чемпион ACB.",
+    "Один из самых результативных российских бойцов легчайшего веса."
+  ],
+  "distinctive_features": [
+    "Особенно опасен, когда собрал данные о сопернике после первого раунда.",
+    "Сочетает высокий объём ударов с хладнокровием."
+  ],
+  "stats": {
+    "record": {
+      "wins": 20,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 7,
+      "submission": 1,
+      "decision": 12
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 4
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 3,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начал в 2014 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "До UFC стал чемпионом ACB в легчайшем весе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Дебютировал в UFC в 2018 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Большую часть побед одержал решениями, что отражает его умение вести бой все раунды.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В декабре 2025 года вернул пояс в реванше с Мерабом Двалишвили.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Базовой дисциплиной Яна является бокс.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Бокс чемпиона",
+      "focus": "Разобрать серийную работу и давление Яна.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Возвращение пояса",
+      "focus": "История второго чемпионского восхождения.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Школа ACB",
+      "focus": "Как путь через ACB подготовил его к UFC.",
+      "fact_ids": [
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Пять раундов",
+      "focus": "Почему решения судей не делают его стиль менее зрелищным.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Petr Yan — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/petr-yan",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/petr_yan/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

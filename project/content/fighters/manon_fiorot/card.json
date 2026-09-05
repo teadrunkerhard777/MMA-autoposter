@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "id": "manon_fiorot",
+  "name_ru": "Манон Фиоро",
+  "name_en": "Manon Fiorot",
+  "gender": "female",
+  "country": "Франция",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Крупная, дисциплинированная и техничная французская ударница, построившая путь к титульному бою на контроле дистанции.",
+  "career_story": [
+    "После любительского золота IMMAF и региональных титулов дебютировала в UFC в 2021 году.",
+    "Дошла до титульного боя UFC и сохранила место среди ведущих претенденток дивизиона."
+  ],
+  "fighting_style": [
+    "Карате, левосторонняя стойка и длинные прямые атаки.",
+    "Физически сильная работа у сетки и надёжная защита от борьбы."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": [
+      {
+        "organization": "EFC",
+        "name_ru": "Чемпионка EFC",
+        "division": "женский наилегчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "UAE Warriors",
+        "name_ru": "Чемпионка UAE Warriors",
+        "division": "женский наилегчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Бывшая претендентка на титул UFC.",
+    "Любительская чемпионка мира IMMAF.",
+    "Региональная чемпионка EFC и UAE Warriors."
+  ],
+  "distinctive_features": [
+    "Навязывает соперницам неудобную дальнюю дистанцию.",
+    "Соединяет карате с физически сильной современной базой MMA."
+  ],
+  "stats": {
+    "record": {
+      "wins": 13,
+      "losses": 2,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 7,
+      "submission": 0,
+      "decision": 6
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 1
+    },
+    "promotion_rank": 2,
+    "pound_for_pound_rank": 6,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься карате в семь лет.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Имеет чёрные пояса по карате и BJJ.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Провела двенадцать боёв по муай-тай без поражений.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Выиграла любительский чемпионат мира IMMAF.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "До UFC стала чемпионкой EFC и UAE Warriors.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "До полной концентрации на спорте работала пожарной.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Карате левши",
+      "focus": "Как дальняя стойка Фиоро ломает привычный ритм.",
+      "fact_ids": [
+        "fact_1"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Неожиданный чёрный пояс",
+      "focus": "Почему её BJJ часто остаётся в тени ударной техники.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Путь через три формата",
+      "focus": "Любительское MMA, региональные титулы и UFC.",
+      "fact_ids": [
+        "fact_4",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Пожарная и боец",
+      "focus": "История профессии до большой сцены.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Manon Fiorot — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/manon-fiorot",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/manon_fiorot/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

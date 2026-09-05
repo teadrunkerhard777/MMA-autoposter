@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "id": "mackenzie_dern",
+  "name_ru": "Маккензи Дерн",
+  "name_en": "Mackenzie Dern",
+  "gender": "female",
+  "country": "США / Бразилия",
+  "promotion": "UFC",
+  "weight_class": "женский минимальный вес",
+  "positioning": "Чемпионка UFC и одна из самых титулованных грэпплерш своего поколения, научившаяся превращать BJJ в полноценный чемпионский MMA.",
+  "career_story": [
+    "После выдающейся карьеры в спортивном джиу-джитсу дебютировала в MMA в 2016 году.",
+    "В октябре 2025 года стала чемпионкой UFC и в августе 2026-го провела успешную защиту."
+  ],
+  "fighting_style": [
+    "Элитное BJJ, атаки на руки и спину из переходных позиций.",
+    "Улучшенная стойка, позволяющая безопаснее добираться до сильнейшей фазы."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC",
+        "division": "женский минимальный вес",
+        "won_at": "2025-10",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [],
+    "other": [
+      {
+        "organization": "ADCC",
+        "name_ru": "Чемпионка ADCC",
+        "division": "грэпплинг",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "IBJJF",
+        "name_ru": "Двукратная чемпионка мира по BJJ",
+        "division": "чёрные пояса",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Чемпионка UFC в минимальном весе.",
+    "Чемпионка ADCC.",
+    "Двукратная чемпионка мира по BJJ среди чёрных поясов."
+  ],
+  "distinctive_features": [
+    "Может атаковать приёмом из нестандартной позиции.",
+    "Её прогресс в стойке открыл путь к чемпионским пятираундовым боям."
+  ],
+  "stats": {
+    "record": {
+      "wins": 17,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 0,
+      "submission": 8,
+      "decision": 9
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 4
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 6,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_330_results",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься BJJ в три года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Её отец — известный мастер джиу-джитсу Веллингтон «Мегатон» Диас.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Стала чемпионкой ADCC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Дважды выигрывала чемпионат мира по BJJ среди чёрных поясов.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Все восемь досрочных побед в MMA одержала сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В августе 2026 года успешно защитила титул UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "BJJ с детства",
+      "focus": "Как раннее погружение сформировало инстинкты.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Из ADCC в UFC",
+      "focus": "Адаптация спортивного грэпплинга к ударам.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Восемь сабмишенов",
+      "focus": "Любимые переходы чемпионки.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Чемпионская эволюция",
+      "focus": "Почему улучшение стойки стало решающим.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Mackenzie Dern — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/mackenzie-dern",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_330_results",
+      "title": "UFC 330 official scorecards",
+      "url": "https://www.ufc.com/news/ufc-330-official-scorecards",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/mackenzie_dern/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

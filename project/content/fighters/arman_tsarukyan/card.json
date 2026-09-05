@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "id": "arman_tsarukyan",
+  "name_ru": "Арман Царукян",
+  "name_en": "Arman Tsarukyan",
+  "gender": "male",
+  "country": "Армения",
+  "promotion": "UFC",
+  "weight_class": "лёгкий вес",
+  "positioning": "Компактный и физически мощный универсал, способный вести бой в высоком борцовском темпе и опасно атаковать в стойке.",
+  "career_story": [
+    "Стал профессионалом в 2015 году и дебютировал в UFC в 2019-м сразу против элитного соперника.",
+    "Закрепился среди главных претендентов лёгкого веса благодаря борьбе, выносливости и победам над рейтинговыми оппонентами."
+  ],
+  "fighting_style": [
+    "Цепная борьба, контроль и взрывные переводы.",
+    "Быстрые серии в стойке и опасные удары ногами с разворота."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Один из ведущих претендентов лёгкого веса UFC.",
+    "Победы нокаутом, сабмишеном и решением показывают универсальность.",
+    "Восемь побед в первом раунде."
+  ],
+  "distinctive_features": [
+    "Умеет вести силовую борьбу без резкого падения темпа.",
+    "Постоянно улучшает ударную часть вокруг сильной базы."
+  ],
+  "stats": {
+    "record": {
+      "wins": 23,
+      "losses": 3,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 9,
+      "submission": 6,
+      "decision": 8
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 5
+    },
+    "promotion_rank": 2,
+    "pound_for_pound_rank": 14,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональный дебют состоялся в 2015 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Первый бой в UFC провёл в 2019 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Восемь побед одержал уже в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Девять раз побеждал нокаутом и шесть — сабмишеном.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Родился в Грузии и представляет Армению.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Среди ключевых качеств — борьба, физическая мощь и высокий темп.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Дебют без разогрева",
+      "focus": "Почему первый бой UFC сразу стал проверкой элитного уровня.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Полный арсенал",
+      "focus": "Баланс нокаутов, приёмов и решений.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Борцовский темп",
+      "focus": "Как Царукян сохраняет мощность по раундам.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Армянский претендент",
+      "focus": "Путь к верхней части рейтинга лёгкого веса.",
+      "fact_ids": [
+        "fact_1",
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Arman Tsarukyan — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/arman-tsarukyan",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/arman_tsarukyan/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

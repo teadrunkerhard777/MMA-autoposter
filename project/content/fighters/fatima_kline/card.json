@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "id": "fatima_kline",
+  "name_ru": "Фатима Клайн",
+  "name_en": "Fatima Kline",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский минимальный вес",
+  "positioning": "Одна из самых перспективных молодых универсалок дивизиона: двукратная чемпионка CFFC с чёрным поясом BJJ и быстро растущей стойкой.",
+  "career_story": [
+    "Стала профессионалом в 2021 году после серьёзной базы в борьбе, боксе и грэпплинге.",
+    "Перед UFC одновременно завоевала титулы CFFC в двух весах, а после поражения в дебюте собрала четыре победы подряд."
+  ],
+  "fighting_style": [
+    "BJJ чёрного пояса, борьба и высокий уровень переходов.",
+    "Техничная стойка с растущим объёмом и ударами ногами."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "CFFC",
+        "name_ru": "Чемпионка CFFC",
+        "division": "женский минимальный вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "CFFC",
+        "name_ru": "Чемпионка CFFC",
+        "division": "женский наилегчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "Medusa",
+        "name_ru": "Чемпионка Medusa",
+        "division": "грэпплинг, 115 фунтов",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Бывшая чемпионка CFFC в двух весовых категориях.",
+    "Чёрный пояс BJJ.",
+    "Четыре победы подряд после дебюта в UFC."
+  ],
+  "distinctive_features": [
+    "Уже в молодом возрасте собрала опыт разных единоборств.",
+    "Тренируется вместе с Эрин Бланчфилд, что создаёт сильную конкурентную среду."
+  ],
+  "stats": {
+    "record": {
+      "wins": 10,
+      "losses": 1,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 4,
+      "submission": 1,
+      "decision": 5
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 4
+    },
+    "promotion_rank": 6,
+    "pound_for_pound_rank": null,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься единоборствами в десять лет.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Участвовала в турнирах Golden Gloves и Junior Olympics по боксу.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Имеет чёрный пояс по BJJ.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "До UFC была чемпионкой CFFC в минимальном и наилегчайшем весе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Является основной тренировочной партнёршей Эрин Бланчфилд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "До полной занятости спортом работала мясником и укладывала напольные покрытия.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Двойная чемпионка CFFC",
+      "focus": "Как опыт двух весов подготовил её к UFC.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Полный набор баз",
+      "focus": "Бокс, BJJ и борьба в одной молодой карьере.",
+      "fact_ids": [
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Сильная команда",
+      "focus": "Тренировочное партнёрство с Бланчфилд.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Необычная работа",
+      "focus": "Путь от физического труда к рейтингу UFC.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Fatima Kline — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/fatima-kline",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/fatima_kline/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

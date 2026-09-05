@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "rose_namajunas",
+  "name_ru": "Роуз Намаюнас",
+  "name_en": "Rose Namajunas",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Творческая и психологически глубокая экс-чемпионка, чьи движение, точность и чувство момента сделали её одной из самых узнаваемых фигур женского MMA.",
+  "career_story": [
+    "Стала профессионалом в 2013 году после яркой любительской и региональной карьеры.",
+    "Дважды завоёвывала титул UFC в минимальном весе, затем поднялась в наилегчайший дивизион."
+  ],
+  "fighting_style": [
+    "Лёгкая работа ног, точный бокс и неожиданные удары ногами.",
+    "Опасные сабмишены и умение быстро занимать спину."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Двукратная чемпионка UFC",
+        "division": "женский минимальный вес",
+        "won_at": "2017-11 / 2021-04",
+        "defenses": 2,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Двукратная чемпионка UFC в минимальном весе.",
+    "Шесть побед сабмишенами.",
+    "Пять финишей в первом раунде."
+  ],
+  "distinctive_features": [
+    "Прозвище Thug контрастирует с тонким и техничным стилем.",
+    "Умеет находить решающий момент в бою с более физически мощной соперницей."
+  ],
+  "stats": {
+    "record": {
+      "wins": 15,
+      "losses": 8,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 2,
+      "submission": 6,
+      "decision": 7
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 5,
+    "pound_for_pound_rank": 14,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начала в 2013 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дважды становилась чемпионкой UFC в минимальном весе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До UFC одержала победу летящим армбаром за двенадцать секунд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Шесть профессиональных побед одержала сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Пять побед завершила в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "После чемпионской карьеры в минимальном весе поднялась в наилегчайший дивизион.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Красота движения",
+      "focus": "Работа ног и неожиданные углы Намаюнас.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Два возвращения к поясу",
+      "focus": "Почему второе чемпионство особенно важно.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Армбар за 12 секунд",
+      "focus": "История одного из ранних ярких финишей.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Новый вес",
+      "focus": "Как меняется стиль после перехода выше.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Rose Namajunas — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/rose-namajunas",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/rose_namajunas/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

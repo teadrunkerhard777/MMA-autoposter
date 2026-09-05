@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "id": "islam_makhachev",
+  "name_ru": "Ислам Махачев",
+  "name_en": "Islam Makhachev",
+  "gender": "male",
+  "country": "Россия",
+  "promotion": "UFC",
+  "weight_class": "полусредний вес",
+  "positioning": "Один из главных символов современной школы дагестанского MMA: чемпион, который соединяет контроль, борьбу и всё более уверенную ударную работу.",
+  "career_story": [
+    "Начал профессиональную карьеру в 2010 году и пришёл в UFC в 2015-м.",
+    "После завоевания и четырёх защит титула в лёгком весе поднялся в полусредний дивизион, стал чемпионом и провёл первую защиту."
+  ],
+  "fighting_style": [
+    "Самбо, цепная борьба и тяжёлый позиционный контроль.",
+    "Экономичная стойка, точный джеб и умение безопасно сокращать дистанцию."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "полусредний вес",
+        "won_at": "2025-11",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "лёгкий вес",
+        "won_at": "2022-10",
+        "defenses": 4,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "Combat Sambo",
+        "name_ru": "Чемпион мира и Европы по боевому самбо",
+        "division": null,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "17 побед подряд в UFC — рекорд организации на дату проверки.",
+    "Чемпион UFC в двух весовых категориях.",
+    "Четыре успешные защиты титула лёгкого веса."
+  ],
+  "distinctive_features": [
+    "Редко теряет позицию после перевода.",
+    "Умеет менять темп между контролем и резкими атаками."
+  ],
+  "stats": {
+    "record": {
+      "wins": 29,
+      "losses": 1,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 5,
+      "submission": 13,
+      "decision": 11
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 17
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 1,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начал заниматься боевыми искусствами примерно в десять лет.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Имеет спортивное образование Дагестанского государственного университета.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До перехода в полусредний вес провёл четыре защиты титула UFC в лёгком дивизионе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В августе 2026 года защитил пояс полусреднего веса решением судей.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Среди любимых приёмов называл твистер, а среди ударов — джеб.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Большинство досрочных побед одержал сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Система контроля",
+      "focus": "Как Махачев соединяет переводы, удержание и выход на приём.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Два дивизиона",
+      "focus": "Путь от титула лёгкого веса к поясу полусреднего.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Школа самбо",
+      "focus": "Как база боевого самбо формирует его стиль.",
+      "fact_ids": [
+        "fact_1"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Рекордная серия",
+      "focus": "Что стоит за серией из 17 побед UFC.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Islam Makhachev — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/islam-makhachev",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/islam_makhachev/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

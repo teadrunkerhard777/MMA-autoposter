@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "id": "alexander_volkanovski",
+  "name_ru": "Александр Волкановски",
+  "name_en": "Alexander Volkanovski",
+  "gender": "male",
+  "country": "Австралия",
+  "promotion": "UFC",
+  "weight_class": "полулёгкий вес",
+  "positioning": "Тактически гибкий чемпион, который побеждает темпом, работой ног и редкой способностью перестраиваться прямо во время боя.",
+  "career_story": [
+    "Стал профессионалом в 2012 году после занятий борьбой и регби.",
+    "Провёл пять защит в первом чемпионском цикле, а в 2025 году вернул вакантный пояс полулёгкого веса."
+  ],
+  "fighting_style": [
+    "Высокий темп, быстрые входы и выходы, разнообразные удары ногами.",
+    "Сильная защита от борьбы и точные тактические корректировки между раундами."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "полулёгкий вес",
+        "won_at": "2025-04",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "полулёгкий вес",
+        "won_at": "2019-12",
+        "defenses": 5,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Двукратный чемпион UFC в полулёгком весе.",
+    "Пять защит титула в первом чемпионском цикле.",
+    "Победы над несколькими поколениями лидеров дивизиона."
+  ],
+  "distinctive_features": [
+    "Компенсирует разницу в габаритах таймингом и дистанцией.",
+    "Один из самых сильных тактиков в современном MMA."
+  ],
+  "stats": {
+    "record": {
+      "wins": 28,
+      "losses": 4,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 13,
+      "submission": 3,
+      "decision": 12
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 2,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональный дебют в MMA состоялся в 2012 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "До единоборств играл в регби и выступал в более тяжёлом весе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Первый титул UFC завоевал в 2019 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Пять раз защитил пояс в первом чемпионском цикле.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В 2025 году снова стал чемпионом полулёгкого веса.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Почти поровну распределил победы между нокаутами и решениями.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Тактический интеллект",
+      "focus": "Как Волкановски перестраивает бой по раундам.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Возвращение чемпиона",
+      "focus": "Путь ко второму чемпионскому циклу.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Из регби в MMA",
+      "focus": "Как прошлый спорт повлиял на физику и характер.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Темп и дистанция",
+      "focus": "Почему рост не мешает ему работать с длинными соперниками.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Alexander Volkanovski — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/alexander-volkanovski",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/alexander_volkanovski/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "id": "zhang_weili",
+  "name_ru": "Чжан Вэйли",
+  "name_en": "Zhang Weili",
+  "gender": "female",
+  "country": "Китай",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Первая китайская чемпионка UFC — физически мощная и универсальная спортсменка, способная поддерживать высокий темп во всех фазах.",
+  "career_story": [
+    "Начала профессиональную карьеру в 2013 году и после раннего поражения собрала длинную победную серию.",
+    "Дважды становилась чемпионкой UFC в минимальном весе, затем освободила пояс ради перехода в наилегчайший дивизион."
+  ],
+  "fighting_style": [
+    "Саньда и мощный кикбоксинг с активными сериями.",
+    "Развитая борьба, контроль сверху и опасные сабмишены."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Двукратная чемпионка UFC",
+        "division": "женский минимальный вес",
+        "won_at": "2019-08 / 2022-11",
+        "defenses": 4,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Первая чемпионка UFC из Китая.",
+    "Два чемпионских цикла в минимальном весе.",
+    "Девятнадцать досрочных побед."
+  ],
+  "distinctive_features": [
+    "Сохраняет взрывную мощь в высоком темпе.",
+    "Её карьера стала важной частью роста MMA в Китае."
+  ],
+  "stats": {
+    "record": {
+      "wins": 26,
+      "losses": 4,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 11,
+      "submission": 8,
+      "decision": 7
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 3,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Стала первой чемпионкой UFC из Китая.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Одиннадцать побед одержала нокаутом, восемь — сабмишеном.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Имеет коричневый пояс по BJJ.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Базовой ударной дисциплиной является саньда.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "До большой спортивной карьеры работала фитнес-инструктором.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "После второго чемпионского цикла поднялась из минимального в наилегчайший вес.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Первая для Китая",
+      "focus": "Как титул Вэйли изменил масштаб аудитории.",
+      "fact_ids": [
+        "fact_1"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Саньда и BJJ",
+      "focus": "Почему её универсальность не сводится к физической силе.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Девятнадцать финишей",
+      "focus": "Баланс нокаутов и сабмишенов.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Новый дивизион",
+      "focus": "Причины и риски перехода выше.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Zhang Weili — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/zhang-weili",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/zhang_weili/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

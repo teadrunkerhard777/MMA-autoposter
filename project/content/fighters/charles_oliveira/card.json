@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "id": "charles_oliveira",
+  "name_ru": "Чарльз Оливейра",
+  "name_en": "Charles Oliveira",
+  "gender": "male",
+  "country": "Бразилия",
+  "promotion": "UFC",
+  "weight_class": "лёгкий вес",
+  "positioning": "Рекордный финишер UFC, который превратил атакующее джиу-джитсу и бесстрашие в одну из самых ярких карьер поколения.",
+  "career_story": [
+    "Стал профессионалом в 2008 году и дебютировал в UFC в 2010-м.",
+    "Прошёл путь от нестабильных ранних лет до титула UFC, а в 2026 году завоевал пояс BMF."
+  ],
+  "fighting_style": [
+    "Атакующее BJJ с мгновенными переходами на удушающие и болевые.",
+    "Муай-тай в высоком темпе, колени и прямолинейное давление."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион BMF",
+        "division": "лёгкий вес",
+        "won_at": "2026-03",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "лёгкий вес",
+        "won_at": "2021-05",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Рекорд UFC по сабмишенам — 17.",
+    "Рекорд UFC по досрочным победам — 21.",
+    "Рекорд UFC по бонусам за выступления — 21 на дату проверки."
+  ],
+  "distinctive_features": [
+    "Ищет финиш из любой позиции.",
+    "Сочетает рискованный стиль с огромным техническим арсеналом."
+  ],
+  "stats": {
+    "record": {
+      "wins": 37,
+      "losses": 11,
+      "draws": 0,
+      "no_contests": 1
+    },
+    "wins_by": {
+      "ko_tko": 10,
+      "submission": 22,
+      "decision": 5
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": 3,
+    "pound_for_pound_rank": 15,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Дебютировал в UFC в августе 2010 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Одержал двадцать две победы сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Владеет рекордами UFC по сабмишенам и общему числу финишей.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Среди его приёмов — удушения сзади, гильотины, анаконды и редкий calf slicer.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Прозвище Do Bronxs отсылает к его происхождению из бедного района.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В марте 2026 года победил Макса Холлоуэя и завоевал титул BMF.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Каталог приёмов",
+      "focus": "Самые редкие и любимые сабмишены Оливейры.",
+      "fact_ids": [
+        "fact_2",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Рекордный финишер",
+      "focus": "Как сложились исторические рекорды UFC.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Из фавелы к титулу",
+      "focus": "Смысл прозвища и карьерный путь.",
+      "fact_ids": [
+        "fact_1",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Новая глава BMF",
+      "focus": "Почему победа 2026 года важна для наследия.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Charles Oliveira — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/charles-oliveira",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/charles_oliveira/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

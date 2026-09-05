@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "erin_blanchfield",
+  "name_ru": "Эрин Бланчфилд",
+  "name_en": "Erin Blanchfield",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Молодая, но уже очень опытная грэпплерша из верхней части рейтинга, методично превращающая контроль в сабмишены.",
+  "career_story": [
+    "Начала профессиональную карьеру в 2018 году после ранних успехов в грэпплинге.",
+    "В UFC закрепилась среди претенденток победами над бывшими чемпионками и рейтинговыми соперницами."
+  ],
+  "fighting_style": [
+    "BJJ, контроль сверху и последовательный поиск спины.",
+    "Давящая стойка, которая помогает сближаться и запускать борьбу."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": [
+      {
+        "organization": "EBI",
+        "name_ru": "Чемпионка Eddie Bravo Invitational",
+        "division": "женский наилегчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Самая молодая и первая женщина — чемпионка EBI в наилегчайшем весе.",
+    "Чёрный пояс BJJ.",
+    "Пять побед сабмишенами."
+  ],
+  "distinctive_features": [
+    "Спокойное выражение лица стало основой прозвища Cold Blooded.",
+    "Редко форсирует приём раньше, чем закрепила контроль."
+  ],
+  "stats": {
+    "record": {
+      "wins": 14,
+      "losses": 2,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 2,
+      "submission": 5,
+      "decision": 7
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 3
+    },
+    "promotion_rank": 4,
+    "pound_for_pound_rank": 8,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься единоборствами в семь лет, а соревноваться — в восемь.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Первый бой по кикбоксингу провела в четырнадцать лет, приняв его за день.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "В восемнадцать лет стала самой молодой чемпионкой EBI в своей категории.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Имеет чёрный пояс по BJJ.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Изучала телевидение и цифровые медиа со специализацией в спортивных медиа.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Прозвище Cold Blooded придумал отец из-за её неизменного выражения лица на соревнованиях.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Хладнокровие",
+      "focus": "История прозвища и спокойного стиля.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Грэпплинг-вундеркинд",
+      "focus": "Путь от детских стартов к титулу EBI.",
+      "fact_ids": [
+        "fact_1",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Не только партер",
+      "focus": "Первый кикбоксинг и развитие стойки.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Спорт и медиа",
+      "focus": "Интерес к будущей работе комментатором.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Erin Blanchfield — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/erin-blanchfield",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/erin_blanchfield/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

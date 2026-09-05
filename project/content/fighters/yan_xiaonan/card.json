@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "yan_xiaonan",
+  "name_ru": "Янь Сяонань",
+  "name_en": "Yan Xiaonan",
+  "gender": "female",
+  "country": "Китай",
+  "promotion": "UFC",
+  "weight_class": "женский минимальный вес",
+  "positioning": "Опытная китайская ударница с высоким объёмом, отличной дистанцией и опытом титульного боя UFC.",
+  "career_story": [
+    "Начала профессиональную карьеру в 2008 году и дебютировала в UFC в 2017-м.",
+    "Стала первой китаянкой, подписанной UFC, и дошла до боя за титул минимального веса."
+  ],
+  "fighting_style": [
+    "Саньда и объёмный бокс на дальней дистанции.",
+    "Активное движение, быстрые серии и уверенная защита от переводов."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": [
+      {
+        "organization": "WKF",
+        "name_ru": "Обладательница титула WKF",
+        "division": null,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Бывшая претендентка на титул UFC.",
+    "Первая спортсменка из Китая в женском ростере UFC.",
+    "Восемь побед нокаутом."
+  ],
+  "distinctive_features": [
+    "Большую часть значимых ударов наносит в стойке.",
+    "Сохраняет высокий объём даже в длинных боях."
+  ],
+  "stats": {
+    "record": {
+      "wins": 19,
+      "losses": 6,
+      "draws": 0,
+      "no_contests": 1
+    },
+    "wins_by": {
+      "ko_tko": 8,
+      "submission": 1,
+      "decision": 10
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 2
+    },
+    "promotion_rank": 5,
+    "pound_for_pound_rank": 14,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессионально выступает с 2008 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дебютировала в UFC в ноябре 2017 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Восемь побед одержала нокаутом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Десять побед одержала решениями судей.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Училась в Сианьском спортивном университете.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В 2024 году провела бой за титул UFC против Чжан Вэйли.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Пионер китайского UFC",
+      "focus": "История первой спортсменки из Китая в женском ростере.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Саньда и объём",
+      "focus": "Почему большинство её значимых ударов проходит в стойке.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Длинная карьера",
+      "focus": "Путь с 2008 года до титульного боя.",
+      "fact_ids": [
+        "fact_1",
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Спортивное образование",
+      "focus": "Связь университета и профессиональной техники.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Yan Xiaonan — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/yan-xiaonan",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/yan_xiaonan/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

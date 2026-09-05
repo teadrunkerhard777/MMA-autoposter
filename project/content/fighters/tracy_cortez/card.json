@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "id": "tracy_cortez",
+  "name_ru": "Трейси Кортес",
+  "name_en": "Tracy Cortez",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Выносливая универсалка с сильной борьбой и личной историей, которая превратила раннее поражение в путь до рейтинга UFC.",
+  "career_story": [
+    "Проиграла профессиональный дебют в 2017 году, затем выиграла длинную серию и попала в UFC через Contender Series.",
+    "Закрепилась в рейтинге благодаря контролю, темпу и победам решениями."
+  ],
+  "fighting_style": [
+    "Борьба у сетки, контроль сверху и рабочий клинч.",
+    "Аккуратный бокс, рассчитанный на создание входов в ноги."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Десять побед решениями.",
+    "Победная серия после поражения в профессиональном дебюте.",
+    "Опыт выступлений в Invicta FC и UFC."
+  ],
+  "distinctive_features": [
+    "Её стиль строится на последовательном наборе небольших преимуществ.",
+    "Главным вдохновением называет старшего брата-бойца."
+  ],
+  "stats": {
+    "record": {
+      "wins": 12,
+      "losses": 4,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 1,
+      "submission": 1,
+      "decision": 10
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 2
+    },
+    "promotion_rank": 9,
+    "pound_for_pound_rank": null,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессионально выступает с 2017 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Проиграла дебютный бой, после чего начала длинную победную серию.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До UFC провела три боя в Invicta FC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В UFC попала через Contender Series.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Её старший брат Хосе был бойцом и стал главным спортивным вдохновением.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "До большой карьеры работала на стойке зала, персональным тренером и вела занятия.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "После проигранного дебюта",
+      "focus": "Как поражение стало стартом длинной серии.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "История брата",
+      "focus": "Личное основание спортивной мотивации.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Невидимая работа",
+      "focus": "Почему решения отражают накопленный контроль.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Из зала в октагон",
+      "focus": "Работа тренером до UFC.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Tracy Cortez — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/tracy-cortez",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/tracy_cortez/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

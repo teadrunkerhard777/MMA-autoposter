@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "id": "merab_dvalishvili",
+  "name_ru": "Мераб Двалишвили",
+  "name_en": "Merab Dvalishvili",
+  "gender": "male",
+  "country": "Грузия",
+  "promotion": "UFC",
+  "weight_class": "легчайший вес",
+  "positioning": "«Машина» легчайшего веса: боец с почти неисчерпаемым темпом, сериями переводов и постоянным давлением.",
+  "career_story": [
+    "Начал профессиональную карьеру в 2014 году и пришёл в UFC в 2017-м.",
+    "Выиграл титул UFC и провёл три защиты за 2025 год, прежде чем уступить пояс Петру Яну."
+  ],
+  "fighting_style": [
+    "Объёмная борьба с повторными попытками переводов.",
+    "Кардио, давление и активность, которые накапливают преимущество по ходу боя."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "легчайший вес",
+        "won_at": "2024-09",
+        "defenses": 3,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Бывший чемпион UFC в легчайшем весе.",
+    "Три защиты титула за один календарный год.",
+    "Серия из тринадцати побед в легчайшем весе UFC."
+  ],
+  "distinctive_features": [
+    "Не прекращает борьбу после неудачной первой попытки.",
+    "Прозвище The Machine точно описывает его темп."
+  ],
+  "stats": {
+    "record": {
+      "wins": 21,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 3,
+      "submission": 2,
+      "decision": 16
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 8,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начал в 2014 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дебютировал в UFC в 2017 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Шестнадцать побед одержал решениями судей.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В 2025 году трижды защитил титул UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Его серия достигала тринадцати побед подряд в легчайшем весе UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Прозвище The Machine связано с выдающимся темпом и выносливостью.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Бесконечные переводы",
+      "focus": "Почему повторная попытка важнее первой.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Год трёх защит",
+      "focus": "Нагрузка чемпионского 2025 года.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Сила решений",
+      "focus": "Как Двалишвили превращает объём в уверенную победу.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Машина дивизиона",
+      "focus": "История рекордной серии.",
+      "fact_ids": [
+        "fact_5",
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Merab Dvalishvili — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/merab-dvalishvili",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/merab_dvalishvili/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

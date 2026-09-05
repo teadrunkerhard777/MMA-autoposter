@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "id": "sean_strickland",
+  "name_ru": "Шон Стрикленд",
+  "name_en": "Sean Strickland",
+  "gender": "male",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "средний вес",
+  "positioning": "Необычный чемпион-боксёр, превращающий простые на вид действия, защиту плечом и непрерывное давление в сложную задачу.",
+  "career_story": [
+    "Стал профессионалом в 2008 году и прошёл длинный путь через несколько весовых категорий.",
+    "Вернул титул UFC в мае 2026 года, победив Хамзата Чимаева."
+  ],
+  "fighting_style": [
+    "Прямолинейный бокс, джеб и постоянное давление.",
+    "Фирменная защита плечом, парирования и высокий рабочий объём."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "средний вес",
+        "won_at": "2026-05",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "средний вес",
+        "won_at": "2023-09",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "King of the Cage",
+        "name_ru": "Чемпион KOTC",
+        "division": "средний вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Двукратный чемпион UFC в среднем весе.",
+    "Победа над Хамзатом Чимаевым в 2026 году.",
+    "Более тридцати профессиональных побед."
+  ],
+  "distinctive_features": [
+    "Стиль выглядит минималистично, но требует точного чувства дистанции.",
+    "Поддерживает высокую частоту ударов на длинной дистанции."
+  ],
+  "stats": {
+    "record": {
+      "wins": 31,
+      "losses": 7,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 12,
+      "submission": 4,
+      "decision": 15
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 7,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начал в 2008 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Пятнадцать побед одержал решениями, двенадцать — нокаутами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Первый титул UFC завоевал в 2023 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В мае 2026 года снова стал чемпионом среднего веса.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "До UFC владел поясом King of the Cage.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Его стойка строится вокруг джеба, давления и защиты плечом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Простой сложный бокс",
+      "focus": "Почему базовые движения Стрикленда трудно прочитать.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Второе чемпионство",
+      "focus": "Как он вернулся на вершину.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Длинная карьера",
+      "focus": "Путь от регионального пояса к двум титулам UFC.",
+      "fact_ids": [
+        "fact_1",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Давление без суеты",
+      "focus": "Роль джеба и рабочего объёма.",
+      "fact_ids": [
+        "fact_2",
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Sean Strickland — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/sean-strickland",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/sean_strickland/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

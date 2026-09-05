@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "alexa_grasso",
+  "name_ru": "Алекса Грассо",
+  "name_en": "Alexa Grasso",
+  "gender": "female",
+  "country": "Мексика",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Точная мексиканская боксёрша, чьё терпение, защита и прогресс в грэпплинге привели к историческому титулу UFC.",
+  "career_story": [
+    "Начала профессиональную карьеру в 2012 году и пришла в UFC в 2016-м.",
+    "В 2023 году победила Валентину Шевченко и стала первой родившейся в Мексике чемпионкой UFC среди женщин."
+  ],
+  "fighting_style": [
+    "Чистый комбинационный бокс, быстрые прямые и хорошая работа ног.",
+    "Развитая защита в партере и умение ловить момент на удушение."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC",
+        "division": "женский наилегчайший вес",
+        "won_at": "2023-03",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Первая родившаяся в Мексике чемпионка UFC среди женщин.",
+    "Бывшая чемпионка UFC в наилегчайшем весе.",
+    "Пять побед нокаутом и две сабмишеном."
+  ],
+  "distinctive_features": [
+    "Её грэпплинг вырос из дополнения к боксу в чемпионское оружие.",
+    "Умеет сохранять технику под высоким давлением."
+  ],
+  "stats": {
+    "record": {
+      "wins": 17,
+      "losses": 5,
+      "draws": 1,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 5,
+      "submission": 2,
+      "decision": 10
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 1
+    },
+    "promotion_rank": 3,
+    "pound_for_pound_rank": 7,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессионально выступает с 2012 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дебютировала в UFC в 2016 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "В 2023 году стала первой родившейся в Мексике чемпионкой UFC среди женщин.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Чемпионский пояс выиграла удушением сзади.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Десять побед одержала решениями судей.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В марте 2026 года нокаутировала Мэйси Барбер в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Бокс, который вырос",
+      "focus": "Эволюция от чистой ударницы к универсальной чемпионке.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Исторический титул",
+      "focus": "Значение победы для мексиканского MMA.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Терпение на дистанции",
+      "focus": "Почему десять решений говорят о контроле, а не осторожности.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Новый импульс",
+      "focus": "Возвращение после нокаута 2026 года.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Alexa Grasso — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/alexa-grasso",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/alexa_grasso/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

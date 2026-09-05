@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "id": "khamzat_chimaev",
+  "name_ru": "Хамзат Чимаев",
+  "name_en": "Khamzat Chimaev",
+  "gender": "male",
+  "country": "ОАЭ (родился в Чечне)",
+  "promotion": "UFC",
+  "weight_class": "средний вес",
+  "positioning": "Агрессивный борец-прессингёр, который с первых секунд стремится лишить соперника пространства и навязать силовой темп.",
+  "career_story": [
+    "Стал профессионалом в 2018 году и ворвался в UFC серией быстрых побед.",
+    "Завоевал титул UFC в среднем весе, а в мае 2026 года уступил его Шону Стрикленду, потерпев первое поражение."
+  ],
+  "fighting_style": [
+    "Вольная борьба, давление у сетки и контроль сверху.",
+    "Резкие силовые удары, особенно опасные на фоне угрозы перевода."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "средний вес",
+        "won_at": "2025-08",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Начал карьеру с пятнадцати побед подряд.",
+    "Двенадцать из пятнадцати побед одержал досрочно.",
+    "Бывший чемпион UFC в среднем весе."
+  ],
+  "distinctive_features": [
+    "Часто начинает бой с максимального темпа.",
+    "Угроза перевода делает его стойку опаснее."
+  ],
+  "stats": {
+    "record": {
+      "wins": 15,
+      "losses": 1,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 6,
+      "submission": 6,
+      "decision": 3
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 12,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начал в 2018 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Прозвище Borz переводится с чеченского как «волк».",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Двенадцать побед одержал досрочно — поровну нокаутами и сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В первых выступлениях UFC запомнился очень короткими промежутками между боями.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Завоевал титул UFC в среднем весе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Первое поражение в профессиональной карьере потерпел в шестнадцатом бою.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Темп с первой секунды",
+      "focus": "Почему его стартовый натиск так трудно остановить.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Борьба и удар",
+      "focus": "Как угроза перевода открывает силовые атаки.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "История прозвища",
+      "focus": "Чеченский смысл имени Borz.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "После первого поражения",
+      "focus": "Новый этап карьеры бывшего чемпиона.",
+      "fact_ids": [
+        "fact_5",
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Khamzat Chimaev — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/khamzat-chimaev",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/khamzat_chimaev/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

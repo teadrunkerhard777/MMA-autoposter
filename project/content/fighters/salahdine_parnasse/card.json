@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "id": "salahdine_parnasse",
+  "name_ru": "Салахдин Парнасс",
+  "name_en": "Salahdine Parnasse",
+  "gender": "male",
+  "country": "Франция",
+  "promotion": "UFC",
+  "weight_class": "лёгкий вес",
+  "positioning": "Французский универсал новой волны и бывший двойной чемпион KSW, пришедший в UFC с большим опытом титульных боёв.",
+  "career_story": [
+    "Начал профессиональную карьеру в 2015 году и построил имя в KSW.",
+    "Одновременно владел поясами KSW в полулёгком и лёгком весе, после чего в 2026 году перешёл в UFC."
+  ],
+  "fighting_style": [
+    "Техничная левосторонняя стойка, быстрые кики и чувство дистанции.",
+    "Опасная спина, удушения и плавные переходы между фазами боя."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "KSW",
+        "name_ru": "Чемпион KSW",
+        "division": "полулёгкий вес",
+        "won_at": null,
+        "defenses": null,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "KSW",
+        "name_ru": "Чемпион KSW",
+        "division": "лёгкий вес",
+        "won_at": null,
+        "defenses": null,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Бывший чемпион KSW в двух весовых категориях одновременно.",
+    "Четырнадцать титульных боёв в первых двадцати пяти профессиональных поединках.",
+    "Пятнадцать досрочных побед."
+  ],
+  "distinctive_features": [
+    "Редкое сочетание большого чемпионского опыта и возраста, подходящего для нового рывка.",
+    "Свободно меняет ударную и борцовскую фазы."
+  ],
+  "stats": {
+    "record": {
+      "wins": 23,
+      "losses": 2,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 8,
+      "submission": 7,
+      "decision": 8
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 8
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": null,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_feature"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начал в 2015 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Начал заниматься MMA примерно в одиннадцать лет.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До полной концентрации на спорте работал сантехником в городской службе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Был чемпионом KSW одновременно в полулёгком и лёгком весе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Провёл четырнадцать титульных боёв в первых двадцати пяти поединках.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В 2026 году подписал контракт с UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Двойной чемпион KSW",
+      "focus": "Как Парнасс управлял двумя дивизионами.",
+      "fact_ids": [
+        "fact_4",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Французская школа",
+      "focus": "Техника левши и плавные переходы.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "До большой сцены",
+      "focus": "История работы в городской службе.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Новая глава UFC",
+      "focus": "Почему опыт титульных боёв важен при дебюте.",
+      "fact_ids": [
+        "fact_5",
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Salahdine Parnasse — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/salahdine-parnasse",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_feature",
+      "title": "Salahdine Parnasse | Time To Shine",
+      "url": "https://www.ufc.com/news/salahdine-parnasse-time-shine-ufc-paris",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/salahdine_parnasse/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "id": "ilia_topuria",
+  "name_ru": "Илия Топурия",
+  "name_en": "Ilia Topuria",
+  "gender": "male",
+  "country": "Испания / Грузия",
+  "promotion": "UFC",
+  "weight_class": "лёгкий вес",
+  "positioning": "Взрывной универсал с элитной уверенностью: одинаково опасен точным боксом и сабмишенами.",
+  "career_story": [
+    "Начал профессиональную карьеру в 2015 году и дебютировал в UFC в 2020-м.",
+    "Стал чемпионом UFC в полулёгком, затем в лёгком весе; первое поражение в карьере потерпел в 2026 году."
+  ],
+  "fighting_style": [
+    "Компактный силовой бокс с отличным чувством дистанции.",
+    "Чёрный пояс BJJ и развитая борьба, которая часто остаётся скрытой за нокаутирующей мощью."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "полулёгкий вес",
+        "won_at": "2024-02",
+        "defenses": 1,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "лёгкий вес",
+        "won_at": "2025-06",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Чемпион UFC в двух весовых категориях.",
+    "Первые 17 профессиональных боёв выиграл подряд.",
+    "Побеждал как нокаутами, так и сабмишенами почти в равной пропорции."
+  ],
+  "distinctive_features": [
+    "Один из самых точных панчеров своего поколения.",
+    "Уверенно переводит технические детали боя в яркие финиши."
+  ],
+  "stats": {
+    "record": {
+      "wins": 17,
+      "losses": 1,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 7,
+      "submission": 8,
+      "decision": 2
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 5,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начал заниматься бразильским джиу-джитсу в четыре года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Имеет чёрный пояс BJJ.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Десять профессиональных побед одержал в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "До спортивной известности работал кассиром в магазине одежды.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Среди любимых приёмов называл удушение анаконда, а среди ударов — удар по печени.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Стал чемпионом UFC в двух дивизионах.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Скрытый грэпплер",
+      "focus": "Почему нокаутёр Топурия остаётся элитным мастером BJJ.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Два пояса",
+      "focus": "Как он прошёл полулёгкий и лёгкий дивизионы.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Сила короткого удара",
+      "focus": "Техника компактного бокса и атаки по корпусу.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Путь наверх",
+      "focus": "От работы в магазине до главных боёв UFC.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Ilia Topuria — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/ilia-topuria",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/ilia_topuria/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

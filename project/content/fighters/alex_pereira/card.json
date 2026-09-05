@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "id": "alex_pereira",
+  "name_ru": "Алекс Перейра",
+  "name_en": "Alex Pereira",
+  "gender": "male",
+  "country": "Бразилия",
+  "promotion": "UFC",
+  "weight_class": "тяжёлый вес",
+  "positioning": "Один из самых узнаваемых нокаутёров MMA, перенёсший чемпионскую мощь из кикбоксинга сразу в несколько дивизионов UFC.",
+  "career_story": [
+    "После большой карьеры в кикбоксинге дебютировал в профессиональном MMA в 2015 году и пришёл в UFC в 2021-м.",
+    "Завоевал титулы UFC в среднем и полутяжёлом весе, а затем поднялся в тяжёлый дивизион."
+  ],
+  "fighting_style": [
+    "Кикбоксинг высокого уровня, давление и разрушительный левый хук.",
+    "Точные лоу-кики без заметной подготовки и спокойная работа на дальней дистанции."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "средний вес",
+        "won_at": "2022-11",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "полутяжёлый вес",
+        "won_at": "2023-11",
+        "defenses": 3,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "GLORY",
+        "name_ru": "Чемпион GLORY",
+        "division": "средний и полутяжёлый вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Чемпион UFC в двух весовых категориях.",
+    "Чемпион GLORY в двух весовых категориях.",
+    "Одиннадцать из тринадцати побед в MMA одержал нокаутом."
+  ],
+  "distinctive_features": [
+    "Фирменный левый хук способен закончить бой одним точным попаданием.",
+    "Ритуал выхода и прозвище Poatan подчёркивают связь с корнями."
+  ],
+  "stats": {
+    "record": {
+      "wins": 13,
+      "losses": 4,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 11,
+      "submission": 0,
+      "decision": 2
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 9,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "До UFC был чемпионом GLORY в двух весовых категориях.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Прозвище Poatan связывают с языком коренного народа Бразилии и образом каменной руки.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Профессиональный дебют в MMA состоялся в 2015 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В UFC дебютировал только в 2021 году, но быстро дошёл до титула.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Одиннадцать побед в MMA одержал нокаутом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "После чемпионств в среднем и полутяжёлом весе перешёл в тяжёлый дивизион.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Каменная рука",
+      "focus": "Механика и история фирменного левого хука.",
+      "fact_ids": [
+        "fact_2",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Из GLORY в UFC",
+      "focus": "Редкий путь чемпиона двух больших видов единоборств.",
+      "fact_ids": [
+        "fact_1",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Три весовых мира",
+      "focus": "Почему Перейра продолжил движение в тяжёлый вес.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Поздний рывок",
+      "focus": "Как стремительно он прошёл путь в UFC.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Alex Pereira — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/alex-pereira",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/alex_pereira/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "id": "valentina_shevchenko",
+  "name_ru": "Валентина Шевченко",
+  "name_en": "Valentina Shevchenko",
+  "gender": "female",
+  "country": "Кыргызстан / Перу",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Одна из самых совершенных чемпионок в истории MMA: универсальная, хладнокровная и технически точная во всех фазах.",
+  "career_story": [
+    "Профессионально выступает в MMA с 2003 года, а в UFC — с 2015-го.",
+    "Провела семь защит в первом чемпионском цикле, вернула титул в 2024 году и продолжила защищать его."
+  ],
+  "fighting_style": [
+    "Точный контрударный кикбоксинг и контроль дистанции.",
+    "Дзюдо, борьба и сильная позиционная работа сверху."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC",
+        "division": "женский наилегчайший вес",
+        "won_at": "2024-09",
+        "defenses": 2,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC",
+        "division": "женский наилегчайший вес",
+        "won_at": "2018-12",
+        "defenses": 7,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "Muay Thai / K-1",
+        "name_ru": "Многократная чемпионка мира",
+        "division": "разные категории",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Два чемпионских цикла UFC.",
+    "Семь защит титула в первом цикле.",
+    "Многократная чемпионка мира по муай-тай и K-1."
+  ],
+  "distinctive_features": [
+    "Редко отдаёт сопернице бой в одной конкретной фазе.",
+    "Её техника строится на дисциплине и точном выборе момента."
+  ],
+  "stats": {
+    "record": {
+      "wins": 26,
+      "losses": 4,
+      "draws": 1,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 8,
+      "submission": 7,
+      "decision": 11
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 3
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 1,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься единоборствами в пять лет.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Профессиональный дебют в MMA состоялся в 2003 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Семь раз защитила титул в первом чемпионском цикле UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Вернула пояс UFC в 2024 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Имеет большой список мировых титулов по муай-тай и K-1.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Интересуется режиссурой и работой с камерой.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Техническая энциклопедия",
+      "focus": "Как Шевченко соединяет стойку, броски и контроль.",
+      "fact_ids": [
+        "fact_1",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Второй чемпионский цикл",
+      "focus": "История возвращения пояса.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Долголетие элиты",
+      "focus": "Как карьера с 2003 года остаётся актуальной.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Боец и режиссёр",
+      "focus": "Взгляд чемпионки на визуальное искусство.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Valentina Shevchenko — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/valentina-shevchenko",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/valentina_shevchenko/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

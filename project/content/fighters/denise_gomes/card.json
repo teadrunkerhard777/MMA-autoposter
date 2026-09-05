@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "id": "denise_gomes",
+  "name_ru": "Дениз Гомес",
+  "name_en": "Denise Gomes",
+  "gender": "female",
+  "country": "Бразилия",
+  "promotion": "UFC",
+  "weight_class": "женский минимальный вес",
+  "positioning": "Яркая бразильская ударница с редкой для дивизиона нокаутирующей мощью и серией побед над опытными соперницами.",
+  "career_story": [
+    "Стала профессионалом в 2017 году и пришла в UFC через Contender Series в 2022-м.",
+    "После сложного старта в организации собрала пять побед подряд и в августе 2026 года нокаутировала Янь Сяонань."
+  ],
+  "fighting_style": [
+    "Агрессивный муай-тай, джеб и тяжёлые серии.",
+    "Готовность продолжать атаку в клинче и на земле."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Пять побед подряд на дату проверки.",
+    "Восемь побед нокаутом.",
+    "Нокаут над бывшей претенденткой на титул Янь Сяонань."
+  ],
+  "distinctive_features": [
+    "Нокаутирующая мощь выделяет её в минимальном весе.",
+    "Может сохранить угрозу финиша до поздней части раунда."
+  ],
+  "stats": {
+    "record": {
+      "wins": 13,
+      "losses": 3,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 8,
+      "submission": 0,
+      "decision": 5
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 5
+    },
+    "promotion_rank": 7,
+    "pound_for_pound_rank": null,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональную карьеру начала в 2017 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дебютировала в UFC в сентябре 2022 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Восемь из тринадцати побед одержала нокаутом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "После поражения в ноябре 2023 года собрала пять побед подряд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В августе 2026 года остановила Янь Сяонань в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Помимо тренировок продолжала работать парикмахером.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Мощь минимального веса",
+      "focus": "Почему процент нокаутов Гомес необычен для дивизиона.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Пять побед подряд",
+      "focus": "Как изменилась карьера после 2023 года.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Главный финиш",
+      "focus": "Значение нокаута над Янь Сяонань.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Боец и парикмахер",
+      "focus": "Повседневная профессия за пределами клетки.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Denise Gomes — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/denise-gomes",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/denise_gomes/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

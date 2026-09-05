@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "id": "kayla_harrison",
+  "name_ru": "Кайла Харрисон",
+  "name_en": "Kayla Harrison",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский легчайший вес",
+  "positioning": "Олимпийская чемпионка по дзюдо, перенёсшая элитный бросковый контроль в MMA и дошедшая до титула UFC.",
+  "career_story": [
+    "После двух олимпийских золотых медалей перешла в профессиональное MMA в 2018 году.",
+    "Дважды выиграла сезон PFL, затем пришла в UFC и в июне 2025 года завоевала чемпионский пояс."
+  ],
+  "fighting_style": [
+    "Дзюдо мирового уровня, броски из клинча и тяжёлый контроль сверху.",
+    "Постоянное давление с выходом на болевые приёмы рук."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC",
+        "division": "женский легчайший вес",
+        "won_at": "2025-06",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [],
+    "other": [
+      {
+        "organization": "PFL",
+        "name_ru": "Победительница сезона PFL",
+        "division": "женский лёгкий вес, 2019 и 2021",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "Olympic Games",
+        "name_ru": "Олимпийская чемпионка по дзюдо",
+        "division": "до 78 кг, 2012 и 2016",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Две золотые олимпийские медали по дзюдо.",
+    "Чемпионка мира по дзюдо 2010 года.",
+    "Чемпионка UFC и двукратная победительница сезона PFL."
+  ],
+  "distinctive_features": [
+    "Клинч для неё является атакующей платформой, а не паузой.",
+    "Опыт больших финалов сформировал чемпионское спокойствие."
+  ],
+  "stats": {
+    "record": {
+      "wins": 19,
+      "losses": 1,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 6,
+      "submission": 8,
+      "decision": 5
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 4
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 2,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Выиграла олимпийское золото по дзюдо в 2012 и 2016 годах.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Стала чемпионкой мира по дзюдо в 2010 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Имеет шестой дан по дзюдо.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Дважды выиграла сезон PFL.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В профессиональном MMA дебютировала в 2018 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Титул UFC завоевала в июне 2025 года приёмом кимура.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Олимпийское дзюдо в клетке",
+      "focus": "Как броски и клинч адаптируются к MMA.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Три большие сцены",
+      "focus": "Путь Олимпиада — PFL — UFC.",
+      "fact_ids": [
+        "fact_4",
+        "fact_5",
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Кимура за пояс",
+      "focus": "Техническая история чемпионского финиша.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Психология финала",
+      "focus": "Как олимпийский опыт помогает в титульных боях.",
+      "fact_ids": [
+        "fact_1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Kayla Harrison — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/kayla-harrison",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/kayla_harrison/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

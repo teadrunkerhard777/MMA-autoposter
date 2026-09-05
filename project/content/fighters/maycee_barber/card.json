@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "id": "maycee_barber",
+  "name_ru": "Мэйси Барбер",
+  "name_en": "Maycee Barber",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Агрессивная и физически сильная ударница, которая выросла из юного проспекта в опытную участницу верхней части рейтинга.",
+  "career_story": [
+    "Начала заниматься карате в раннем детстве, стала профессионалом в 2017 году и попала в UFC через Contender Series.",
+    "После тяжёлого периода собрала серию из семи побед, завершившуюся в марте 2026 года."
+  ],
+  "fighting_style": [
+    "Давление, силовые серии и особенно опасная работа в клинче.",
+    "Физическая борьба у сетки и активные удары на земле."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Семь побед подряд в UFC перед боем марта 2026 года.",
+    "Шесть побед нокаутом.",
+    "Бывшая первая претендентка рейтинга LFA в минимальном весе."
+  ],
+  "distinctive_features": [
+    "Лучше всего раскрывается в плотной контактной работе.",
+    "Прозвище The Future получила от семьи ещё до большой карьеры."
+  ],
+  "stats": {
+    "record": {
+      "wins": 15,
+      "losses": 3,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 6,
+      "submission": 2,
+      "decision": 7
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 6,
+    "pound_for_pound_rank": 15,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься карате в три года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Перешла к джиу-джитсу после открытия семейной школы единоборств.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Первый любительский бой MMA провела в восемнадцать лет.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "До выступлений была владельцем и главным инструктором школы единоборств.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Имеет чёрный пояс второй степени по карате.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Шесть профессиональных побед одержала нокаутом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Единоборства с трёх лет",
+      "focus": "Как семейная школа сформировала карьеру.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Тренер до UFC",
+      "focus": "Опыт владельца и инструктора зала.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Сила клинча",
+      "focus": "Почему её давление особенно опасно вблизи.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "После длинной серии",
+      "focus": "Новая точка отсчёта после 2026 года.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Maycee Barber — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/maycee-barber",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/maycee_barber/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "id": "justin_gaethje",
+  "name_ru": "Джастин Гейджи",
+  "name_en": "Justin Gaethje",
+  "gender": "male",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "лёгкий вес",
+  "positioning": "Один из главных мастеров управляемого хаоса: чемпион с тяжёлыми лоу-киками, нокаутирующей мощью и выдающейся волей.",
+  "career_story": [
+    "Стал профессионалом в 2011 году, прошёл чемпионский путь в WSOF и пришёл в UFC в 2017-м.",
+    "Дважды становился временным чемпионом, владел поясом BMF и в июне 2026 года завоевал полноценный титул UFC."
+  ],
+  "fighting_style": [
+    "Силовой бокс, разрушительные лоу-кики и давление.",
+    "Борцовская база используется прежде всего для защиты и сохранения боя в стойке."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC",
+        "division": "лёгкий вес",
+        "won_at": "2026-06",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Временный чемпион UFC",
+        "division": "лёгкий вес",
+        "won_at": "2020-05",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион BMF",
+        "division": "лёгкий вес",
+        "won_at": "2023-07",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "WSOF",
+        "name_ru": "Чемпион WSOF",
+        "division": "лёгкий вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Полноценный чемпион UFC в лёгком весе.",
+    "Двадцать одна победа нокаутом.",
+    "Чемпионские титулы UFC, BMF и WSOF."
+  ],
+  "distinctive_features": [
+    "Лоу-кики меняют движение соперника уже в первых раундах.",
+    "Со временем превратил безудержную агрессию в более расчётливый стиль."
+  ],
+  "stats": {
+    "record": {
+      "wins": 28,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 21,
+      "submission": 1,
+      "decision": 6
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 3
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 4,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Имеет сильную базу университетской борьбы.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Двадцать одну из двадцати восьми побед одержал нокаутом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До UFC был чемпионом WSOF.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В UFC дважды завоёвывал временный титул лёгкого веса.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Владел поясом BMF.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В июне 2026 года победил Илию Топурию и стал полноценным чемпионом UFC.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Управляемый хаос",
+      "focus": "Как дикий стиль стал более расчётливым.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Оружие лоу-кика",
+      "focus": "Почему удары по ногам определяют его бои.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Долгая дорога к поясу",
+      "focus": "От WSOF и временных титулов к полноценному.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4",
+        "fact_6"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "BMF-характер",
+      "focus": "Почему этот символ подошёл Гейджи.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Justin Gaethje — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/justin-gaethje",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/justin_gaethje/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

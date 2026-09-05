@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "tatiana_suarez",
+  "name_ru": "Татьяна Суарес",
+  "name_en": "Tatiana Suarez",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский минимальный вес",
+  "positioning": "Элитная борец с выдающейся историей возвращения: пережила рак, многолетние травмы и всё равно дошла до титульного уровня UFC.",
+  "career_story": [
+    "После успешной борцовской юности пережила рак щитовидной железы и потеряла шанс побороться за Олимпиаду 2012 года.",
+    "Перешла в MMA, выиграла The Ultimate Fighter 23 и после длительных простоев вернулась в число лидеров дивизиона."
+  ],
+  "fighting_style": [
+    "Доминирующая борьба, давление сверху и высокий объём переводов.",
+    "Удушающие приёмы, особенно гильотина, D'Arce и выходы на спину."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": [
+      {
+        "organization": "UFC",
+        "name_ru": "Победительница The Ultimate Fighter 23",
+        "division": "женский минимальный вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Победительница The Ultimate Fighter 23.",
+    "Бывшая претендентка на титул UFC.",
+    "Семь побед сабмишенами."
+  ],
+  "distinctive_features": [
+    "Борцовский контроль способен полностью менять геометрию боя.",
+    "Карьера определяется не только победами, но и возвращениями."
+  ],
+  "stats": {
+    "record": {
+      "wins": 13,
+      "losses": 1,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 2,
+      "submission": 7,
+      "decision": 4
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": 2,
+    "pound_for_pound_rank": 10,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Начала заниматься борьбой в три года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дважды признавалась лучшей школьной борчихой США.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Рак щитовидной железы был обнаружен при обследовании травмы шеи.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Диагноз лишил её возможности бороться за место на Олимпиаде 2012 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Выиграла 23-й сезон The Ultimate Fighter.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Семь побед в MMA одержала сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Возвращение сильнее старта",
+      "focus": "История борьбы с болезнью и травмами.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Борьба с трёх лет",
+      "focus": "Как ранняя база выглядит в клетке.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Путь через TUF",
+      "focus": "Турнир, открывший дверь в UFC.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Семь приёмов",
+      "focus": "Разнообразие её сабмишенов.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Tatiana Suarez — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/tatiana-suarez",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/tatiana_suarez/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

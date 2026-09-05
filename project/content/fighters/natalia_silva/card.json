@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "natalia_silva",
+  "name_ru": "Наталия Силва",
+  "name_en": "Natalia Silva",
+  "gender": "female",
+  "country": "Бразилия",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Быстрая и творческая ударница с длинной победной серией, которая превратила трудный старт карьеры в путь к вершине рейтинга.",
+  "career_story": [
+    "Начала профессиональную карьеру в 2015 году и в первых восьми боях имела неровный результат.",
+    "После этого резко прибавила, собрала большую победную серию и осталась непобеждённой в первых восьми боях UFC."
+  ],
+  "fighting_style": [
+    "Таэквондо, быстрые удары ногами и постоянное движение.",
+    "Контратаки под необычными углами и уверенная защита в переходах."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": [
+      {
+        "organization": "Jungle Fight",
+        "name_ru": "Чемпионка Jungle Fight",
+        "division": "женский наилегчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Четырнадцать побед подряд на дату проверки.",
+    "Восемь побед в первых восьми боях UFC.",
+    "Более половины побед одержала досрочно."
+  ],
+  "distinctive_features": [
+    "Создаёт визуально яркие эпизоды без потери дисциплины.",
+    "Её карьерный разворот показывает ценность постепенного развития."
+  ],
+  "stats": {
+    "record": {
+      "wins": 20,
+      "losses": 5,
+      "draws": 1,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 5,
+      "submission": 7,
+      "decision": 8
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 14
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 4,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Базовой ударной дисциплиной является таэквондо.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "После старта 3-4-1 выиграла шестнадцать из следующих семнадцати боёв.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "На дату проверки имеет четырнадцать побед подряд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Первые восемь боёв в UFC выиграла.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Семь побед одержала сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "До UFC владела титулом Jungle Fight.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Разворот карьеры",
+      "focus": "Как сложный старт превратился в длинную серию.",
+      "fact_ids": [
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Таэквондо в MMA",
+      "focus": "Яркие кики и управление дистанцией.",
+      "fact_ids": [
+        "fact_1"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Идеальный старт UFC",
+      "focus": "Что стоит за восемью победами подряд.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "Не только ударница",
+      "focus": "Семь сабмишенов в рекорде.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Natalia Silva — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/natalia-silva",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/natalia_silva/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "id": "umar_nurmagomedov",
+  "name_ru": "Умар Нурмагомедов",
+  "name_en": "Umar Nurmagomedov",
+  "gender": "male",
+  "country": "Россия",
+  "promotion": "UFC",
+  "weight_class": "легчайший вес",
+  "positioning": "Техничный представитель дагестанской школы, который добавляет к сильной борьбе мобильную стойку и разнообразные удары ногами.",
+  "career_story": [
+    "Начал профессиональную карьеру в 2016 году и дебютировал в UFC в 2021-м.",
+    "Прошёл до титульного боя UFC; в августе 2026 года потерпел второе поражение, уступив Сону Ядуну."
+  ],
+  "fighting_style": [
+    "Цепная борьба, контроль спины и удушающие сзади.",
+    "Лёгкая работа ног, смена стоек и разнообразные кики."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Бывший претендент на титул UFC в легчайшем весе.",
+    "Начал карьеру с восемнадцати побед подряд.",
+    "Семь побед сабмишенами."
+  ],
+  "distinctive_features": [
+    "Более кикерский стиль, чем у многих представителей его борцовской школы.",
+    "Умеет связывать дальнюю дистанцию с быстрым входом в борьбу."
+  ],
+  "stats": {
+    "record": {
+      "wins": 20,
+      "losses": 2,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 2,
+      "submission": 7,
+      "decision": 11
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 5,
+    "pound_for_pound_rank": null,
+    "verified_at": "2026-09-05",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_shanghai_results",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Профессиональный дебют состоялся в 2016 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Дебютировал в UFC в 2021 году.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Шесть из семи побед сабмишеном одержал удушением сзади.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Является двоюродным братом Хабиба Нурмагомедова.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Первые восемнадцать профессиональных боёв выиграл подряд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "В августе 2026 года проиграл нокаутом Сону Ядуну.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Борец с киками",
+      "focus": "Чем его стойка отличается от привычного образа дагестанской школы.",
+      "fact_ids": [
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Семейная школа",
+      "focus": "Связь с наследием Нурмагомедовых без прямых сравнений.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Серия восемнадцать",
+      "focus": "Как строился путь к титульному бою.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_4",
+      "title": "После Шанхая",
+      "focus": "Какие вопросы поставило поражение 2026 года.",
+      "fact_ids": [
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Umar Nurmagomedov — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/umar-nurmagomedov",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_shanghai_results",
+      "title": "UFC Shanghai official results",
+      "url": "https://www.ufc.com/news/ufc-shanghai-official-scorecards-nurmagomedov-vs-song",
+      "checked_at": "2026-09-05"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-09-05"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/umar_nurmagomedov/photo.jpg",
+    "source_page": null,
+    "creator": null,
+    "license": null,
+    "rights_status": "pending",
+    "publication_ready": false
+  },
+  "last_posted_at": null,
+  "enabled": true
+}
