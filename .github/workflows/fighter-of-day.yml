@@ -1,0 +1,55 @@
+name: MMA TODAY Fighter of the Day
+
+# A trusted external scheduler starts this dedicated daily publication.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# News and Fighter of the Day share publication history, so they run serially.
+concurrency:
+  group: autoposter-template
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest
+
+      - name: Publish Fighter of the Day
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          AUTOPOSTER_DRY_RUN: "false"
+        run: python fighter_of_day.py
+
+      - name: Commit publication history
+        if: ${{ success() }}
+        shell: bash
+        run: |
+          if git diff --quiet -- storage/published.json; then
+            echo "Fighter history did not change."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add storage/published.json
+          git commit -m "Update Fighter of the Day history"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

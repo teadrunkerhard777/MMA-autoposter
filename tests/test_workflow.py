@@ -2,6 +2,7 @@ from pathlib import Path
 
 
 WORKFLOW = Path(".github/workflows/autoposter.yml")
+FIGHTER_WORKFLOW = Path(".github/workflows/fighter-of-day.yml")
 
 
 def test_workflow_is_manual_and_safe():
@@ -16,3 +17,16 @@ def test_workflow_is_manual_and_safe():
     assert "git add storage/published.json" in text
     assert "git add ." not in text
 
+
+def test_fighter_workflow_is_manual_and_uses_shared_history():
+    text = FIGHTER_WORKFLOW.read_text(encoding="utf-8")
+
+    assert "workflow_dispatch:" in text
+    assert "schedule:" not in text
+    assert "group: autoposter-template" in text
+    assert 'AUTOPOSTER_DRY_RUN: "false"' in text
+    assert "python fighter_of_day.py" in text
+    assert "TELEGRAM_BOT_TOKEN" in text
+    assert "TELEGRAM_CHAT_ID" in text
+    assert "git add storage/published.json" in text
+    assert "git add ." not in text
