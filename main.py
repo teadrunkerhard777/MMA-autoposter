@@ -302,6 +302,7 @@ def run():
     )
     # Confirmation metadata is attached during deduplication.
     add_scores(unique_news, calculate_score)
+    unique_news = sort_by_editorial_priority(unique_news)
     history = load_history()
 
     if DRY_RUN:
@@ -319,29 +320,15 @@ def run():
         EVERGREEN_SLOTS_PER_RUN,
     )
     print(f"Collected: {len(all_news)}")
-    print(f"Time eligible: {len(time_eligible_news)}")
-    print(f"Relevant: {len(relevant_news)}")
+    print(f"Relevant before time filter: {len(relevant_news)}")
+    print(f"Time eligible after relevance: {len(time_eligible_news)}")
     print(f"Minimum score: {len(scored_news)}")
     print(f"Duplicates merged: {len(ranked_news) - len(unique_news)}")
     print(f"Unique: {len(unique_news)}")
     print(f"New: {len(new_news)}")
     print(f"Selected: {len(selected_news)}")
     if DRY_RUN:
-        confirmations = [
-            item for item in unique_news
-            if len(item.get("confirmed_sources", ())) > 1
-        ]
-        if confirmations:
-            for item in confirmations[:3]:
-                print(
-                    "[CONFIRMED] "
-                    f"{item.get('title')} | "
-                    f"sources={', '.join(item['confirmed_sources'])} | "
-                    f"score={item['score_before_confirmation']}"
-                    f"+{item['confirmation_bonus']}={item['score']}"
-                )
-        else:
-            print("[CONFIRMED] No cross-source confirmations in this run")
+        _print_dry_run_diagnostics(unique_news, selected_news)
 
     history_changed = publish_selected_news(
         selected_news,
@@ -354,6 +341,32 @@ def run():
         save_history(history)
 
     return selected_news
+
+
+def _print_dry_run_diagnostics(unique_news, selected_news):
+    """Explain ranking and selection without changing publication output."""
+
+    print("[TOP CANDIDATES]")
+    for index, item in enumerate(unique_news[:10], start=1):
+        sources = item.get("confirmed_sources", ())
+        print(
+            f"{index}. score={item.get('score', 0)} | "
+            f"source={item.get('source', '')} | "
+            f"confirmed={len(sources)} | title={item.get('title', '')}"
+        )
+        if len(sources) > 1:
+            print(
+                f"   confirmed_sources={','.join(sources)} | "
+                f"confirmation_bonus={item.get('confirmation_bonus', 0)}"
+            )
+
+    if selected_news:
+        print("[SELECTED]")
+        for item in selected_news:
+            print(
+                f"score={item.get('score', 0)} | "
+                f"title={item.get('title', '')}"
+            )
 
 
 if __name__ == "__main__":
