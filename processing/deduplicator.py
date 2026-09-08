@@ -101,17 +101,22 @@ def remove_duplicates(news_items, settings=None, debug=False):
         if duplicate_index is None:
             if url:
                 seen_urls.add(url)
+            _attach_confirmed_sources(item)
             unique.append(item)
             continue
 
         if url:
             seen_urls.add(url)
 
-        # Title duplicates preserve stable first occurrence.
+        existing = unique[duplicate_index]
+        confirmed_sources = _confirmed_sources(existing, item)
+
+        # Title duplicates preserve stable first occurrence, but still record
+        # an independent editorial confirmation.
         if event_details is None:
+            _attach_confirmed_sources(existing, confirmed_sources)
             continue
 
-        existing = unique[duplicate_index]
         preferred = _choose_preferred(existing, item)
 
         if debug:
@@ -122,7 +127,10 @@ def remove_duplicates(news_items, settings=None, debug=False):
             )
 
         if preferred is item:
+            _attach_confirmed_sources(item, confirmed_sources)
             unique[duplicate_index] = item
+        else:
+            _attach_confirmed_sources(existing, confirmed_sources)
 
     return unique
 
@@ -353,6 +361,34 @@ def _choose_preferred(first, second):
 
     def quality(item):
         body = item.get("article_text", "")
-        return bool(body), bool(item.get("image_url")), len(body)
+        return (
+            bool(body),
+            bool(item.get("image_url")),
+            len(body),
+            item.get("source_trust", 0),
+        )
 
     return second if quality(second) > quality(first) else first
+
+
+def _confirmed_sources(*items_or_sources):
+    """Collect distinct source names without counting a source twice."""
+
+    sources = []
+    for value in items_or_sources:
+        if isinstance(value, str):
+            candidates = (value,)
+        else:
+            candidates = value.get("confirmed_sources") or (
+                value.get("source"),
+            )
+        for source in candidates:
+            if source and source not in sources:
+                sources.append(source)
+    return sources
+
+
+def _attach_confirmed_sources(item, sources=None):
+    item["confirmed_sources"] = _confirmed_sources(
+        *(sources or (item,))
+    )

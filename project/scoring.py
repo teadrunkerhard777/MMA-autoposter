@@ -40,6 +40,8 @@ SIGNAL_SCORES = {
 PRIORITY_FIGHTER_SCORE = 3
 MAX_PRIORITY_FIGHTER_BONUS = 6
 RUMOR_PENALTY = 2
+CONFIRMATION_BONUSES = {1: 0, 2: 1}
+MAX_CONFIRMATION_BONUS = 2
 
 EVENT_WINDOW_SCORES = {
     "next_48_hours": 8,
@@ -103,4 +105,20 @@ def calculate_score(news_item, now=None):
     else:
         news_item["editorial_priority"] = "standard"
 
-    return max(0, score)
+    base_score = max(0, score)
+    sources = news_item.get("confirmed_sources") or [
+        news_item.get("source")
+    ]
+    independent_sources = list(dict.fromkeys(
+        source for source in sources if source
+    ))
+    source_count = len(independent_sources)
+    confirmation_bonus = (
+        CONFIRMATION_BONUSES.get(source_count, MAX_CONFIRMATION_BONUS)
+        if source_count
+        else 0
+    )
+    news_item["confirmed_sources"] = independent_sources
+    news_item["score_before_confirmation"] = base_score
+    news_item["confirmation_bonus"] = confirmation_bonus
+    return base_score + confirmation_bonus

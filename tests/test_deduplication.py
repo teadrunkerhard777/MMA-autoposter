@@ -7,6 +7,7 @@ from processing.deduplicator import (
     titles_are_similar,
 )
 from project.settings import EVENT_DEDUP_SETTINGS
+from project.scoring import calculate_score
 
 
 NOW = datetime(2026, 1, 2, tzinfo=timezone.utc)
@@ -60,6 +61,56 @@ def test_cross_source_event_duplicate_is_merged():
 
     assert details["is_duplicate"] is True
     assert len(remove_duplicates([first, second], EVENT_DEDUP_SETTINGS)) == 1
+
+
+def test_deduplicated_story_keeps_unique_confirming_sources():
+    facts = "python maintainers release faster runner plugin benchmark community package"
+    first = make_item("Sports.ru UFC/MMA", "New Python runner released", facts)
+    second = make_item("FightTime.ru", "Community ships runner update", facts, hours=2)
+    third = make_item("AllBoxing.ru MMA", "Runner update confirmed", facts, hours=3)
+    fourth = make_item("FightTime.ru", "Runner update confirmed again", facts, hours=4)
+
+    merged = remove_duplicates(
+        [first, second, third, fourth],
+        EVENT_DEDUP_SETTINGS,
+    )
+
+    assert len(merged) == 1
+    assert merged[0]["confirmed_sources"] == [
+        "Sports.ru UFC/MMA",
+        "FightTime.ru",
+        "AllBoxing.ru MMA",
+    ]
+
+
+def test_confirmation_bonus_is_capped_for_independent_sources():
+    item = {
+        "source": "Sports.ru UFC/MMA",
+        "event_category": "fighter_news",
+        "matched_promotions": [],
+        "editorial_signals": [],
+        "matched_fighters": [],
+        "is_rumor": False,
+    }
+
+    assert calculate_score(item, now=NOW) == item["score_before_confirmation"]
+    assert item["confirmation_bonus"] == 0
+
+    item["confirmed_sources"] = ["Sports.ru UFC/MMA", "FightTime.ru"]
+    assert calculate_score(item, now=NOW) == item["score_before_confirmation"] + 1
+    assert item["confirmation_bonus"] == 1
+
+    item["confirmed_sources"] = [
+        "Sports.ru UFC/MMA",
+        "FightTime.ru",
+        "AllBoxing.ru MMA",
+    ]
+    assert calculate_score(item, now=NOW) == item["score_before_confirmation"] + 2
+    assert item["confirmation_bonus"] == 2
+
+    item["confirmed_sources"].append("Fourth source")
+    assert calculate_score(item, now=NOW) == item["score_before_confirmation"] + 2
+    assert item["confirmation_bonus"] == 2
 
 
 def test_close_but_different_events_are_not_merged():

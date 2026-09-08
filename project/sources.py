@@ -1,6 +1,7 @@
 """MMA sources and optional source-specific article hooks."""
 
 from datetime import datetime, timedelta, timezone
+import json
 
 
 now = datetime.now(timezone.utc)
@@ -27,6 +28,61 @@ def extract_sports_ru_article(soup):
             paragraphs.append(text)
 
     return "\n\n".join(paragraphs)
+
+
+def extract_fighttime_article(soup):
+    """FightTime stores the editorial body separately from page widgets."""
+
+    return _paragraph_text(soup.select_one(".itemFullText"))
+
+
+def extract_allboxing_article(soup):
+    """Use only AllBoxing's article body, never its betting sidebars."""
+
+    return _paragraph_text(soup.select_one(".field-name-body"))
+
+
+def extract_allboxing_image(soup):
+    """AllBoxing exposes its lead image in the article block, not og:image."""
+
+    image = soup.select_one(".news_element_image img")
+    return (image.get("src", "").strip() if image else "")
+
+
+def extract_allboxing_published_at(soup):
+    """Read AllBoxing's exact article timestamp from its structured data."""
+
+    for script in soup.select('script[type="application/ld+json"]'):
+        try:
+            data = json.loads(script.get_text(strip=True))
+        except json.JSONDecodeError:
+            continue
+        for record in _json_records(data):
+            published_at = record.get("datePublished")
+            if published_at:
+                return published_at
+    return None
+
+
+def _paragraph_text(body):
+    if body is None:
+        return ""
+
+    paragraphs = [
+        " ".join(node.get_text(" ", strip=True).split())
+        for node in body.select("p")
+    ]
+    return "\n\n".join(paragraph for paragraph in paragraphs if paragraph)
+
+
+def _json_records(data):
+    if isinstance(data, dict):
+        yield data
+        for value in data.values():
+            yield from _json_records(value)
+    elif isinstance(data, list):
+        for value in data:
+            yield from _json_records(value)
 
 
 SOURCES = [
@@ -184,6 +240,33 @@ SOURCES = [
         "feed_timeout": 15,
         "headers": {"Accept-Language": "ru-RU"},
         "retries": 1,
+        "trust": 0.90,
+    },
+    {
+        "name": "FightTime.ru",
+        "type": "rss",
+        "url": "https://fighttime.ru/rssfeed.feed?type=rss",
+        "enabled": True,
+        "limit": 20,
+        "source_kind": "media",
+        "language": "ru",
+        "feed_timeout": 15,
+        "trust": 0.90,
+    },
+    {
+        "name": "AllBoxing.ru MMA",
+        "type": "html",
+        "url": "https://allboxing.ru/mma-news.html",
+        "base_url": "https://allboxing.ru/",
+        "enabled": True,
+        "limit": 20,
+        "source_kind": "media",
+        "language": "ru",
+        "item_selector": ".news_element",
+        "title_selector": ".news_element_title",
+        "link_selector": ".news_element_title",
+        "date_selector": ".news_element_date",
+        "trust": 0.80,
     },
     {
         "name": "MMA Fighting",
@@ -198,5 +281,11 @@ SOURCES = [
 
 SOURCE_EXTRACTORS = {
     "Sports.ru UFC/MMA": extract_sports_ru_article,
+    "FightTime.ru": extract_fighttime_article,
+    "AllBoxing.ru MMA": extract_allboxing_article,
+}
+SOURCE_IMAGE_EXTRACTORS = {"AllBoxing.ru MMA": extract_allboxing_image}
+SOURCE_PUBLISHED_AT_EXTRACTORS = {
+    "AllBoxing.ru MMA": extract_allboxing_published_at,
 }
 SOURCE_STOP_MARKERS = {}

@@ -87,10 +87,22 @@ def clean_article_text(text, source=None, source_stop_markers=None):
     return "\n\n".join(cleaned)
 
 
-def extract_article_image_url(html, page_url):
-    """Return og:image, then twitter:image, without downloading it."""
+def extract_article_image_url(
+    html,
+    page_url,
+    source=None,
+    source_extractors=None,
+):
+    """Return a source image, then Open Graph metadata, without downloading."""
 
     soup = BeautifulSoup(html, "html.parser")
+    extractor = (source_extractors or {}).get(source)
+
+    if extractor is not None:
+        image_url = extractor(soup)
+        if image_url:
+            return urljoin(page_url, image_url)
+
     selectors = (
         ('meta[property="og:image"]', "content"),
         ('meta[name="twitter:image"]', "content"),
@@ -104,3 +116,14 @@ def extract_article_image_url(html, page_url):
             return urljoin(page_url, value)
 
     return None
+
+
+def extract_article_published_at(html, source=None, source_extractors=None):
+    """Read a source-specific exact article timestamp when one is available."""
+
+    extractor = (source_extractors or {}).get(source)
+    if extractor is None:
+        return None
+
+    soup = BeautifulSoup(html, "html.parser")
+    return extractor(soup)

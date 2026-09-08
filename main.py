@@ -7,10 +7,12 @@ from requests import RequestException
 from article.fetcher import (
     clean_article_text,
     extract_article_image_url,
+    extract_article_published_at,
     extract_article_text,
     fetch_article_html,
 )
 from collectors.html_collector import collect_html
+from collectors.normalizer import normalize_date
 from collectors.rss_collector import collect_rss
 from collectors.static_collector import collect_static
 from config import (
@@ -39,7 +41,12 @@ from project.formatter import format_photo_caption, format_post
 from project.scoring import calculate_score
 from project.scheduling import filter_time_eligible
 from project.selection import select_editorial_mix, sort_by_editorial_priority
-from project.sources import SOURCE_EXTRACTORS, SOURCE_STOP_MARKERS
+from project.sources import (
+    SOURCE_EXTRACTORS,
+    SOURCE_IMAGE_EXTRACTORS,
+    SOURCE_PUBLISHED_AT_EXTRACTORS,
+    SOURCE_STOP_MARKERS,
+)
 from publishing.telegram import (
     ImageDownloadError,
     download_image_temp,
@@ -77,6 +84,9 @@ def collect_enabled_news(sources=SOURCES):
             continue
 
         items = collector(source)
+        for item in items:
+            # Trust is project editorial metadata, retained for tie-breaking.
+            item["source_trust"] = float(source.get("trust", 0))
         print(f"Source: {source['name']} — {len(items)} items")
         all_news.extend(items)
 
@@ -111,7 +121,19 @@ def load_article_data(news_items, sources=None):
                 source=item.get("source"),
                 source_stop_markers=SOURCE_STOP_MARKERS,
             )
-            item["image_url"] = extract_article_image_url(html, item["url"])
+            item["image_url"] = extract_article_image_url(
+                html,
+                item["url"],
+                source=item.get("source"),
+                source_extractors=SOURCE_IMAGE_EXTRACTORS,
+            )
+            published_at = extract_article_published_at(
+                html,
+                source=item.get("source"),
+                source_extractors=SOURCE_PUBLISHED_AT_EXTRACTORS,
+            )
+            if published_at:
+                item["published_at"] = normalize_date(published_at)
         except (RequestException, FeatureNotFound, ParserRejectedMarkup) as error:
             print(
                 f"Article warning ({item.get('source')}): "
@@ -253,29 +275,33 @@ def _source_configs_by_name(sources=None):
 def run():
     configure_ssl()
     all_news = collect_enabled_news()
-    time_eligible_news = filter_time_eligible(all_news, NEWS_LOOKBACK_DAYS)
-    relevant_news = filter_relevant(time_eligible_news, is_relevant)
-    add_scores(relevant_news, calculate_score)
-    scored_news = filter_by_minimum_score(
+    # AllBoxing keeps its exact timestamp in article JSON-LD, so source pages
+    # are loaded after relevance but before the freshness check.
+    relevant_news = filter_relevant(all_news, is_relevant)
+    load_article_data(relevant_news)
+    # Article text gives the AllBoxing betting policy its final check.
+    relevant_news = filter_relevant(relevant_news, is_relevant)
+    for item in relevant_news:
+        enrich_event_timing(item)
+    time_eligible_news = filter_time_eligible(
         relevant_news,
+        NEWS_LOOKBACK_DAYS,
+    )
+    add_scores(time_eligible_news, calculate_score)
+    scored_news = filter_by_minimum_score(
+        time_eligible_news,
         MIN_PUBLICATION_SCORE,
     )
     ranked_news = sort_by_score(scored_news)
 
-    # Generic event fingerprints use article facts, so loading precedes dedup.
-    load_article_data(ranked_news)
-    for item in ranked_news:
-        enrich_event_timing(item)
-
-    # Explicit article event dates can change editorial priority or freshness.
-    ranked_news = filter_time_eligible(ranked_news, NEWS_LOOKBACK_DAYS)
-    add_scores(ranked_news, calculate_score)
     ranked_news = sort_by_editorial_priority(ranked_news)
     unique_news = remove_duplicates(
         ranked_news,
         EVENT_DEDUP_SETTINGS,
         debug=DRY_RUN,
     )
+    # Confirmation metadata is attached during deduplication.
+    add_scores(unique_news, calculate_score)
     history = load_history()
 
     if DRY_RUN:
@@ -296,9 +322,26 @@ def run():
     print(f"Time eligible: {len(time_eligible_news)}")
     print(f"Relevant: {len(relevant_news)}")
     print(f"Minimum score: {len(scored_news)}")
+    print(f"Duplicates merged: {len(ranked_news) - len(unique_news)}")
     print(f"Unique: {len(unique_news)}")
     print(f"New: {len(new_news)}")
     print(f"Selected: {len(selected_news)}")
+    if DRY_RUN:
+        confirmations = [
+            item for item in unique_news
+            if len(item.get("confirmed_sources", ())) > 1
+        ]
+        if confirmations:
+            for item in confirmations[:3]:
+                print(
+                    "[CONFIRMED] "
+                    f"{item.get('title')} | "
+                    f"sources={', '.join(item['confirmed_sources'])} | "
+                    f"score={item['score_before_confirmation']}"
+                    f"+{item['confirmation_bonus']}={item['score']}"
+                )
+        else:
+            print("[CONFIRMED] No cross-source confirmations in this run")
 
     history_changed = publish_selected_news(
         selected_news,

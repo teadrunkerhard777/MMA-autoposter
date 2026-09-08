@@ -171,13 +171,15 @@ def test_formatter_shows_explicit_event_date_without_invented_time():
     assert "🥊 Событие: 10.09.2026 (время уточняется)" in format_post(news)
 
 
-def test_stage_four_enables_only_validated_russian_sources():
+def test_enabled_sources_include_validated_russian_mma_feeds():
     enabled = [source for source in SOURCES if source["enabled"]]
     candidates = [source for source in SOURCES if not source["enabled"]]
 
     assert {source["name"] for source in enabled} == {
         "ONE Championship Russian",
         "Sports.ru UFC/MMA",
+        "FightTime.ru",
+        "AllBoxing.ru MMA",
     }
     assert all(source["language"] == "ru" for source in enabled)
     assert any(source["type"] == "static" for source in candidates)

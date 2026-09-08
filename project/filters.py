@@ -221,6 +221,17 @@ EVERGREEN_CONTENT_TYPES = {
 
 TRUSTED_MMA_SOURCES = {"Sports.ru UFC/MMA"}
 
+# AllBoxing's article template contains bookmaker banners outside its article
+# body. These terms keep betting materials out even when their title mentions MMA.
+ALLBOXING_BETTING_KEYWORDS = (
+    "ставк",
+    "прогноз",
+    "коэффициент",
+    "букмекер",
+    "экспресс",
+    "фрибет",
+)
+
 
 def is_relevant(news_item):
     """Accept MMA stories and attach project-owned editorial metadata."""
@@ -298,7 +309,8 @@ def is_relevant(news_item):
 def _item_text(news_item):
     return (
         f"{news_item.get('title', '')} "
-        f"{news_item.get('description', '')}"
+        f"{news_item.get('description', '')} "
+        f"{news_item.get('article_text', '')}"
     ).casefold()
 
 
@@ -340,7 +352,14 @@ def _unique(values):
 def _excluded_by_source_policy(news_item):
     """Reject known non-article records from an exact project source."""
 
-    return (
-        news_item.get("source") == "Sports.ru UFC/MMA"
+    source = news_item.get("source")
+    if (
+        source == "Sports.ru UFC/MMA"
         and news_item.get("url", "").startswith("https://video.sports.ru/")
+    ):
+        return True
+
+    return source == "AllBoxing.ru MMA" and _contains_any(
+        _item_text(news_item),
+        ALLBOXING_BETTING_KEYWORDS,
     )
