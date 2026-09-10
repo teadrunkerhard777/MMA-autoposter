@@ -8171,5 +8171,48 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Махачев – про Усмана Нурмагомедова в UFC: «90%»",
+    "url": "https://www.sports.ru/boxing/1117364751-maxachev-pro-usmana-nurmagomedova-v-ufc-90.html",
+    "published_at": "2026-09-09T16:37:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "statement"
+      ],
+      "tokens": [
+        "выражал",
+        "дана",
+        "ждать",
+        "заинтересованность",
+        "заявил",
+        "ислама",
+        "контракт",
+        "контракту",
+        "махачев",
+        "махачева",
+        "можно",
+        "нурмагомедов",
+        "нурмагомедова",
+        "ожидать",
+        "подписании",
+        "подпишет",
+        "последний",
+        "провел",
+        "ранее",
+        "сказал",
+        "спросили",
+        "уайт",
+        "усман",
+        "усмана"
+      ],
+      "participants": [
+        "islam_makhachev"
+      ],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
