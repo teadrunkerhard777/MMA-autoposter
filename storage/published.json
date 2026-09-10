@@ -8214,5 +8214,47 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Бо Никал: «Просил UFC организовать бой с Шарой Буллетом. Ответ был отрицательный»",
+    "url": "https://www.sports.ru/boxing/1117364427-bo-nikal-prosil-ufc-organizovat-boj-s-sharoj-bulletom-otvet-byl-otricz.html",
+    "published_at": "2026-09-09T11:35:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "statement"
+      ],
+      "tokens": [
+        "буллетом",
+        "выиграл",
+        "девять",
+        "думаю",
+        "магомедовым",
+        "меня",
+        "никал",
+        "никала",
+        "нокаутами",
+        "одно",
+        "организовать",
+        "ответ",
+        "отличный",
+        "отрицательный",
+        "побед",
+        "поражение",
+        "последние",
+        "провести",
+        "просил",
+        "рассказал",
+        "сказал",
+        "счету",
+        "хотел",
+        "шарабутдином",
+        "шарой"
+      ],
+      "participants": [],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
