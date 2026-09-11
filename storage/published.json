@@ -12581,5 +12581,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "kayla_harrison",
+    "selected_at": "2026-09-11T17:22:22.478048+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
