@@ -15086,5 +15086,13 @@
       "event_date": "2026-09-12",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "ilia_topuria",
+    "selected_at": "2026-09-12T17:22:25.539537+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
