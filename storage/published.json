@@ -13697,5 +13697,46 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Кинг Грин: «У меня есть девять домов, но сейчас я гребаный бездомный. Живу в машине»",
+    "url": "https://www.sports.ru/boxing/1117366482-king-grin-u-menya-est-devyat-domov-no-sejchas-ya-grebanyj-bezdomnyj-zh.html",
+    "published_at": "2026-09-10T21:42:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "statement"
+      ],
+      "tokens": [
+        "17-12-1",
+        "бездомный",
+        "ветеран",
+        "гребаный",
+        "грин",
+        "девять",
+        "домах",
+        "домов",
+        "есть",
+        "живет",
+        "живу",
+        "живут",
+        "кинг",
+        "кореша",
+        "машине",
+        "меня",
+        "моих",
+        "поединок",
+        "провел",
+        "прямо",
+        "рассказал",
+        "рекорд",
+        "сейчас",
+        "сказал"
+      ],
+      "participants": [],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
