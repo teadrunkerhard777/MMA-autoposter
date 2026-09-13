@@ -17624,5 +17624,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "zhang_weili",
+    "selected_at": "2026-09-13T17:22:29.755839+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
