@@ -19671,5 +19671,56 @@
     "cycle": 1,
     "content_topic": "angle_1",
     "gender": "male"
+  },
+  {
+    "title": "Арман Царукян: «Если я проиграю Руффи, то потеряю все»",
+    "url": "https://www.sports.ru/boxing/1117370839-arman-czarukyan-esli-ya-proigrayu-ruffi-to-poteryayu-vse.html",
+    "published_at": "2026-09-14T19:22:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "арман",
+        "боец",
+        "важный",
+        "важным",
+        "всеми",
+        "дерусь",
+        "если",
+        "карьере",
+        "лос-анджелесе",
+        "маурисио",
+        "ногах",
+        "опасный",
+        "поединок",
+        "получу",
+        "потеряю",
+        "поэтому",
+        "предстоящий",
+        "проиграю",
+        "равно",
+        "руффи",
+        "самый",
+        "самым",
+        "сентября",
+        "сказал",
+        "состоится",
+        "считает",
+        "титульник",
+        "ударник",
+        "хороший",
+        "царукян",
+        "этого"
+      ],
+      "participants": [
+        "arman_tsarukyan",
+        "mauricio_ruffy"
+      ],
+      "event_at": null,
+      "event_date": "2026-09-20",
+      "locations": []
+    }
   }
 ]
