@@ -16,6 +16,7 @@ TELEGRAM_RETRY_DELAY_SECONDS = 2
 TELEGRAM_CONNECT_TIMEOUT_SECONDS = 10
 TELEGRAM_READ_TIMEOUT_SECONDS = 30
 MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
+MAX_VIDEO_SIZE_BYTES = 50 * 1024 * 1024
 IMAGE_DOWNLOAD_USER_AGENT = "Mozilla/5.0 AutoposterTemplate/1.0"
 IMAGE_DOWNLOAD_DEFAULT_RETRIES = 3
 IMAGE_DOWNLOAD_RETRY_DELAY_SECONDS = 0.5
@@ -59,8 +60,19 @@ class TemporaryImage:
     size_bytes: int
 
 
+@dataclass(frozen=True)
+class TemporaryVideo:
+    path: Path
+    mime_type: str
+    size_bytes: int
+
+
 class ImageDownloadError(Exception):
     """Expected failure while preparing a Telegram-compatible image."""
+
+
+class VideoDownloadError(Exception):
+    """Expected failure while preparing a Telegram-compatible video."""
 
 
 def is_supported_remote_image_url(image_url):
@@ -127,6 +139,104 @@ def send_telegram_photo(photo, caption, filename=None, mime_type=None):
             print(f"Image URL: {image_url}")
 
     return result
+
+
+def send_telegram_video(video, caption, filename=None, mime_type=None):
+    """Upload one MP4 as a native, streamable Telegram video message."""
+
+    if not video:
+        return TelegramSendResult(False, "video is missing")
+
+    payload = {
+        "caption": caption,
+        "parse_mode": "HTML",
+        "supports_streaming": "true",
+    }
+    files = {
+        "video": (
+            filename or "mma-video.mp4",
+            video,
+            mime_type or "video/mp4",
+        )
+    }
+    result = _send_telegram_request("sendVideo", payload, files=files)
+
+    if not result:
+        print(f"Video error: {result.error_reason}")
+
+    return result
+
+
+def download_video_temp(video_url, source_config=None):
+    """Download and validate a credential-free HTTPS MP4."""
+
+    if not is_supported_remote_image_url(video_url):
+        raise VideoDownloadError("unsupported remote URL")
+
+    config = source_config or {}
+    headers = {
+        "User-Agent": IMAGE_DOWNLOAD_USER_AGENT,
+        **(config.get("headers") or {}),
+    }
+    response = None
+    temp_path = None
+    completed = False
+
+    try:
+        response = requests.get(
+            video_url,
+            headers=headers,
+            timeout=(TELEGRAM_CONNECT_TIMEOUT_SECONDS, TELEGRAM_READ_TIMEOUT_SECONDS),
+            stream=True,
+        )
+        response.raise_for_status()
+        mime_type = response.headers.get("Content-Type", "")
+        mime_type = mime_type.split(";", 1)[0].strip().casefold()
+        if mime_type != "video/mp4":
+            raise VideoDownloadError(
+                f"unsupported Content-Type: {mime_type or 'missing'}"
+            )
+
+        content_length = response.headers.get("Content-Length")
+        if content_length:
+            try:
+                declared_size = int(content_length)
+            except ValueError:
+                declared_size = 0
+            if declared_size > MAX_VIDEO_SIZE_BYTES:
+                raise VideoDownloadError("video exceeds 50 MiB")
+
+        with tempfile.NamedTemporaryFile(
+            prefix="mma-video-", suffix=".mp4", delete=False
+        ) as temp_file:
+            temp_path = Path(temp_file.name)
+            downloaded_size = 0
+            for chunk in response.iter_content(chunk_size=256 * 1024):
+                if not chunk:
+                    continue
+                downloaded_size += len(chunk)
+                if downloaded_size > MAX_VIDEO_SIZE_BYTES:
+                    raise VideoDownloadError("video exceeds 50 MiB")
+                temp_file.write(chunk)
+
+        if downloaded_size == 0:
+            raise VideoDownloadError("server returned an empty video")
+
+        with temp_path.open("rb") as video_file:
+            header = video_file.read(32)
+        if len(header) < 12 or header[4:8] != b"ftyp":
+            raise VideoDownloadError("video bytes are not an MP4 container")
+
+        result = TemporaryVideo(temp_path, mime_type, downloaded_size)
+        completed = True
+        return result
+    except requests.RequestException as error:
+        raise VideoDownloadError(type(error).__name__) from error
+    finally:
+        if response is not None:
+            response.close()
+        if temp_path is not None and not completed and temp_path.exists():
+            temp_path.unlink()
 
 
 def download_image_temp(image_url, source_config=None):

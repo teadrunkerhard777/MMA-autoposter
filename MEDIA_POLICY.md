@@ -34,3 +34,13 @@ the intended image use or replace the source image with licensed media. Keep
 visible source branding intact and do not imply that a source endorses the
 channel. Generated or composed cards must retain the provenance of every photo
 and factual claim used in them.
+
+## Native video queue
+
+The video feature publishes at most one MP4 in each of the `day` and `evening`
+slots. Every queue entry must name its source, link to the original, include a
+license note, and explicitly confirm republication rights. The runner rejects
+non-HTTPS locations, non-MP4 responses, invalid MP4 containers, empty files,
+and files over 50 MiB. It never scrapes social networks or bypasses access
+controls. DRY_RUN validates and removes the temporary download without calling
+Telegram or changing video history.

@@ -1,0 +1,72 @@
+name: MMA TODAY Video Post
+
+on:
+  schedule:
+    # GitHub cron is UTC: 08:00/15:00 = 13:00/20:00 Asia/Yekaterinburg.
+    - cron: "0 8 * * *"
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: Video slot
+        required: true
+        type: choice
+        options:
+          - day
+          - evening
+
+permissions:
+  contents: write
+
+concurrency:
+  group: autoposter-template
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest
+      - name: Select slot
+        id: slot
+        shell: bash
+        env:
+          MANUAL_SLOT: ${{ inputs.slot }}
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ -n "$MANUAL_SLOT" ]; then
+            echo "value=$MANUAL_SLOT" >> "$GITHUB_OUTPUT"
+          elif [ "$SCHEDULE" = "0 8 * * *" ]; then
+            echo "value=day" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=evening" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish video
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          AUTOPOSTER_DRY_RUN: "false"
+        run: python video_posts.py --slot "${{ steps.slot.outputs.value }}"
+      - name: Commit video history
+        if: ${{ success() }}
+        shell: bash
+        run: |
+          if git diff --quiet -- storage/video_published.json; then
+            echo "Video history did not change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add storage/video_published.json
+          git commit -m "Update video publication history"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

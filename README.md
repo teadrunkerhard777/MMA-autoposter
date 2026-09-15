@@ -14,6 +14,7 @@ template and keeps local execution safe by default.
 - Isolated source-specific article extractors and stop markers.
 - Project-owned visual roles and validated DRY_RUN image previews.
 - Telegram text/photo publishing with temporary-file fallback.
+- Two daily native-video slots at 13:00 and 20:00 Asia/Yekaterinburg.
 - Duplicate protection for uncertain Telegram network outcomes.
 - JSON publication history with backward-compatible fingerprints.
 - Safe `DRY_RUN=True`, a local process lock, tests, and GitHub Actions.
@@ -65,5 +66,7 @@ design and LiveCrime mapping, see [ARCHITECTURE.md](ARCHITECTURE.md).
 2. valid `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`;
 3. an explicit execution of `main.py`.
 
-Do not use real credentials in committed files. The included workflow reads
-credentials only from GitHub Secrets and has no built-in schedule.
+Do not use real credentials in committed files. The included workflows read
+credentials only from GitHub Secrets. News and Fighter of the Day remain
+manual; the video workflow runs twice daily and safely does nothing when its
+rights-cleared queue is empty. See `project/content/videos/README.md`.

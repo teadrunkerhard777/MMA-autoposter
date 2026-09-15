@@ -8,6 +8,7 @@ from generation.text import fit_text_to_html_limit
 
 MESSAGE_LIMIT = 4000
 PHOTO_CAPTION_LIMIT = 1000
+VIDEO_CAPTION_LIMIT = 1000
 
 CATEGORY_LABELS = {
     "fight_cancelled": "🚨 БОЙ ОТМЕНЁН",
@@ -54,6 +55,30 @@ def format_photo_caption(news_item):
     """Build one HTML-safe Telegram photo caption."""
 
     return _format(news_item, PHOTO_CAPTION_LIMIT)
+
+
+def format_video_caption(video_item):
+    """Build a compact HTML caption for the recurring video feature."""
+
+    title = escape(str(video_item.get("title") or "Момент дня")[:300])
+    source = escape(str(video_item.get("source") or "Источник не указан"))
+    source_url = escape(str(video_item.get("source_url") or ""), quote=True)
+    header = f"🎬 <b>{title}</b>"
+    source_line = (
+        f'📰 <a href="{source_url}">{source}</a>'
+        if source_url
+        else f"📰 {source}"
+    )
+    footer = f"{source_line}\n\n#MMAVideo #MMA"
+    note = fit_text_to_html_limit(
+        video_item.get("note") or "",
+        max(0, VIDEO_CAPTION_LIMIT - len(header) - len(footer) - 4),
+    )
+    blocks = [header]
+    if note:
+        blocks.append(escape(note))
+    blocks.append(footer)
+    return "\n\n".join(blocks)
 
 
 def _format(news_item, limit):
