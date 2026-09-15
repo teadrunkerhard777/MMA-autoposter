@@ -20941,5 +20941,13 @@
       "event_date": "2026-09-19",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "mackenzie_dern",
+    "selected_at": "2026-09-15T17:22:28.364124+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
