@@ -39,8 +39,8 @@ and factual claim used in them.
 
 The video feature publishes at most one MP4 in each of the `day` and `evening`
 slots. Every queue entry must name its source, link to the original, include a
-license note, and explicitly confirm republication rights. The runner rejects
-non-HTTPS locations, non-MP4 responses, invalid MP4 containers, empty files,
-and files over 50 MiB. It never scrapes social networks or bypasses access
-controls. DRY_RUN validates and removes the temporary download without calling
-Telegram or changing video history.
+license note, and explicitly confirm republication rights. Repository-owned
+clips must stay in the project video directory; remote media must use HTTPS.
+The runner rejects non-MP4 responses, invalid MP4 containers, empty files, and
+files over 50 MiB. It never scrapes social networks or bypasses access controls.
+DRY_RUN validates media without calling Telegram or changing video history.

@@ -1,1 +1,156 @@
-[]
+[
+  {
+    "id": "tenkaichi-01",
+    "slot": "day",
+    "title": "MMA без лишних движений",
+    "note": "Короткий эпизод с турнира Tenkaichi на Окинаве: работа в боевой обстановке и полная концентрация до самого конца.",
+    "source": "U.S. Marine Corps / Cpl. Ernesto Lagunes",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US_service_members_participate_in_the_Tenkaichi_challenge_(952172).webm",
+    "video_path": "project/content/videos/clips/tenkaichi-01.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "tenkaichi-02",
+    "slot": "evening",
+    "title": "Темп решает",
+    "note": "Шесть секунд турнирной атмосферы: скорость, дистанция и готовность мгновенно включиться в эпизод.",
+    "source": "U.S. Marine Corps / Cpl. Ernesto Lagunes",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US_service_members_participate_in_the_Tenkaichi_challenge_(952172).webm",
+    "video_path": "project/content/videos/clips/tenkaichi-02.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "marex-01",
+    "slot": "day",
+    "title": "База ближнего боя",
+    "note": "На тренировке MCMAP технику разбирают по шагам: сначала положение корпуса, затем движение и контроль партнёра.",
+    "source": "U.S. Marine Corps / Staff Sgt. Bryant Rodriguez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MAREX_2026-_US_Marines_instruct_MCMAP_class_(1010180).webm",
+    "video_path": "project/content/videos/clips/marex-01.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "marex-02",
+    "slot": "evening",
+    "title": "Техника под сопротивлением",
+    "note": "Приём начинает работать только тогда, когда сохраняется баланс. Небольшой фрагмент совместной тренировки морпехов.",
+    "source": "U.S. Marine Corps / Staff Sgt. Bryant Rodriguez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MAREX_2026-_US_Marines_instruct_MCMAP_class_(1010180).webm",
+    "video_path": "project/content/videos/clips/marex-02.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "mcmap-01",
+    "slot": "day",
+    "title": "Функциональная подготовка бойца",
+    "note": "В единоборствах важна не только техника: выносливость помогает сохранять точность, когда организм уже просит остановиться.",
+    "source": "U.S. Marine Corps / Cpl. Saul Hernandez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:U_S_Marines_Conduct_A_Marine_Corps_Martial_Arts_Program_Physical_Fitness_Event,_Marine_Corps_Air_Station_Iwakuni,_Japan,_2026_(B-ROLL)_(1017418).webm",
+    "video_path": "project/content/videos/clips/mcmap-01.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "mcmap-02",
+    "slot": "evening",
+    "title": "Когда усталость — часть задания",
+    "note": "Интенсивная работа заставляет принимать решения на фоне усталости — навык, который напрямую переносится в бой.",
+    "source": "U.S. Marine Corps / Cpl. Saul Hernandez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:U_S_Marines_Conduct_A_Marine_Corps_Martial_Arts_Program_Physical_Fitness_Event,_Marine_Corps_Air_Station_Iwakuni,_Japan,_2026_(B-ROLL)_(1017418).webm",
+    "video_path": "project/content/videos/clips/mcmap-02.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "tenkaichi-03",
+    "slot": "day",
+    "title": "Один момент — одно решение",
+    "note": "В коротком размене нет времени на сомнения: дистанция считывается мгновенно, а действие должно быть точным.",
+    "source": "U.S. Marine Corps / Cpl. Ernesto Lagunes",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US_service_members_participate_in_the_Tenkaichi_challenge_(952172).webm",
+    "video_path": "project/content/videos/clips/tenkaichi-03.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "tenkaichi-04",
+    "slot": "evening",
+    "title": "Турнирный фокус",
+    "note": "Вокруг шум, но внутри эпизода остаются только соперник, дистанция и следующая атака.",
+    "source": "U.S. Marine Corps / Cpl. Ernesto Lagunes",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US_service_members_participate_in_the_Tenkaichi_challenge_(952172).webm",
+    "video_path": "project/content/videos/clips/tenkaichi-04.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "marex-03",
+    "slot": "day",
+    "title": "Контроль важнее силы",
+    "note": "Хорошая техника экономит энергию: правильный угол и устойчивое положение часто дают больше, чем попытка продавить силой.",
+    "source": "U.S. Marine Corps / Staff Sgt. Bryant Rodriguez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MAREX_2026-_US_Marines_instruct_MCMAP_class_(1010180).webm",
+    "video_path": "project/content/videos/clips/marex-03.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "marex-04",
+    "slot": "evening",
+    "title": "Повторение превращает движение в навык",
+    "note": "Медленная отработка выглядит просто, но именно она позволяет выполнить приём автоматически, когда темп вырастет.",
+    "source": "U.S. Marine Corps / Staff Sgt. Bryant Rodriguez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MAREX_2026-_US_Marines_instruct_MCMAP_class_(1010180).webm",
+    "video_path": "project/content/videos/clips/marex-04.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "mcmap-03",
+    "slot": "day",
+    "title": "Работа на характер",
+    "note": "Такие упражнения проверяют способность продолжать работу в высоком темпе и не терять качество движений.",
+    "source": "U.S. Marine Corps / Cpl. Saul Hernandez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:U_S_Marines_Conduct_A_Marine_Corps_Martial_Arts_Program_Physical_Fitness_Event,_Marine_Corps_Air_Station_Iwakuni,_Japan,_2026_(B-ROLL)_(1017418).webm",
+    "video_path": "project/content/videos/clips/mcmap-03.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "mcmap-04",
+    "slot": "evening",
+    "title": "Финишировать сильнее, чем начал",
+    "note": "Последние секунды упражнения особенно ценны: именно там дисциплина должна заменить заканчивающиеся силы.",
+    "source": "U.S. Marine Corps / Cpl. Saul Hernandez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:U_S_Marines_Conduct_A_Marine_Corps_Martial_Arts_Program_Physical_Fitness_Event,_Marine_Corps_Air_Station_Iwakuni,_Japan,_2026_(B-ROLL)_(1017418).webm",
+    "video_path": "project/content/videos/clips/mcmap-04.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "tenkaichi-05",
+    "slot": "day",
+    "title": "Боевой ритм",
+    "note": "Короткий фрагмент Tenkaichi напоминает: темп нужно не только выдерживать — его нужно навязывать сопернику.",
+    "source": "U.S. Marine Corps / Cpl. Ernesto Lagunes",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US_service_members_participate_in_the_Tenkaichi_challenge_(952172).webm",
+    "video_path": "project/content/videos/clips/tenkaichi-05.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  },
+  {
+    "id": "marex-05",
+    "slot": "evening",
+    "title": "Тренировка заканчивается только после команды",
+    "note": "Ещё один короткий взгляд на MCMAP: техника, физическая готовность и работа с партнёром собраны в одном упражнении.",
+    "source": "U.S. Marine Corps / Staff Sgt. Bryant Rodriguez",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MAREX_2026-_US_Marines_instruct_MCMAP_class_(1010180).webm",
+    "video_path": "project/content/videos/clips/marex-05.mp4",
+    "rights_confirmed": true,
+    "license_note": "Public domain: work of a U.S. federal government employee"
+  }
+]

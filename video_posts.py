@@ -10,6 +10,8 @@ from config import DRY_RUN
 from core.run_lock import AlreadyRunningError, single_instance_lock
 from project.formatter import format_video_caption
 from publishing.telegram import (
+    MAX_VIDEO_SIZE_BYTES,
+    TemporaryVideo,
     VideoDownloadError,
     download_video_temp,
     send_telegram_video,
@@ -18,6 +20,7 @@ from publishing.telegram import (
 
 VIDEO_QUEUE_FILE = Path("project/content/videos/index.json")
 VIDEO_HISTORY_FILE = Path("storage/video_published.json")
+VIDEO_ASSET_DIR = Path("project/content/videos/clips")
 LOCAL_TIMEZONE = ZoneInfo("Asia/Yekaterinburg")
 
 
@@ -41,10 +44,9 @@ def select_video(queue, history, slot):
             continue
         if not item.get("rights_confirmed") or not item.get("license_note"):
             continue
-        if not all(
-            item.get(key)
-            for key in ("id", "title", "video_url", "source", "source_url")
-        ):
+        if not all(item.get(key) for key in ("id", "title", "source", "source_url")):
+            continue
+        if not (item.get("video_path") or item.get("video_url")):
             continue
         return item
     return None
@@ -67,7 +69,12 @@ def publish_video_slot(
 
     temporary_video = None
     try:
-        temporary_video = download_video(item["video_url"])
+        is_temporary = not bool(item.get("video_path"))
+        temporary_video = (
+            validate_local_video(item["video_path"])
+            if item.get("video_path")
+            else download_video(item["video_url"])
+        )
         caption = format_video_caption(item)
         if dry_run:
             print("[DRY RUN] Telegram was not called")
@@ -101,8 +108,33 @@ def publish_video_slot(
         print(f"Video rejected: {type(error).__name__}")
         return None
     finally:
-        if temporary_video and temporary_video.path.exists():
+        if (
+            temporary_video
+            and is_temporary
+            and temporary_video.path.exists()
+        ):
             temporary_video.path.unlink()
+
+
+def validate_local_video(video_path, asset_dir=VIDEO_ASSET_DIR):
+    """Validate a repository-owned MP4 without deleting it after use."""
+
+    asset_root = Path(asset_dir).resolve()
+    path = Path(video_path).resolve()
+    try:
+        path.relative_to(asset_root)
+    except ValueError as error:
+        raise VideoDownloadError("video path is outside the asset directory") from error
+    if not path.is_file():
+        raise VideoDownloadError("video file is missing")
+    size_bytes = path.stat().st_size
+    if size_bytes == 0 or size_bytes > MAX_VIDEO_SIZE_BYTES:
+        raise VideoDownloadError("invalid video size")
+    with path.open("rb") as video_file:
+        header = video_file.read(32)
+    if len(header) < 12 or header[4:8] != b"ftyp":
+        raise VideoDownloadError("video bytes are not an MP4 container")
+    return TemporaryVideo(path, "video/mp4", size_bytes)
 
 
 def run():

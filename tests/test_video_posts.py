@@ -8,7 +8,7 @@ from publishing.telegram import (
     VideoDownloadError,
     download_video_temp,
 )
-from video_posts import publish_video_slot, select_video
+from video_posts import publish_video_slot, select_video, validate_local_video
 
 
 def item(**changes):
@@ -121,3 +121,20 @@ def test_video_download_rejects_non_mp4(monkeypatch):
 
     with pytest.raises(VideoDownloadError):
         download_video_temp("https://cdn.test/clip.mp4")
+
+
+def test_local_video_must_be_valid_mp4_inside_asset_directory(tmp_path):
+    asset_dir = tmp_path / "clips"
+    asset_dir.mkdir()
+    video_path = asset_dir / "clip.mp4"
+    video_path.write_bytes(b"\x00\x00\x00\x18ftypisom" + b"0" * 20)
+
+    video = validate_local_video(video_path, asset_dir=asset_dir)
+
+    assert video.path == video_path.resolve()
+    assert video.mime_type == "video/mp4"
+
+    outside_path = tmp_path / "outside.mp4"
+    outside_path.write_bytes(video_path.read_bytes())
+    with pytest.raises(VideoDownloadError):
+        validate_local_video(outside_path, asset_dir=asset_dir)
