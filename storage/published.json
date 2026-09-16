@@ -22362,5 +22362,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "khamzat_chimaev",
+    "selected_at": "2026-09-16T17:22:23.816382+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
