@@ -23905,5 +23905,41 @@
       "event_date": "2026-09-20",
       "locations": []
     }
+  },
+  {
+    "title": "Арман Царукян купил шоколад у маленькой девочки в Лос-Анджелесе на $400",
+    "url": "https://www.sports.ru/boxing/1117373742-arman-czarukyan-skupil-ves-shokolad-u-malenkoj-devochki-v-los-andzhele.html",
+    "published_at": "2026-09-17T19:26:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "арман",
+        "девочки",
+        "купил",
+        "легковес",
+        "лос-анджелесе",
+        "маленькой",
+        "маурисио",
+        "поединок",
+        "проведет",
+        "пройдет",
+        "против",
+        "руффи",
+        "сентября",
+        "трунире",
+        "царукян",
+        "шоколад"
+      ],
+      "participants": [
+        "arman_tsarukyan",
+        "mauricio_ruffy"
+      ],
+      "event_at": null,
+      "event_date": "2026-09-20",
+      "locations": []
+    }
   }
 ]
