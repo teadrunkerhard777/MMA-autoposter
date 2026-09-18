@@ -24790,5 +24790,49 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "title": "Арман Царукян: «Мне не понадобится пять раундов. Финиширую Руффи во втором»",
+    "url": "https://www.sports.ru/boxing/1117374634-arman-czarukyan-mne-ne-ponadobitsya-pyat-raundov-finishiruyu-ruffi-vo-.html",
+    "published_at": "2026-09-18T17:25:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "арман",
+        "втором",
+        "гейджи",
+        "исход",
+        "легковес",
+        "лос-анджелесе",
+        "маурисио",
+        "отправлю",
+        "поединка",
+        "поединок",
+        "понадобится",
+        "послание",
+        "проведет",
+        "против",
+        "пять",
+        "раундов",
+        "руффи",
+        "сентября",
+        "сказал",
+        "состоится",
+        "спрогнозировал",
+        "турнире",
+        "финиширую",
+        "царукян"
+      ],
+      "participants": [
+        "arman_tsarukyan",
+        "mauricio_ruffy"
+      ],
+      "event_at": null,
+      "event_date": "2026-09-20",
+      "locations": []
+    }
   }
 ]
