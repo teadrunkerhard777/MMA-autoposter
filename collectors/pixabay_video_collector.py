@@ -69,6 +69,11 @@ def _normalize_video(video, max_duration_seconds, max_size_bytes):
         "video_url": video_file["url"],
         "video_duration": duration,
         "video_size": video_file.get("size"),
+        "search_text": " ".join(
+            str(value)
+            for value in (video.get("tags"), video.get("type"))
+            if value
+        ),
         "pixabay_id": media_id,
     }
 

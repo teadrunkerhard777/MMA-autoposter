@@ -10,6 +10,7 @@ class Response:
             "hits": [{
                 "id": 77,
                 "duration": 14,
+                "tags": "boxing, boxer, sports",
                 "pageURL": "https://pixabay.com/videos/id-77/",
                 "videos": {
                     "large": {
@@ -42,3 +43,4 @@ def test_pixabay_collector_uses_sports_safe_search(monkeypatch):
     assert request["params"]["safesearch"] == "true"
     assert items[0]["video_url"] == "https://cdn.test/hd.mp4"
     assert items[0]["media_id"] == "pixabay:77"
+    assert items[0]["search_text"] == "boxing, boxer, sports"

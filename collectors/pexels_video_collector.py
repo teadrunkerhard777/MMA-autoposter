@@ -1,5 +1,7 @@
 """Collect short, Telegram-compatible videos from the official Pexels API."""
 
+from urllib.parse import unquote, urlsplit
+
 import requests
 
 
@@ -70,6 +72,7 @@ def _normalize_video(video, max_duration_seconds, max_size_bytes):
         "video_duration": duration,
         "video_size": video_file.get("file_size"),
         "creator_name": user.get("name"),
+        "search_text": unquote(urlsplit(page_url).path).replace("-", " "),
         "pexels_id": media_id,
     }
 

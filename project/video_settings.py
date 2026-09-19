@@ -21,15 +21,46 @@ VIDEO_RESULTS_PER_RUN = 30
 VIDEO_MAX_DURATION_SECONDS = 35
 VIDEO_MAX_SIZE_BYTES = 49 * 1024 * 1024
 
+VIDEO_RELEVANCE_TERMS = (
+    "mma",
+    "mixed martial arts",
+    "boxing",
+    "boxer",
+    "kickboxing",
+    "muay thai",
+    "martial arts",
+    "combat sport",
+    "sparring",
+)
+VIDEO_FEATURED_MEDIA_IDS = {
+    "pexels:6296587",
+    "pexels:6296447",
+    "pexels:6296292",
+    "pexels:4761806",
+    "pexels:35030806",
+    "pexels:35030839",
+    "pixabay:54875",
+    "pixabay:52101",
+    "pixabay:20112",
+    "pixabay:167490",
+}
+
 VIDEO_NOTES = (
     "Скорость решает, но техника сохраняет силы.",
     "Работа на дистанции: один шаг часто важнее одного удара.",
     "Тренировка продолжается, пока движения не станут автоматическими.",
-    "Хороший спарринг — это контроль, тайминг и уважение к партнёру.",
+    "Контроль, тайминг и точность решают больше, чем суета.",
     "Баланс, реакция, точность — три детали одного эпизода.",
     "Короткий фрагмент большой работы, которая остаётся за кадром.",
     "В единоборствах спокойная голова почти всегда быстрее рук.",
     "Техника выглядит легко только после сотен повторений.",
     "Темп высокий, но каждое движение должно оставаться осознанным.",
-    "Именно в таких раундах вырабатывается чувство момента.",
+    "Именно в тренировках вырабатывается чувство момента.",
 )
+
+
+def is_relevant_video(item):
+    """Reject generic fitness footage returned for broad combat searches."""
+
+    text = str(item.get("search_text") or "").casefold()
+    return any(term in text for term in VIDEO_RELEVANCE_TERMS)

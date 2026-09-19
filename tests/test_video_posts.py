@@ -20,6 +20,7 @@ def video(**changes):
         "source": "Pexels",
         "source_url": "https://www.pexels.com/video/42/",
         "video_url": "https://video.test/42.mp4",
+        "search_text": "mma sparring",
     }
     value.update(changes)
     return value
@@ -52,6 +53,19 @@ def test_selection_skips_published_id_and_source_url():
     )
     assert select_video([old, fresh], [{"media_id": old["media_id"]}]) == fresh
     assert select_video([old], [{"source_url": old["source_url"]}]) is None
+
+
+def test_selection_rejects_generic_fitness_and_prefers_curated_video():
+    fitness = video(
+        id="pixabay:293085",
+        media_id="pixabay:293085",
+        search_text="woman fitness exercise workout",
+    )
+    ordinary = video(id="pexels:99", media_id="pexels:99")
+    featured = video(id="pexels:6296587", media_id="pexels:6296587")
+
+    assert select_video([fitness], []) is None
+    assert select_video([ordinary, featured], []) == featured
 
 
 def test_caption_is_short_note_with_clickable_source():

@@ -22,11 +22,13 @@ from project.formatter import format_video_caption
 from project.video_settings import (
     VIDEO_MAX_DURATION_SECONDS,
     VIDEO_MAX_SIZE_BYTES,
+    VIDEO_FEATURED_MEDIA_IDS,
     VIDEO_NOTES,
     VIDEO_ORIENTATION,
     VIDEO_RESULTS_PER_RUN,
     VIDEO_SEARCH_QUERIES,
     VIDEO_SOURCES,
+    is_relevant_video,
 )
 from publishing.telegram import (
     VideoDownloadError,
@@ -103,15 +105,17 @@ def select_video(candidates, history):
         for entry in history
         if isinstance(entry, dict) and entry.get("source_url")
     }
-    return next(
-        (
-            item
-            for item in candidates
-            if str(item.get("media_id")) not in published_ids
-            and item.get("source_url") not in published_urls
-        ),
-        None,
+    eligible = [
+        item
+        for item in candidates
+        if is_relevant_video(item)
+        and str(item.get("media_id")) not in published_ids
+        and item.get("source_url") not in published_urls
+    ]
+    eligible.sort(
+        key=lambda item: str(item.get("media_id")) not in VIDEO_FEATURED_MEDIA_IDS
     )
+    return eligible[0] if eligible else None
 
 
 def prepare_caption(item):
