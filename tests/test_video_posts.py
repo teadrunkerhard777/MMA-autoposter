@@ -1,4 +1,5 @@
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 
 from publishing.telegram import TelegramSendResult, TemporaryVideo
 from video_posts import (
@@ -6,6 +7,7 @@ from video_posts import (
     choose_source_order,
     prepare_caption,
     publish_video_slot,
+    resolve_slot,
     select_video,
 )
 
@@ -31,6 +33,14 @@ def test_slots_rotate_queries_and_preferred_sources():
     assert choose_source_order("day", today)[0] != choose_source_order(
         "evening", today
     )[0]
+
+
+def test_auto_slot_uses_yekaterinburg_local_time():
+    timezone = ZoneInfo("Asia/Yekaterinburg")
+
+    assert resolve_slot("auto", datetime(2026, 9, 19, 13, tzinfo=timezone)) == "day"
+    assert resolve_slot("auto", datetime(2026, 9, 19, 20, tzinfo=timezone)) == "evening"
+    assert resolve_slot("day") == "day"
 
 
 def test_selection_skips_published_id_and_source_url():

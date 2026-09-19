@@ -40,5 +40,5 @@ def test_video_workflow_supports_safe_manual_api_validation():
     assert "PEXELS_API_KEY" in text
     assert "PIXABAY_API_KEY" in text
     assert "inputs.publish" in text
-    assert 'python video_posts.py --slot "${{ inputs.slot }}"' in text
+    assert 'python video_posts.py --slot "${{ inputs.slot || \'auto\' }}"' in text
     assert "git add storage/video_published.json" in text

@@ -61,6 +61,16 @@ def choose_source_order(slot, current_date=None):
     return VIDEO_SOURCES[preferred:] + VIDEO_SOURCES[:preferred]
 
 
+def resolve_slot(slot, now=None):
+    """Map an external scheduler run to the local daytime or evening slot."""
+
+    if slot != "auto":
+        return slot
+    current = now or datetime.now(LOCAL_TIMEZONE)
+    local = current.astimezone(LOCAL_TIMEZONE)
+    return "day" if local.hour < 17 else "evening"
+
+
 def collect_source_videos(source, query):
     if source == "Pexels":
         return collect_pexels_videos(
@@ -185,9 +195,13 @@ def publish_video_slot(
 def run():
     configure_ssl()
     parser = argparse.ArgumentParser()
-    parser.add_argument("--slot", choices=("day", "evening"), required=True)
+    parser.add_argument(
+        "--slot",
+        choices=("auto", "day", "evening"),
+        default="auto",
+    )
     args = parser.parse_args()
-    return publish_video_slot(args.slot)
+    return publish_video_slot(resolve_slot(args.slot))
 
 
 if __name__ == "__main__":

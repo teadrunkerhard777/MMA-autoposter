@@ -5,9 +5,11 @@ on:
     inputs:
       slot:
         description: Video slot
-        required: true
+        required: false
         type: choice
+        default: auto
         options:
+          - auto
           - day
           - evening
       publish:
@@ -45,7 +47,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           AUTOPOSTER_DRY_RUN: ${{ inputs.publish && 'false' || 'true' }}
-        run: python video_posts.py --slot "${{ inputs.slot }}"
+        run: python video_posts.py --slot "${{ inputs.slot || 'auto' }}"
       - name: Commit video history
         if: ${{ success() && inputs.publish }}
         shell: bash

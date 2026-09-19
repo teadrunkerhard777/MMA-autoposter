@@ -14,7 +14,7 @@ template and keeps local execution safe by default.
 - Isolated source-specific article extractors and stop markers.
 - Project-owned visual roles and validated DRY_RUN image previews.
 - Telegram text/photo publishing with temporary-file fallback.
-- Two daily native-video slots, dispatched by cron-job.org at 13:00 and 20:00
+- Two daily native-video slots, dispatched by one cron-job.org task at 13:00 and 20:00
   Asia/Yekaterinburg and dynamically filled from Pexels and Pixabay.
 - Duplicate protection for uncertain Telegram network outcomes.
 - JSON publication history with backward-compatible fingerprints.
@@ -69,7 +69,8 @@ design and LiveCrime mapping, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 Do not use real credentials in committed files. The included workflows read
 credentials only from GitHub Secrets. News and Fighter of the Day remain
-manual. Two external cron-job.org tasks dispatch the video workflow, which
+manual. One external cron-job.org task dispatches the video workflow twice a
+day. The workflow determines the slot from local time, then
 alternates Pexels and Pixabay with automatic fallback and skips safely if its
 API keys are unavailable or no unused suitable clip is found. Add
 `PEXELS_API_KEY` and `PIXABAY_API_KEY` to GitHub Actions secrets and follow

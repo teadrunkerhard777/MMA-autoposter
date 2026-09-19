@@ -1,9 +1,10 @@
 # Настройка видеозадач в cron-job.org
 
-Встроенное расписание GitHub Actions не используется. Две независимые задачи
-cron-job.org вызывают один workflow с разными видеослотами.
+Встроенное расписание GitHub Actions не используется. Одна задача cron-job.org
+вызывает видеопостинг два раза в день. Workflow сам определяет дневной или
+вечерний слот по времени `Asia/Yekaterinburg`.
 
-Общие параметры обеих задач:
+Параметры задачи:
 
 - Method: `POST`
 - URL: `https://api.github.com/repos/teadrunkerhard777/MMA-autoposter/actions/workflows/video-post.yml/dispatches`
@@ -12,25 +13,15 @@ cron-job.org вызывают один workflow с разными видеосл
 - Header `X-GitHub-Api-Version`: `2026-03-10`
 - Header `Content-Type`: `application/json`
 - Timezone: `Asia/Yekaterinburg`
+- Title: `MMA Video Autoposter`
+- Schedule: `0 13,20 * * *`
+- Body: `{"ref":"main","inputs":{"publish":true}}`
 - Request timeout: `30 seconds`
 - Automatic retries: `Off`
 
 Токен должен иметь доступ только к `MMA-autoposter` и разрешение
 **Actions: Read and write**. Храните его только в приватном заголовке задачи.
 
-## Дневной ролик
-
-- Title: `MMA Video Day`
-- Schedule: `0 13 * * *`
-- Body: `{"ref":"main","inputs":{"slot":"day","publish":true}}`
-
-## Вечерний ролик
-
-- Title: `MMA Video Evening`
-- Schedule: `0 20 * * *`
-- Body: `{"ref":"main","inputs":{"slot":"evening","publish":true}}`
-
-Успешный запрос возвращает HTTP 204. После сохранения сначала запустите каждую
-задачу вручную и убедитесь, что появился соответствующий запуск `MMA TODAY
-Video Post`. Повторные запросы отключены, чтобы неопределённый сетевой результат
-не породил второй запуск.
+Успешный запрос возвращает HTTP 204. После сохранения запустите задачу вручную
+и убедитесь, что появился запуск `MMA TODAY Video Post`. Повторные запросы
+отключены, чтобы неопределённый сетевой результат не породил второй запуск.
