@@ -25588,5 +25588,45 @@
         "bangkok"
       ]
     }
+  },
+  {
+    "title": "Арман Царукян и Маурисио Руффи устроили перепалку на финальном стердауне",
+    "url": "https://www.sports.ru/boxing/1117375178-finalnyj-sterdaun-armana-czarukyana-i-maurisio-ruffi.html",
+    "published_at": "2026-09-19T10:25:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "арман",
+        "боем",
+        "лос-анджелесе",
+        "маурисио",
+        "перед",
+        "перепалку",
+        "поединок",
+        "проведет",
+        "провели",
+        "против",
+        "руффи",
+        "сентября",
+        "состоится",
+        "стердаун",
+        "стердауне",
+        "турнире",
+        "устроили",
+        "финальном",
+        "финальный",
+        "царукян"
+      ],
+      "participants": [
+        "arman_tsarukyan",
+        "mauricio_ruffy"
+      ],
+      "event_at": null,
+      "event_date": "2026-09-20",
+      "locations": []
+    }
   }
 ]
