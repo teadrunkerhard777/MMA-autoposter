@@ -26119,5 +26119,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "manon_fiorot",
+    "selected_at": "2026-09-19T17:22:26.113343+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
