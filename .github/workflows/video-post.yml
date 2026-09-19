@@ -1,10 +1,6 @@
 name: MMA TODAY Video Post
 
 on:
-  schedule:
-    # GitHub cron is UTC: 08:00/15:00 = 13:00/20:00 Asia/Yekaterinburg.
-    - cron: "0 8 * * *"
-    - cron: "0 15 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -42,30 +38,16 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Run tests
         run: python -m pytest
-      - name: Select slot
-        id: slot
-        shell: bash
-        env:
-          MANUAL_SLOT: ${{ inputs.slot }}
-          SCHEDULE: ${{ github.event.schedule }}
-        run: |
-          if [ -n "$MANUAL_SLOT" ]; then
-            echo "value=$MANUAL_SLOT" >> "$GITHUB_OUTPUT"
-          elif [ "$SCHEDULE" = "0 8 * * *" ]; then
-            echo "value=day" >> "$GITHUB_OUTPUT"
-          else
-            echo "value=evening" >> "$GITHUB_OUTPUT"
-          fi
       - name: Publish video
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          AUTOPOSTER_DRY_RUN: ${{ (github.event_name == 'schedule' || inputs.publish) && 'false' || 'true' }}
-        run: python video_posts.py --slot "${{ steps.slot.outputs.value }}"
+          AUTOPOSTER_DRY_RUN: ${{ inputs.publish && 'false' || 'true' }}
+        run: python video_posts.py --slot "${{ inputs.slot }}"
       - name: Commit video history
-        if: ${{ success() && (github.event_name == 'schedule' || inputs.publish) }}
+        if: ${{ success() && inputs.publish }}
         shell: bash
         run: |
           if git diff --quiet -- storage/video_published.json; then

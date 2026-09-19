@@ -36,8 +36,9 @@ def test_fighter_workflow_is_manual_and_uses_shared_history():
 def test_video_workflow_supports_safe_manual_api_validation():
     text = VIDEO_WORKFLOW.read_text(encoding="utf-8")
 
+    assert "schedule:" not in text
     assert "PEXELS_API_KEY" in text
     assert "PIXABAY_API_KEY" in text
     assert "inputs.publish" in text
-    assert "github.event_name == 'schedule'" in text
+    assert 'python video_posts.py --slot "${{ inputs.slot }}"' in text
     assert "git add storage/video_published.json" in text
