@@ -14,7 +14,8 @@ template and keeps local execution safe by default.
 - Isolated source-specific article extractors and stop markers.
 - Project-owned visual roles and validated DRY_RUN image previews.
 - Telegram text/photo publishing with temporary-file fallback.
-- Two daily native-video slots at 13:00 and 20:00 Asia/Yekaterinburg.
+- Two daily native-video slots at 13:00 and 20:00 Asia/Yekaterinburg,
+  dynamically filled from Pexels and Pixabay.
 - Duplicate protection for uncertain Telegram network outcomes.
 - JSON publication history with backward-compatible fingerprints.
 - Safe `DRY_RUN=True`, a local process lock, tests, and GitHub Actions.
@@ -68,5 +69,7 @@ design and LiveCrime mapping, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 Do not use real credentials in committed files. The included workflows read
 credentials only from GitHub Secrets. News and Fighter of the Day remain
-manual; the video workflow runs twice daily and safely does nothing when its
-rights-cleared queue is empty. See `project/content/videos/README.md`.
+manual. The video workflow runs twice daily, alternates Pexels and Pixabay
+with automatic fallback, and skips safely if its API keys are unavailable or
+no unused suitable clip is found. Add `PEXELS_API_KEY` and `PIXABAY_API_KEY`
+to GitHub Actions secrets.

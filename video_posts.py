@@ -1,26 +1,41 @@
-"""Publish one rights-cleared native video in a requested daily slot."""
+"""Collect and publish one licensed MMA video in a requested daily slot."""
 
 import argparse
 import json
+import os
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from collectors.pexels_video_collector import (
+    PexelsVideoError,
+    collect_pexels_videos,
+)
+from collectors.pixabay_video_collector import (
+    PixabayVideoError,
+    collect_pixabay_videos,
+)
 from config import DRY_RUN
+from core.environment import configure_ssl
 from core.run_lock import AlreadyRunningError, single_instance_lock
 from project.formatter import format_video_caption
+from project.video_settings import (
+    VIDEO_MAX_DURATION_SECONDS,
+    VIDEO_MAX_SIZE_BYTES,
+    VIDEO_NOTES,
+    VIDEO_ORIENTATION,
+    VIDEO_RESULTS_PER_RUN,
+    VIDEO_SEARCH_QUERIES,
+    VIDEO_SOURCES,
+)
 from publishing.telegram import (
-    MAX_VIDEO_SIZE_BYTES,
-    TemporaryVideo,
     VideoDownloadError,
     download_video_temp,
     send_telegram_video,
 )
 
 
-VIDEO_QUEUE_FILE = Path("project/content/videos/index.json")
 VIDEO_HISTORY_FILE = Path("storage/video_published.json")
-VIDEO_ASSET_DIR = Path("project/content/videos/clips")
 LOCAL_TIMEZONE = ZoneInfo("Asia/Yekaterinburg")
 
 
@@ -33,49 +48,102 @@ def load_json_list(path):
     return value if isinstance(value, list) else []
 
 
-def select_video(queue, history, slot):
+def choose_search_query(slot, current_date=None):
+    queries = VIDEO_SEARCH_QUERIES[slot]
+    day = current_date or datetime.now(LOCAL_TIMEZONE).date()
+    return queries[day.toordinal() % len(queries)]
+
+
+def choose_source_order(slot, current_date=None):
+    day = current_date or datetime.now(LOCAL_TIMEZONE).date()
+    slot_offset = 0 if slot == "day" else 1
+    preferred = (day.toordinal() + slot_offset) % len(VIDEO_SOURCES)
+    return VIDEO_SOURCES[preferred:] + VIDEO_SOURCES[:preferred]
+
+
+def collect_source_videos(source, query):
+    if source == "Pexels":
+        return collect_pexels_videos(
+            os.getenv("PEXELS_API_KEY", "").strip(),
+            query,
+            VIDEO_ORIENTATION,
+            VIDEO_RESULTS_PER_RUN,
+            VIDEO_MAX_DURATION_SECONDS,
+            VIDEO_MAX_SIZE_BYTES,
+        )
+    if source == "Pixabay":
+        return collect_pixabay_videos(
+            os.getenv("PIXABAY_API_KEY", "").strip(),
+            query,
+            VIDEO_RESULTS_PER_RUN,
+            VIDEO_MAX_DURATION_SECONDS,
+            VIDEO_MAX_SIZE_BYTES,
+        )
+    return []
+
+
+def select_video(candidates, history):
     published_ids = {
-        entry.get("id") for entry in history if isinstance(entry, dict)
+        str(entry.get("media_id") or entry.get("id"))
+        for entry in history
+        if isinstance(entry, dict)
     }
-    for item in queue:
-        if not isinstance(item, dict):
-            continue
-        if item.get("slot") != slot or item.get("id") in published_ids:
-            continue
-        if not item.get("rights_confirmed") or not item.get("license_note"):
-            continue
-        if not all(item.get(key) for key in ("id", "title", "source", "source_url")):
-            continue
-        if not (item.get("video_path") or item.get("video_url")):
-            continue
-        return item
-    return None
+    published_urls = {
+        entry.get("source_url")
+        for entry in history
+        if isinstance(entry, dict) and entry.get("source_url")
+    }
+    return next(
+        (
+            item
+            for item in candidates
+            if str(item.get("media_id")) not in published_ids
+            and item.get("source_url") not in published_urls
+        ),
+        None,
+    )
+
+
+def prepare_caption(item):
+    media_id = str(item.get("media_id") or "video")
+    prepared = dict(item)
+    prepared["note"] = VIDEO_NOTES[
+        sum(media_id.encode("utf-8")) % len(VIDEO_NOTES)
+    ]
+    return format_video_caption(prepared)
 
 
 def publish_video_slot(
     slot,
     dry_run=DRY_RUN,
-    queue_path=VIDEO_QUEUE_FILE,
     history_path=VIDEO_HISTORY_FILE,
+    collect_source=collect_source_videos,
     download_video=download_video_temp,
     send_video=send_telegram_video,
+    current_date=None,
 ):
-    queue = load_json_list(queue_path)
     history = load_json_list(history_path)
-    item = select_video(queue, history, slot)
-    if item is None:
-        print(f"Video queue: no eligible item for {slot}")
+    query = choose_search_query(slot, current_date)
+    print(f"Video query ({slot}): {query}")
+    selected = None
+    for source in choose_source_order(slot, current_date):
+        try:
+            candidates = collect_source(source, query)
+        except (PexelsVideoError, PixabayVideoError) as error:
+            print(f"Video source warning ({source}): {error}")
+            continue
+        print(f"Suitable videos ({source}): {len(candidates)}")
+        selected = select_video(candidates, history)
+        if selected is not None:
+            break
+    if selected is None:
+        print(f"Video search: no unpublished item for {slot}")
         return None
 
     temporary_video = None
     try:
-        is_temporary = not bool(item.get("video_path"))
-        temporary_video = (
-            validate_local_video(item["video_path"])
-            if item.get("video_path")
-            else download_video(item["video_url"])
-        )
-        caption = format_video_caption(item)
+        temporary_video = download_video(selected["video_url"])
+        caption = prepare_caption(selected)
         if dry_run:
             print("[DRY RUN] Telegram was not called")
             print(
@@ -83,8 +151,7 @@ def publish_video_slot(
                 f"{temporary_video.size_bytes} bytes"
             )
             print(caption)
-            return item
-
+            return selected
         with temporary_video.path.open("rb") as video_file:
             result = send_video(
                 video_file,
@@ -94,50 +161,29 @@ def publish_video_slot(
             )
         if not result:
             return None
-
         history.append({
-            "id": item["id"],
+            "id": selected["media_id"],
+            "media_id": selected["media_id"],
             "slot": slot,
             "published_at": datetime.now(LOCAL_TIMEZONE).isoformat(),
-            "source_url": item.get("source_url"),
+            "source_url": selected.get("source_url"),
+            "source": selected.get("source"),
         })
-        with Path(history_path).open("w", encoding="utf-8") as file:
-            json.dump(history, file, ensure_ascii=False, indent=2)
-        return item
+        Path(history_path).write_text(
+            json.dumps(history, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        return selected
     except (VideoDownloadError, OSError) as error:
         print(f"Video rejected: {type(error).__name__}")
         return None
     finally:
-        if (
-            temporary_video
-            and is_temporary
-            and temporary_video.path.exists()
-        ):
+        if temporary_video and temporary_video.path.exists():
             temporary_video.path.unlink()
 
 
-def validate_local_video(video_path, asset_dir=VIDEO_ASSET_DIR):
-    """Validate a repository-owned MP4 without deleting it after use."""
-
-    asset_root = Path(asset_dir).resolve()
-    path = Path(video_path).resolve()
-    try:
-        path.relative_to(asset_root)
-    except ValueError as error:
-        raise VideoDownloadError("video path is outside the asset directory") from error
-    if not path.is_file():
-        raise VideoDownloadError("video file is missing")
-    size_bytes = path.stat().st_size
-    if size_bytes == 0 or size_bytes > MAX_VIDEO_SIZE_BYTES:
-        raise VideoDownloadError("invalid video size")
-    with path.open("rb") as video_file:
-        header = video_file.read(32)
-    if len(header) < 12 or header[4:8] != b"ftyp":
-        raise VideoDownloadError("video bytes are not an MP4 container")
-    return TemporaryVideo(path, "video/mp4", size_bytes)
-
-
 def run():
+    configure_ssl()
     parser = argparse.ArgumentParser()
     parser.add_argument("--slot", choices=("day", "evening"), required=True)
     args = parser.parse_args()

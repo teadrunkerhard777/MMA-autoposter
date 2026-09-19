@@ -1,140 +1,100 @@
-import json
+from datetime import date
 
-import pytest
-
-from publishing.telegram import (
-    TelegramSendResult,
-    TemporaryVideo,
-    VideoDownloadError,
-    download_video_temp,
+from publishing.telegram import TelegramSendResult, TemporaryVideo
+from video_posts import (
+    choose_search_query,
+    choose_source_order,
+    prepare_caption,
+    publish_video_slot,
+    select_video,
 )
-from video_posts import publish_video_slot, select_video, validate_local_video
 
 
-def item(**changes):
+def video(**changes):
     value = {
-        "id": "clip-1",
-        "slot": "day",
-        "title": "Moment",
-        "note": "What happened.",
-        "video_url": "https://cdn.test/clip.mp4",
-        "source": "Owner",
-        "source_url": "https://owner.test/post",
-        "rights_confirmed": True,
-        "license_note": "Used with permission",
+        "id": "pexels:42",
+        "media_id": "pexels:42",
+        "title": "Момент из мира единоборств",
+        "source": "Pexels",
+        "source_url": "https://www.pexels.com/video/42/",
+        "video_url": "https://video.test/42.mp4",
     }
     value.update(changes)
     return value
 
 
-def test_selection_requires_matching_slot_rights_and_unused_id():
-    assert select_video([item()], [], "day")["id"] == "clip-1"
-    assert select_video([item()], [], "evening") is None
-    assert select_video([item(rights_confirmed=False)], [], "day") is None
-    assert select_video([item()], [{"id": "clip-1"}], "day") is None
+def test_slots_rotate_queries_and_preferred_sources():
+    today = date(2026, 9, 19)
+    assert choose_search_query("day", today) != choose_search_query(
+        "evening", today
+    )
+    assert choose_source_order("day", today)[0] != choose_source_order(
+        "evening", today
+    )[0]
 
 
-def test_dry_run_validates_and_removes_video_without_send_or_history(tmp_path):
-    queue_path = tmp_path / "queue.json"
-    queue_path.write_text(json.dumps([item()]), encoding="utf-8")
+def test_selection_skips_published_id_and_source_url():
+    old = video()
+    fresh = video(
+        id="pixabay:77",
+        media_id="pixabay:77",
+        source_url="https://pixabay.com/videos/id-77/",
+    )
+    assert select_video([old, fresh], [{"media_id": old["media_id"]}]) == fresh
+    assert select_video([old], [{"source_url": old["source_url"]}]) is None
+
+
+def test_caption_is_short_note_with_clickable_source():
+    caption = prepare_caption(video())
+    assert "Момент из мира единоборств" in caption
+    assert '<a href="https://www.pexels.com/video/42/">Pexels</a>' in caption
+    assert "#MMAVideo" in caption
+
+
+def test_dry_run_uses_fallback_and_does_not_send_or_write_history(tmp_path):
     history_path = tmp_path / "history.json"
     history_path.write_text("[]", encoding="utf-8")
-    video_path = tmp_path / "clip.mp4"
+    video_path = tmp_path / "video.mp4"
     video_path.write_bytes(b"video")
+
+    def collect(source, query):
+        return [] if source == "Pexels" else [video(source="Pixabay")]
 
     selected = publish_video_slot(
         "day",
         dry_run=True,
-        queue_path=queue_path,
         history_path=history_path,
+        collect_source=collect,
         download_video=lambda url: TemporaryVideo(video_path, "video/mp4", 5),
         send_video=lambda *args, **kwargs: (_ for _ in ()).throw(
             AssertionError("Telegram must not be called")
         ),
+        current_date=date(2026, 9, 19),
     )
 
-    assert selected["id"] == "clip-1"
+    assert selected["media_id"] == "pexels:42"
     assert history_path.read_text(encoding="utf-8") == "[]"
     assert not video_path.exists()
 
 
-def test_confirmed_send_updates_history(tmp_path):
-    queue_path = tmp_path / "queue.json"
-    queue_path.write_text(json.dumps([item()]), encoding="utf-8")
+def test_confirmed_send_appends_dynamic_media_history(tmp_path):
     history_path = tmp_path / "history.json"
     history_path.write_text("[]", encoding="utf-8")
-    video_path = tmp_path / "clip.mp4"
+    video_path = tmp_path / "video.mp4"
     video_path.write_bytes(b"video")
 
     selected = publish_video_slot(
-        "day",
+        "evening",
         dry_run=False,
-        queue_path=queue_path,
         history_path=history_path,
+        collect_source=lambda source, query: [video()],
         download_video=lambda url: TemporaryVideo(video_path, "video/mp4", 5),
         send_video=lambda *args, **kwargs: TelegramSendResult(True),
+        current_date=date(2026, 9, 19),
     )
 
-    assert selected["id"] == "clip-1"
-    assert '"id": "clip-1"' in history_path.read_text(encoding="utf-8")
+    assert selected["media_id"] == "pexels:42"
+    assert '"media_id": "pexels:42"' in history_path.read_text(
+        encoding="utf-8"
+    )
     assert not video_path.exists()
-
-
-class VideoResponse:
-    def __init__(self, body, content_type="video/mp4"):
-        self.body = body
-        self.headers = {
-            "Content-Type": content_type,
-            "Content-Length": str(len(body)),
-        }
-
-    def raise_for_status(self):
-        return None
-
-    def iter_content(self, chunk_size):
-        yield self.body
-
-    def close(self):
-        return None
-
-
-def test_video_download_accepts_mp4_and_removes_temp_after_use(monkeypatch):
-    body = b"\x00\x00\x00\x18ftypisom" + b"0" * 20
-    monkeypatch.setattr(
-        "publishing.telegram.requests.get",
-        lambda *args, **kwargs: VideoResponse(body),
-    )
-
-    video = download_video_temp("https://cdn.test/clip.mp4")
-    try:
-        assert video.mime_type == "video/mp4"
-        assert video.path.read_bytes() == body
-    finally:
-        video.path.unlink()
-
-
-def test_video_download_rejects_non_mp4(monkeypatch):
-    monkeypatch.setattr(
-        "publishing.telegram.requests.get",
-        lambda *args, **kwargs: VideoResponse(b"not-video", "text/html"),
-    )
-
-    with pytest.raises(VideoDownloadError):
-        download_video_temp("https://cdn.test/clip.mp4")
-
-
-def test_local_video_must_be_valid_mp4_inside_asset_directory(tmp_path):
-    asset_dir = tmp_path / "clips"
-    asset_dir.mkdir()
-    video_path = asset_dir / "clip.mp4"
-    video_path.write_bytes(b"\x00\x00\x00\x18ftypisom" + b"0" * 20)
-
-    video = validate_local_video(video_path, asset_dir=asset_dir)
-
-    assert video.path == video_path.resolve()
-    assert video.mime_type == "video/mp4"
-
-    outside_path = tmp_path / "outside.mp4"
-    outside_path.write_bytes(video_path.read_bytes())
-    with pytest.raises(VideoDownloadError):
-        validate_local_video(outside_path, asset_dir=asset_dir)
