@@ -101,6 +101,6 @@ def _best_video_file(video_files, max_size_bytes):
         suitable,
         key=lambda item: (
             abs(max(item.get("width", 0), item.get("height", 0)) - 1080),
-            item["file_size"],
+            item.get("file_size") or max_size_bytes,
         ),
     )

@@ -55,7 +55,7 @@ def test_pexels_collector_uses_official_search_and_compact_mp4(monkeypatch):
 
 def test_pexels_accepts_missing_size_for_stream_validation(monkeypatch):
     response = Response()
-    response.payload["videos"][0]["video_files"][1]["file_size"] = None
+    response.payload["videos"][0]["video_files"][1].pop("file_size")
     monkeypatch.setattr(
         "collectors.pexels_video_collector.requests.get",
         lambda *args, **kwargs: response,
