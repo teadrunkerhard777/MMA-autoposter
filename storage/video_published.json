@@ -58,5 +58,13 @@
     "published_at": "2026-09-20T15:00:51.117218+05:00",
     "source_url": "https://pixabay.com/videos/id-52101/",
     "source": "Pixabay"
+  },
+  {
+    "id": "pexels:6296447",
+    "media_id": "pexels:6296447",
+    "slot": "evening",
+    "published_at": "2026-09-20T21:00:54.149911+05:00",
+    "source_url": "https://www.pexels.com/video/men-doing-sparring-6296447/",
+    "source": "Pexels"
   }
 ]
