@@ -67,6 +67,13 @@ def test_selection_rejects_generic_fitness_and_prefers_curated_video():
     assert select_video([fitness], []) is None
     assert select_video([ordinary, featured], []) == featured
 
+    animated_food = video(
+        id="pixabay:61116",
+        media_id="pixabay:61116",
+        search_text="ice cream boxing fight fighting 3d animation",
+    )
+    assert select_video([animated_food], []) is None
+
 
 def test_selection_rejects_different_id_from_same_visual_series():
     previous_edit = {"media_id": "pixabay:216568"}

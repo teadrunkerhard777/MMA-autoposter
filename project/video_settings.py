@@ -32,6 +32,17 @@ VIDEO_RELEVANCE_TERMS = (
     "combat sport",
     "sparring",
 )
+VIDEO_REJECTION_TERMS = (
+    "animation",
+    "animated",
+    "cartoon",
+    "3d render",
+    "3d animation",
+    "ice cream",
+    "food",
+    "toy",
+    "video game",
+)
 VIDEO_FEATURED_MEDIA_IDS = {
     "pexels:6296587",
     "pexels:6296447",
@@ -69,4 +80,7 @@ def is_relevant_video(item):
     """Reject generic fitness footage returned for broad combat searches."""
 
     text = str(item.get("search_text") or "").casefold()
-    return any(term in text for term in VIDEO_RELEVANCE_TERMS)
+    return (
+        any(term in text for term in VIDEO_RELEVANCE_TERMS)
+        and not any(term in text for term in VIDEO_REJECTION_TERMS)
+    )
