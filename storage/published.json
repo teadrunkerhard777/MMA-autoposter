@@ -27767,5 +27767,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "merab_dvalishvili",
+    "selected_at": "2026-09-20T17:22:29.288073+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
