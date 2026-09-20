@@ -40,9 +40,15 @@ VIDEO_FEATURED_MEDIA_IDS = {
     "pexels:35030806",
     "pexels:35030839",
     "pixabay:54875",
-    "pixabay:52101",
     "pixabay:20112",
     "pixabay:167490",
+}
+
+# Stock libraries can publish different edits from one filming session under
+# separate IDs. Treat those edits as one visual story for channel diversity.
+VIDEO_DUPLICATE_GROUPS = {
+    "pixabay:216568": "dark-studio-boxer-closeup",
+    "pixabay:52101": "dark-studio-boxer-closeup",
 }
 
 VIDEO_NOTES = (

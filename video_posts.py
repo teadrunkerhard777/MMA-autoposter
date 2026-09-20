@@ -20,9 +20,10 @@ from core.environment import configure_ssl
 from core.run_lock import AlreadyRunningError, single_instance_lock
 from project.formatter import format_video_caption
 from project.video_settings import (
+    VIDEO_DUPLICATE_GROUPS,
+    VIDEO_FEATURED_MEDIA_IDS,
     VIDEO_MAX_DURATION_SECONDS,
     VIDEO_MAX_SIZE_BYTES,
-    VIDEO_FEATURED_MEDIA_IDS,
     VIDEO_NOTES,
     VIDEO_ORIENTATION,
     VIDEO_RESULTS_PER_RUN,
@@ -105,12 +106,22 @@ def select_video(candidates, history):
         for entry in history
         if isinstance(entry, dict) and entry.get("source_url")
     }
+    published_groups = {
+        VIDEO_DUPLICATE_GROUPS.get(
+            str(entry.get("media_id") or entry.get("id"))
+        )
+        for entry in history
+        if isinstance(entry, dict)
+    }
+    published_groups.discard(None)
     eligible = [
         item
         for item in candidates
         if is_relevant_video(item)
         and str(item.get("media_id")) not in published_ids
         and item.get("source_url") not in published_urls
+        and VIDEO_DUPLICATE_GROUPS.get(str(item.get("media_id")))
+        not in published_groups
     ]
     eligible.sort(
         key=lambda item: str(item.get("media_id")) not in VIDEO_FEATURED_MEDIA_IDS

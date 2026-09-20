@@ -68,6 +68,17 @@ def test_selection_rejects_generic_fitness_and_prefers_curated_video():
     assert select_video([ordinary, featured], []) == featured
 
 
+def test_selection_rejects_different_id_from_same_visual_series():
+    previous_edit = {"media_id": "pixabay:216568"}
+    same_boxer_new_edit = video(
+        id="pixabay:52101",
+        media_id="pixabay:52101",
+        search_text="boxer athlete gloves box fighting",
+    )
+
+    assert select_video([same_boxer_new_edit], [previous_edit]) is None
+
+
 def test_caption_is_short_note_with_clickable_source():
     caption = prepare_caption(video())
     assert "Момент из мира единоборств" in caption
