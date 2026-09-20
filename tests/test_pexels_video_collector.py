@@ -41,9 +41,10 @@ def test_pexels_collector_uses_official_search_and_compact_mp4(monkeypatch):
 
     monkeypatch.setattr("collectors.pexels_video_collector.requests.get", get)
     items = collect_pexels_videos(
-        "secret", "mma sparring", "portrait", 30, 35, 49_000_000
+        "secret", "mma sparring", "landscape", 30, 35, 49_000_000
     )
     assert request["headers"] == {"Authorization": "secret"}
     assert request["params"]["query"] == "mma sparring"
+    assert request["params"]["orientation"] == "landscape"
     assert items[0]["video_url"] == "https://cdn.test/hd.mp4"
     assert items[0]["media_id"] == "pexels:42"
