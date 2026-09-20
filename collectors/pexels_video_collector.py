@@ -88,7 +88,9 @@ def _best_video_file(video_files, max_size_bytes):
             continue
         size = item.get("file_size")
         width, height = item.get("width") or 0, item.get("height") or 0
-        if not isinstance(size, int) or not 0 < size <= max_size_bytes:
+        if isinstance(size, int) and not 0 < size <= max_size_bytes:
+            continue
+        if size is not None and not isinstance(size, int):
             continue
         if not width or not height or max(width, height) > 1920:
             continue
