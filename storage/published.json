@@ -30513,5 +30513,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "alexa_grasso",
+    "selected_at": "2026-09-22T17:22:23.952637+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
