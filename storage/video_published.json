@@ -82,5 +82,13 @@
     "published_at": "2026-09-22T15:00:57.669765+05:00",
     "source_url": "https://www.pexels.com/video/men-sparring-in-the-gym-6296492/",
     "source": "Pexels"
+  },
+  {
+    "id": "pexels:4761806",
+    "media_id": "pexels:4761806",
+    "slot": "evening",
+    "published_at": "2026-09-22T21:00:57.889774+05:00",
+    "source_url": "https://www.pexels.com/video/two-men-sparring-in-kick-boxing-4761806/",
+    "source": "Pexels"
   }
 ]
