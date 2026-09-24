@@ -114,5 +114,13 @@
     "published_at": "2026-09-24T15:00:54.427679+05:00",
     "source_url": "https://pixabay.com/videos/id-20112/",
     "source": "Pixabay"
+  },
+  {
+    "id": "pexels:8612109",
+    "media_id": "pexels:8612109",
+    "slot": "evening",
+    "published_at": "2026-09-24T21:30:51.742181+05:00",
+    "source_url": "https://www.pexels.com/video/brawny-man-practicing-kickboxing-8612109/",
+    "source": "Pexels"
   }
 ]
