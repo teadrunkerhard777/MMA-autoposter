@@ -106,5 +106,13 @@
     "published_at": "2026-09-23T21:00:54.790713+05:00",
     "source_url": "https://www.pexels.com/video/intense-female-mma-sparring-session-38631558/",
     "source": "Pexels"
+  },
+  {
+    "id": "pixabay:20112",
+    "media_id": "pixabay:20112",
+    "slot": "day",
+    "published_at": "2026-09-24T15:00:54.427679+05:00",
+    "source_url": "https://pixabay.com/videos/id-20112/",
+    "source": "Pixabay"
   }
 ]
