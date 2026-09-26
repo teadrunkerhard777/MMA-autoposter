@@ -35359,5 +35359,49 @@
         "las_vegas"
       ]
     }
+  },
+  {
+    "title": "Дюмонт бросила в Перес презервативы и купюры на битве взглядов перед турниром UFC Fight Night 289",
+    "url": "https://www.sports.ru/boxing/1117381323-dyumont-brosila-v-peres-prezervativy-i-kupyury-na-bitve-vzglyadov-pere.html",
+    "published_at": "2026-09-25T21:46:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "fight",
+        "night",
+        "айлин",
+        "битве",
+        "боец",
+        "бросила",
+        "веса",
+        "взвешивания",
+        "взглядов",
+        "дюмонт",
+        "женского",
+        "купюры",
+        "лас-вегасе",
+        "легчайшего",
+        "норма",
+        "перед",
+        "перес",
+        "поединок",
+        "презервативы",
+        "пройдет",
+        "сентября",
+        "соперницу",
+        "состоится",
+        "турнире",
+        "турниром"
+      ],
+      "participants": [],
+      "event_at": null,
+      "event_date": "2026-09-27",
+      "locations": [
+        "las_vegas"
+      ]
+    }
   }
 ]
