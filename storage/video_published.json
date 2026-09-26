@@ -138,5 +138,13 @@
     "published_at": "2026-09-25T21:30:47.444553+05:00",
     "source_url": "https://pixabay.com/videos/id-1031/",
     "source": "Pixabay"
+  },
+  {
+    "id": "pexels:4987397",
+    "media_id": "pexels:4987397",
+    "slot": "day",
+    "published_at": "2026-09-26T16:30:47.271253+05:00",
+    "source_url": "https://www.pexels.com/video/children-doing-muay-thai-4987397/",
+    "source": "Pexels"
   }
 ]
