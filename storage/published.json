@@ -35782,5 +35782,53 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Гейджи назвал пять величайших бойцов ММА: Грейси, Сильва, Сен-Пьер, Джонс, Лидделл",
+    "url": "https://www.sports.ru/boxing/1117382010-gejdzhi-nazval-pyat-velichajshix-bojczov-mma-grejsi-silva-sen-per-dzho.html",
+    "published_at": "2026-09-26T16:44:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_result"
+      ],
+      "tokens": [
+        "2026-го",
+        "андерсон",
+        "белом",
+        "бойцов",
+        "величайших",
+        "выходил",
+        "гейджи",
+        "грейси",
+        "джастин",
+        "джон",
+        "джонс",
+        "доме",
+        "жорж",
+        "илию",
+        "июне",
+        "лидделл",
+        "назвал",
+        "нокаутом",
+        "октагон",
+        "победил",
+        "поединке",
+        "последний",
+        "пять",
+        "ройс",
+        "сен-пьер",
+        "сильва",
+        "техническим",
+        "топурию",
+        "турнире"
+      ],
+      "participants": [
+        "jon_jones"
+      ],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
