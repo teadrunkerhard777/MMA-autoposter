@@ -154,5 +154,13 @@
     "published_at": "2026-09-27T16:30:40.022804+05:00",
     "source_url": "https://www.pexels.com/video/intense-mixed-martial-arts-sparring-session-38631562/",
     "source": "Pexels"
+  },
+  {
+    "id": "pixabay:167490",
+    "media_id": "pixabay:167490",
+    "slot": "day",
+    "published_at": "2026-09-28T16:30:50.234444+05:00",
+    "source_url": "https://pixabay.com/videos/id-167490/",
+    "source": "Pixabay"
   }
 ]
