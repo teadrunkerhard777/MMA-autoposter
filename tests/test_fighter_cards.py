@@ -6,6 +6,7 @@ from project.fighter_cards import (
     load_fighter_cards,
     validate_fighter_card,
 )
+from publishing.telegram import MAX_IMAGE_SIZE_BYTES
 
 
 def test_fighter_base_contains_30_valid_unique_cards():
@@ -85,3 +86,14 @@ def test_sources_stay_internal_and_images_are_not_falsely_cleared():
             assert card["image"]["publication_ready"] is False
             assert card["image"]["rights_status"] == "pending"
             assert not image_path.exists()
+
+
+def test_publication_ready_photos_fit_telegram_photo_limit():
+    project_root = FIGHTERS_ROOT.parent.parent.parent
+
+    for card in load_fighter_cards():
+        if not card["image"]["publication_ready"]:
+            continue
+
+        image_path = project_root / card["image"]["local_path"]
+        assert image_path.stat().st_size <= MAX_IMAGE_SIZE_BYTES, card["id"]
