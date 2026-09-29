@@ -162,5 +162,13 @@
     "published_at": "2026-09-28T16:30:50.234444+05:00",
     "source_url": "https://pixabay.com/videos/id-167490/",
     "source": "Pixabay"
+  },
+  {
+    "id": "pexels:6296495",
+    "media_id": "pexels:6296495",
+    "slot": "day",
+    "published_at": "2026-09-29T16:30:46.489386+05:00",
+    "source_url": "https://www.pexels.com/video/men-boxers-doing-handshake-6296495/",
+    "source": "Pexels"
   }
 ]
