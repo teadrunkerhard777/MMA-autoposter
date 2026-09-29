@@ -38919,5 +38919,52 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Хамзат Чимаев проведет схватку с Колби Ковингтоном за пояс RAF",
+    "url": "https://www.sports.ru/boxing/1117384630-xamzat-chimaev-provedet-sxvatku-s-kolbi-kovingtonom-za-poyas-raf.html",
+    "published_at": "2026-09-29T13:49:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "абу-даби",
+        "бороться",
+        "борцовскую",
+        "ковингтоном",
+        "ковингтону",
+        "колби",
+        "кону",
+        "крузервейте",
+        "лас-вегасе",
+        "лоулером",
+        "ноября",
+        "октября",
+        "пояс",
+        "принадлежит",
+        "проведет",
+        "робби",
+        "состоится",
+        "схватку",
+        "турнир",
+        "турнире",
+        "хамзат",
+        "чемпионский",
+        "чимаев",
+        "экс-чемпион",
+        "этом"
+      ],
+      "participants": [
+        "khamzat_chimaev"
+      ],
+      "event_at": null,
+      "event_date": "2026-10-23",
+      "locations": [
+        "abu_dhabi",
+        "las_vegas"
+      ]
+    }
   }
 ]
