@@ -40907,5 +40907,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "arman_tsarukyan",
+    "selected_at": "2026-10-01T17:22:25.583683+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
