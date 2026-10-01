@@ -178,5 +178,13 @@
     "published_at": "2026-09-30T16:30:41.386685+05:00",
     "source_url": "https://www.pexels.com/video/men-doing-kickboxing-6296647/",
     "source": "Pexels"
+  },
+  {
+    "id": "pexels:38631564",
+    "media_id": "pexels:38631564",
+    "slot": "day",
+    "published_at": "2026-10-01T16:30:42.160323+05:00",
+    "source_url": "https://www.pexels.com/video/women-s-martial-arts-sparring-session-38631564/",
+    "source": "Pexels"
   }
 ]
