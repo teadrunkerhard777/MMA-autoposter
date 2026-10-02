@@ -41895,5 +41895,13 @@
       "event_date": "2026-10-17",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "tracy_cortez",
+    "selected_at": "2026-10-02T17:22:28.144319+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
