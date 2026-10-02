@@ -186,5 +186,13 @@
     "published_at": "2026-10-01T16:30:42.160323+05:00",
     "source_url": "https://www.pexels.com/video/women-s-martial-arts-sparring-session-38631564/",
     "source": "Pexels"
+  },
+  {
+    "id": "pixabay:277900",
+    "media_id": "pixabay:277900",
+    "slot": "day",
+    "published_at": "2026-10-02T16:30:45.601502+05:00",
+    "source_url": "https://pixabay.com/videos/id-277900/",
+    "source": "Pixabay"
   }
 ]
