@@ -11,15 +11,7 @@ PHOTO_CAPTION_LIMIT = 1000
 VIDEO_CAPTION_LIMIT = 1000
 
 CATEGORY_LABELS = {
-    "fight_cancelled": "🚨 БОЙ ОТМЕНЁН",
-    "injury": "🩹 ТРАВМА",
-    "fight_result": "🏆 РЕЗУЛЬТАТ",
     "fight_announcement": "🔥 НОВЫЙ БОЙ",
-    "retirement": "🥊 ЗАВЕРШЕНИЕ КАРЬЕРЫ",
-    "contract_move": "📝 КОНТРАКТ",
-    "event_update": "📅 ТУРНИР",
-    "statement": "🎙 ЗАЯВЛЕНИЕ",
-    "fighter_news": "🥋 MMA",
     "evergreen_fighter": "🥋 БОЕЦ ДНЯ",
     "evergreen_women_mma": "✨ ЖЕНЩИНЫ В MMA",
     "evergreen_matchup": "⚔️ ПРОТИВОСТОЯНИЕ",
@@ -86,7 +78,7 @@ def _format(news_item, limit):
     source = escape(str(news_item.get("source") or "Источник не указан"))
     url = escape(str(news_item.get("url") or ""), quote=True)
     category = news_item.get("event_category")
-    label = CATEGORY_LABELS.get(category, CATEGORY_LABELS["fighter_news"])
+    label = CATEGORY_LABELS.get(category, "")
     tags = _hashtags(news_item)
 
     header_blocks = []
@@ -94,7 +86,9 @@ def _format(news_item, limit):
         header_blocks.append(
             "👀 <b>СЛУХ</b>\nПока официально не подтверждено."
         )
-    header_blocks.append(f"{label}\n\n<b>{title}</b>")
+    header_blocks.append(
+        f"{label}\n\n<b>{title}</b>" if label else f"<b>{title}</b>"
+    )
 
     footer = (
         f"{_date_line(news_item)}\n"

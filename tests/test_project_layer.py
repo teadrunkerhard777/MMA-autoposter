@@ -118,7 +118,7 @@ def test_formatter_escapes_html_and_keeps_russian_source_footer():
     assert ">Источник</a>" in post
 
 
-def test_formatter_separates_category_label_from_title():
+def test_formatter_omits_statement_category_label():
     news = item(
         "Мовсар Евлоев: «Я здесь, чтобы стать чемпионом»",
         "Заявление бойца UFC.",
@@ -128,9 +128,19 @@ def test_formatter_separates_category_label_from_title():
     post = format_post(news)
 
     assert (
-        "🎙 ЗАЯВЛЕНИЕ\n\n"
         "<b>Мовсар Евлоев: «Я здесь, чтобы стать чемпионом»</b>"
-    ) in post
+    ) == post.split("\n\n")[0]
+
+
+def test_news_labels_keep_only_new_fight_for_posts_and_photos():
+    for formatter in (format_post, format_photo_caption):
+        for category in ("injury", "fight_result", "fighter_news"):
+            news = item("Новость о бойце UFC")
+            news["event_category"] = category
+            assert formatter(news).startswith("<b>Новость о бойце UFC</b>")
+
+        news["event_category"] = "fight_announcement"
+        assert formatter(news).startswith("🔥 НОВЫЙ БОЙ\n\n<b>")
 
 
 def test_formatter_shows_publication_date_without_time_or_timezone():
