@@ -43265,5 +43265,53 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Сергей Павлович и Алекс Перейра проведут бой на UFC 335",
+    "url": "https://www.sports.ru/boxing/1117389334-sergej-pavlovich-i-aleks-perejra-provedut-boj-na-ufc-335.html",
+    "published_at": "2026-10-04T03:48:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_result"
+      ],
+      "tokens": [
+        "алекс",
+        "выиграл",
+        "гану",
+        "декабря",
+        "добавлен",
+        "кард",
+        "лас-вегасе",
+        "нокаутом",
+        "официально",
+        "павлович",
+        "павловича",
+        "перейра",
+        "перейры",
+        "побед",
+        "победа",
+        "поединке",
+        "поединок",
+        "поражения",
+        "последних",
+        "проведут",
+        "проиграл",
+        "прошлом",
+        "сергей",
+        "сирилу",
+        "счету",
+        "техническим",
+        "четыре"
+      ],
+      "participants": [
+        "alex_pereira"
+      ],
+      "event_at": null,
+      "event_date": null,
+      "locations": [
+        "las_vegas"
+      ]
+    }
   }
 ]
