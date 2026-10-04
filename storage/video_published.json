@@ -202,5 +202,13 @@
     "published_at": "2026-10-03T16:30:40.315774+05:00",
     "source_url": "https://www.pexels.com/video/men-doing-sparring-6296579/",
     "source": "Pexels"
+  },
+  {
+    "id": "pexels:6296646",
+    "media_id": "pexels:6296646",
+    "slot": "day",
+    "published_at": "2026-10-04T16:30:41.394080+05:00",
+    "source_url": "https://www.pexels.com/video/men-playing-boxing-6296646/",
+    "source": "Pexels"
   }
 ]
