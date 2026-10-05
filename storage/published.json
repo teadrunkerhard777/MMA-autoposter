@@ -44842,5 +44842,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "salahdine_parnasse",
+    "selected_at": "2026-10-05T17:22:22.784474+00:00",
+    "cycle": 1,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
