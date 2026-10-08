@@ -234,5 +234,13 @@
     "published_at": "2026-10-07T16:30:43.195001+05:00",
     "source_url": "https://www.pexels.com/video/men-doing-sparring-6296481/",
     "source": "Pexels"
+  },
+  {
+    "id": "pexels:6296689",
+    "media_id": "pexels:6296689",
+    "slot": "day",
+    "published_at": "2026-10-08T16:30:42.969864+05:00",
+    "source_url": "https://www.pexels.com/video/people-sparring-at-the-gym-6296689/",
+    "source": "Pexels"
   }
 ]
