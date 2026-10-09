@@ -48951,5 +48951,13 @@
         "las_vegas"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "petr_yan",
+    "selected_at": "2026-10-09T17:22:27.487839+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
