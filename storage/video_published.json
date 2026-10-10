@@ -250,5 +250,13 @@
     "published_at": "2026-10-09T16:30:41.847640+05:00",
     "source_url": "https://www.pexels.com/video/muay-thai-kick-15527457/",
     "source": "Pexels"
+  },
+  {
+    "id": "pixabay:20117",
+    "media_id": "pixabay:20117",
+    "slot": "day",
+    "published_at": "2026-10-10T16:30:44.478712+05:00",
+    "source_url": "https://pixabay.com/videos/id-20117/",
+    "source": "Pixabay"
   }
 ]
