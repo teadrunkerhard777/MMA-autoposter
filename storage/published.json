@@ -50013,5 +50013,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "zhang_weili",
+    "selected_at": "2026-10-10T17:22:22.248618+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "female"
   }
 ]
