@@ -51099,5 +51099,13 @@
         "las_vegas"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "ilia_topuria",
+    "selected_at": "2026-10-11T17:22:24.116674+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
