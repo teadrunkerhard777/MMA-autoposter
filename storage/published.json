@@ -51688,5 +51688,48 @@
         "bangkok"
       ]
     }
+  },
+  {
+    "title": "Хамзат Чимаев и Чарльз Оливейра встретились в Грозном",
+    "url": "https://www.sports.ru/boxing/1117396859-xamzat-chimaev-i-charlz-olivejra-vstretilis-v-groznom.html",
+    "published_at": "2026-10-12T12:35:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "встретились",
+        "выложил",
+        "геолокацией",
+        "грозном",
+        "грозный",
+        "декабря",
+        "диего",
+        "лопесом",
+        "назначенных",
+        "оливейра",
+        "оливейрой",
+        "поединков",
+        "пока",
+        "пояс",
+        "проведет",
+        "следующий",
+        "указал",
+        "фото",
+        "хамзат",
+        "чарльз",
+        "чарльзом",
+        "чимаев",
+        "чимаева",
+        "экс-чемпион"
+      ],
+      "participants": [
+        "khamzat_chimaev"
+      ],
+      "event_at": null,
+      "event_date": "2026-12-13",
+      "locations": []
+    }
   }
 ]
