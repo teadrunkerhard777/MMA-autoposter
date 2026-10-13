@@ -53023,5 +53023,13 @@
       "event_date": "2026-12-11",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "alex_pereira",
+    "selected_at": "2026-10-13T17:22:26.552166+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
