@@ -53874,5 +53874,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "natalia_silva",
+    "selected_at": "2026-10-14T17:22:27.663971+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "female"
   }
 ]
