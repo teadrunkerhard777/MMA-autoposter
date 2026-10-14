@@ -282,5 +282,13 @@
     "published_at": "2026-10-13T16:30:42.741140+05:00",
     "source_url": "https://www.pexels.com/video/man-boxing-at-the-gym-7187401/",
     "source": "Pexels"
+  },
+  {
+    "id": "pixabay:20110",
+    "media_id": "pixabay:20110",
+    "slot": "day",
+    "published_at": "2026-10-14T16:30:43.927116+05:00",
+    "source_url": "https://pixabay.com/videos/id-20110/",
+    "source": "Pixabay"
   }
 ]
