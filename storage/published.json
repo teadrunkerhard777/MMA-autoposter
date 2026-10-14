@@ -53246,5 +53246,42 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Алекс Перейра выложил фото с Кейном Веласкесом",
+    "url": "https://www.sports.ru/boxing/1117398685-aleks-perejra-vylozhil-foto-s-kejnom-velaskesom.html",
+    "published_at": "2026-10-13T19:37:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "алекс",
+        "веласкес",
+        "веласкесом",
+        "выложил",
+        "выложили",
+        "декабря",
+        "зала",
+        "кейн",
+        "кейном",
+        "павловичем",
+        "перейра",
+        "проведет",
+        "сергеем",
+        "следующий",
+        "совместное",
+        "турнире",
+        "фото",
+        "экс-чемпионы"
+      ],
+      "participants": [
+        "alex_pereira"
+      ],
+      "event_at": null,
+      "event_date": "2026-12-13",
+      "locations": []
+    }
   }
 ]
