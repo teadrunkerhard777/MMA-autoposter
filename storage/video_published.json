@@ -290,5 +290,13 @@
     "published_at": "2026-10-14T16:30:43.927116+05:00",
     "source_url": "https://pixabay.com/videos/id-20110/",
     "source": "Pixabay"
+  },
+  {
+    "id": "pexels:6296569",
+    "media_id": "pexels:6296569",
+    "slot": "day",
+    "published_at": "2026-10-15T16:30:50.656638+05:00",
+    "source_url": "https://www.pexels.com/video/men-doing-sparring-6296569/",
+    "source": "Pexels"
   }
 ]
