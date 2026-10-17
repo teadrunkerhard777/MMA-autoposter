@@ -56888,5 +56888,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "alexander_volkanovski",
+    "selected_at": "2026-10-17T17:22:21.117322+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
