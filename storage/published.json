@@ -57811,5 +57811,13 @@
       "event_date": "2026-10-17",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "alexa_grasso",
+    "selected_at": "2026-10-18T17:22:22.494723+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "female"
   }
 ]
