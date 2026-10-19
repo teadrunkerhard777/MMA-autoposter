@@ -58883,5 +58883,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "merab_dvalishvili",
+    "selected_at": "2026-10-19T17:22:21.894354+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
