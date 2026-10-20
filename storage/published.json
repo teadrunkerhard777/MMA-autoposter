@@ -59914,5 +59914,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "rose_namajunas",
+    "selected_at": "2026-10-20T17:22:28.686348+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "female"
   }
 ]
