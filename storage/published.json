@@ -60936,5 +60936,13 @@
       "event_date": "2026-11-18",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "sean_strickland",
+    "selected_at": "2026-10-21T17:22:27.001088+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
