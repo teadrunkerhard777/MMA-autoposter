@@ -61694,5 +61694,45 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "title": "Нина Драма надела хиджаб и закрытое платье перед интервью с Мовсаром Евлоевым",
+    "url": "https://www.sports.ru/boxing/1117410222-nina-drama-nadela-xidzhab-i-zakrytoe-plate-pered-intervyu-s-movsarom-e.html",
+    "published_at": "2026-10-22T11:05:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "алекса",
+        "волкановски",
+        "выглядишь",
+        "драма",
+        "евлоев",
+        "евлоевым",
+        "закрытое",
+        "интервью",
+        "инфлюэнсер",
+        "мовсар",
+        "мовсаром",
+        "надела",
+        "нина",
+        "октября",
+        "отреагировал",
+        "перед",
+        "платье",
+        "поединок",
+        "прекрасно",
+        "проведет",
+        "против",
+        "турнире",
+        "хиджаб"
+      ],
+      "participants": [],
+      "event_at": null,
+      "event_date": "2026-10-24",
+      "locations": []
+    }
   }
 ]
