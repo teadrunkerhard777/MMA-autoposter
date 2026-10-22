@@ -61830,5 +61830,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "tatiana_suarez",
+    "selected_at": "2026-10-22T17:22:26.563000+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "female"
   }
 ]
