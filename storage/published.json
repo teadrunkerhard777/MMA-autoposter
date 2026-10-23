@@ -62064,5 +62064,38 @@
       "event_date": "2026-10-24",
       "locations": []
     }
+  },
+  {
+    "title": "UFC 333 в Абу-Даби: пресс-конференция и битвы взглядов",
+    "url": "https://fighttime.ru/video/item/44457-ufc-333-v-abu-dabi-press-konferentsiya-i-bitvy-vzglyadov.html",
+    "published_at": "2026-10-22T23:00:49+03:00",
+    "source": "FightTime.ru",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "абу-даби",
+        "битвы",
+        "боев",
+        "взглядов",
+        "видео",
+        "волкановски",
+        "главных",
+        "евлоев",
+        "октября",
+        "пресс-конференции",
+        "пресс-конференция",
+        "состоится",
+        "турнира",
+        "участников"
+      ],
+      "participants": [],
+      "event_at": null,
+      "event_date": "2026-10-24",
+      "locations": [
+        "abu_dhabi"
+      ]
+    }
   }
 ]
