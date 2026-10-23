@@ -62782,5 +62782,13 @@
         "bangkok"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "charles_oliveira",
+    "selected_at": "2026-10-23T17:22:23.101165+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
