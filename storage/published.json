@@ -63686,5 +63686,13 @@
         "paris"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "tracy_cortez",
+    "selected_at": "2026-10-24T17:22:21.893768+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "female"
   }
 ]
