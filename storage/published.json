@@ -62968,5 +62968,44 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "title": "Состоялись финальные битвы взглядов перед UFC 333",
+    "url": "https://www.sports.ru/boxing/1117411670-sostoyalis-finalnye-bitvy-vzglyadov-pered-ufc-333.html",
+    "published_at": "2026-10-23T18:28:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "абу-даби",
+        "битвы",
+        "взвешивания",
+        "взглядов",
+        "главными",
+        "можно",
+        "нашем",
+        "октября",
+        "онлайне",
+        "перед",
+        "процедура",
+        "следить",
+        "событиями",
+        "состоится",
+        "состоялась",
+        "состоялись",
+        "торжественная",
+        "турнир",
+        "турниром",
+        "финальные"
+      ],
+      "participants": [],
+      "event_at": null,
+      "event_date": "2026-10-24",
+      "locations": [
+        "abu_dhabi"
+      ]
+    }
   }
 ]
