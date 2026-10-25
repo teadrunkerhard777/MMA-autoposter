@@ -64896,5 +64896,44 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "title": "Петр Ян и Алекс Волкановски сделали совместное фото с поясами",
+    "url": "https://www.sports.ru/boxing/1117413985-petr-yan-i-aleks-volkanovski-sdelali-sovmestnoe-foto-s-poyasami.html",
+    "published_at": "2026-10-25T11:02:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_result"
+      ],
+      "tokens": [
+        "алекс",
+        "волкановски",
+        "втором",
+        "двалишвили",
+        "евлоева",
+        "защитили",
+        "мераба",
+        "мовсара",
+        "нокаутировал",
+        "петр",
+        "победил",
+        "пояса",
+        "поясами",
+        "раунде",
+        "решением",
+        "сделали",
+        "совместное",
+        "успешно",
+        "фото",
+        "чемпионы"
+      ],
+      "participants": [
+        "petr_yan"
+      ],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
