@@ -66018,5 +66018,13 @@
         "las_vegas"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "justin_gaethje",
+    "selected_at": "2026-10-26T17:22:25.765352+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
