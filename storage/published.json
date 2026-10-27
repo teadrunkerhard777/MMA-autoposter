@@ -67107,5 +67107,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "umar_nurmagomedov",
+    "selected_at": "2026-10-27T17:22:22.307630+00:00",
+    "cycle": 2,
+    "content_topic": "angle_2",
+    "gender": "male"
   }
 ]
