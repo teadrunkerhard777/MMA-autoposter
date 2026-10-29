@@ -69068,5 +69068,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "valentina_shevchenko",
+    "selected_at": "2026-10-29T17:22:25.210363+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "female"
   }
 ]
