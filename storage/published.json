@@ -70047,5 +70047,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "islam_makhachev",
+    "selected_at": "2026-10-30T17:22:24.609370+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
