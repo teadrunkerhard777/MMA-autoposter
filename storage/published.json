@@ -71040,5 +71040,13 @@
       "event_date": "2027-01-30",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "kayla_harrison",
+    "selected_at": "2026-10-31T17:22:24.320423+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "female"
   }
 ]
