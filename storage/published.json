@@ -71939,5 +71939,13 @@
       "event_date": "2027-01-30",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "petr_yan",
+    "selected_at": "2026-11-01T17:22:23.668716+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
