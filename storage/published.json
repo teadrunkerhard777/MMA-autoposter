@@ -74332,5 +74332,47 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Петр Ян получил в подарок от букмекерской конторы Rolls-Royce Cullinan",
+    "url": "https://www.sports.ru/boxing/1117424731-petr-yan-poluchil-v-podarok-ot-bukmekerskoj-kontory-rolls-royce-cullin.html",
+    "published_at": "2026-11-03T18:22:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_result"
+      ],
+      "tokens": [
+        "cullinan",
+        "rolls-royce",
+        "автомобиля",
+        "букмекерской",
+        "двалишвили",
+        "единогласным",
+        "защитил",
+        "конторы",
+        "мерабом",
+        "около",
+        "петр",
+        "победил",
+        "победы",
+        "подарок",
+        "получил",
+        "пояс",
+        "решением",
+        "рублей",
+        "стоимость",
+        "судей",
+        "такого",
+        "чемпион",
+        "чемпионский"
+      ],
+      "participants": [
+        "petr_yan"
+      ],
+      "event_at": null,
+      "event_date": null,
+      "locations": []
+    }
   }
 ]
