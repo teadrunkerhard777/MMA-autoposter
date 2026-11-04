@@ -74653,5 +74653,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "mackenzie_dern",
+    "selected_at": "2026-11-04T17:22:33.788142+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "female"
   }
 ]
