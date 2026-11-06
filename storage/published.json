@@ -76362,5 +76362,13 @@
         "bangkok"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "natalia_silva",
+    "selected_at": "2026-11-06T17:22:22.850853+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "female"
   }
 ]
