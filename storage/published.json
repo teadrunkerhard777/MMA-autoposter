@@ -77268,5 +77268,13 @@
         "las_vegas"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "khamzat_chimaev",
+    "selected_at": "2026-11-07T17:22:21.371196+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
