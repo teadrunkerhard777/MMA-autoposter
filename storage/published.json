@@ -78071,5 +78071,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "manon_fiorot",
+    "selected_at": "2026-11-08T17:22:24.527041+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "female"
   }
 ]
