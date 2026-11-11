@@ -80458,5 +80458,13 @@
       "event_date": "2026-11-15",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "merab_dvalishvili",
+    "selected_at": "2026-11-11T17:22:23.637850+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
