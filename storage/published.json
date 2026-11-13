@@ -82573,5 +82573,13 @@
         "bangkok"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "sean_strickland",
+    "selected_at": "2026-11-13T17:22:25.519004+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
