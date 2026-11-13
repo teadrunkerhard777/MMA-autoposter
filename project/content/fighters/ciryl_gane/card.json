@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "id": "ciryl_gane",
+  "name_ru": "Сирил Ган",
+  "name_en": "Ciryl Gane",
+  "gender": "male",
+  "country": "Франция",
+  "promotion": "UFC",
+  "weight_class": "тяжёлый вес",
+  "positioning": "Двукратный временный чемпион UFC в тяжёлом весе: французский тяжеловес с работой ног легковеса и безупречной базой тайского бокса.",
+  "career_story": [
+    "После непобеждённой карьеры в профессиональном муай-тай (13–0) дебютировал в MMA в 2018 году и уже через три года взял временный пояс UFC.",
+    "В июне 2026 года на историческом турнире UFC Freedom 250 в Вашингтоне финишировал Алекса Перейру во втором раунде, повторно завоевав временный титул чемпиона в тяжёлом весе."
+  ],
+  "fighting_style": [
+    "Челночное движение на ногах, постоянная смена стоек и точные удары по всем этажам с дальней дистанции.",
+    "Хладнокровная защита в стойке (61% отражённых ударов) и работа коленями и локтями в тайском клинче."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Временный чемпион UFC в тяжёлом весе",
+        "division": "тяжёлый вес",
+        "won_at": "2026-06",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Временный чемпион UFC в тяжёлом весе",
+        "division": "тяжёлый вес",
+        "won_at": "2021-08",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "AFMT",
+        "name_ru": "Двукратный чемпион Франции по муай-тай",
+        "division": "тяжёлый вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Двукратный обладатель временного титула UFC в тяжёлом весе (2021, 2026).",
+    "Технический нокаут над экс-чемпионом двух дивизионов Алексом Перейрой на турнире UFC Freedom 250.",
+    "Непобеждённый рекорд 13–0 в профессиональном тайском боксе."
+  ],
+  "distinctive_features": [
+    "При весе 112 кг двигается на челноке все пять раундов.",
+    "Одерживал победы в UFC как нокаутами, так и болевыми приёмами (включая скручивание пятки)."
+  ],
+  "stats": {
+    "record": {
+      "wins": 14,
+      "losses": 2,
+      "draws": 0,
+      "no_contests": 1
+    },
+    "wins_by": {
+      "ko_tko": 7,
+      "submission": 3,
+      "decision": 4
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 13,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "В первом же году в UFC оформил редчайший для тяжеловесов сабмишен — скручивание пятки (heel hook) на последней минуте боя против Дон'Тейла Мэйса.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "В июне 2026 года за досрочную победу над Алексом Перейрой на лужайке у Белого дома получил специальный бонус в размере 425 000 долларов.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До знакомства с единоборствами в 24 года играл в баскетбол и работал продавцом-консультантом в мебельном салоне в Париже.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Прозвище Bon Gamin переводится с французского как «Хороший парень» и отражает его спокойный характер за пределами клетки.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Снялся в нескольких художественных фильмах и проектах Netflix, включая криминальную драму «КО» (Bastion 36).",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Триумф над Поатаном",
+      "focus": "Как Ган остановил поход Алекса Перейры за третьим поясом.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Феномен лёгких ног",
+      "focus": "Путь из мебельного магазина и муай-тай в элиту UFC.",
+      "fact_ids": [
+        "fact_1",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Хороший парень из Парижа",
+      "focus": "Медийность, кино и характер чемпиона.",
+      "fact_ids": [
+        "fact_4",
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Ciryl Gane — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/ciryl-gane",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/ciryl_gane/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:UFC_Freedom_250_Ceremonial_Weigh_In_(9748626)(cropped).jpg",
+    "creator": "Sgt. 1st Class Brittany Primavera / U.S. Army",
+    "license": "Public Domain — U.S. Army work",
+    "rights_status": "cleared_no_public_credit",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

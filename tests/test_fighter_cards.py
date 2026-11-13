@@ -9,20 +9,20 @@ from project.fighter_cards import (
 from publishing.telegram import MAX_IMAGE_SIZE_BYTES
 
 
-def test_fighter_base_contains_30_valid_unique_cards():
+def test_fighter_base_contains_38_valid_unique_cards():
     cards = load_fighter_cards()
 
-    assert len(cards) == 30
-    assert len({card["id"] for card in cards}) == 30
-    assert sum(card["gender"] == "male" for card in cards) == 15
-    assert sum(card["gender"] == "female" for card in cards) == 15
+    assert len(cards) == 38
+    assert len({card["id"] for card in cards}) == 38
+    assert sum(card["gender"] == "male" for card in cards) == 19
+    assert sum(card["gender"] == "female" for card in cards) == 19
     assert all(validate_fighter_card(card) == [] for card in cards)
 
 
 def test_initial_order_alternates_men_and_women():
     cards = load_fighter_cards()
 
-    assert [card["gender"] for card in cards] == ["male", "female"] * 15
+    assert [card["gender"] for card in cards] == ["male", "female"] * 19
 
 
 def test_index_ids_match_card_directories_and_card_ids():
@@ -43,25 +43,34 @@ def test_sources_stay_internal_and_images_are_not_falsely_cleared():
     no_credit_ids = {
         "alex_pereira",
         "charles_oliveira",
+        "ciryl_gane",
         "ilia_topuria",
+        "julianna_pena",
         "justin_gaethje",
         "merab_dvalishvili",
+        "raquel_pennington",
         "valentina_shevchenko",
     }
     attributed_ids = {
         "alexa_grasso",
         "alexander_volkanovski",
+        "amanda_nunes",
         "arman_tsarukyan",
         "islam_makhachev",
+        "jasmine_jasudavicius",
+        "joshua_van",
         "kayla_harrison",
         "khamzat_chimaev",
         "mackenzie_dern",
+        "magomed_ankalaev",
         "manon_fiorot",
         "natalia_silva",
         "petr_yan",
         "rose_namajunas",
         "salahdine_parnasse",
         "sean_strickland",
+        "shavkat_rakhmonov",
+        "song_yadong",
         "tatiana_suarez",
         "tracy_cortez",
         "umar_nurmagomedov",

@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "id": "raquel_pennington",
+  "name_ru": "Ракель Пеннингтон",
+  "name_en": "Raquel Pennington",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский легчайший вес",
+  "positioning": "Экс-чемпионка UFC в легчайшем весе и рекордсменка дивизиона по количеству проведённых боёв, прошедшая одиннадцатилетний путь к золоту.",
+  "career_story": [
+    "Попала в UFC в 2013 году через 18-й сезон The Ultimate Fighter и провела более двадцати поединков против сильнейших соперниц двух категорий.",
+    "В январе 2024 года на UFC 297 победила Майру Буэно Силву и завоевала долгожданный пояс чемпионки UFC со второй титульной попытки."
+  ],
+  "fighting_style": [
+    "Вязкий силовой бокс на ближней дистанции, жёсткий джеб и длительный контроль в клинче у сетки.",
+    "Выносливость на пять раундов и опасные удушения гильотиной и бульдогом."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC в легчайшем весе",
+        "division": "женский легчайший вес",
+        "won_at": "2024-01",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Бывшая чемпионка UFC в женском легчайшем весе.",
+    "Рекордсменка женского легчайшего дивизиона UFC по количеству боёв и времени в октагоне.",
+    "Оформила редчайшее удушение «бульдог» (bulldog choke) в истории UFC."
+  ],
+  "distinctive_features": [
+    "Олицетворяет стойкость и спортивное долголетие в женском ММА.",
+    "Умеет затягивать более быстрых соперниц в силовой клинч."
+  ],
+  "stats": {
+    "record": {
+      "wins": 16,
+      "losses": 10,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 1,
+      "submission": 4,
+      "decision": 11
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 4,
+    "pound_for_pound_rank": 13,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "В детстве и юности активно занималась хоккеем, баскетболом и софтболом, но сломала спину во время сноубординга и переключилась на бокс.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "На UFC 181 заставила Эшли Эванс-Смит потерять сознание приёмом «бульдог» ровно на последней секунде первого раунда (4:59).",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Завоевала чемпионский пояс UFC спустя 10 лет и 2 месяца после своего дебюта в организации.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "На UFC 205 в Нью-Йорке победила свою бывшую наставницу по шоу TUF Мишу Тейт, отправив ту в первую отставку.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Жената на бывшей претендентке минимального веса UFC Тесии Пенелопе (Торрес).",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Десять лет до золота",
+      "focus": "Уникальная история терпения и пути к поясу UFC 297.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Королева клинча",
+      "focus": "Редкий сабмишен на 4:59 и физическая выносливость.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Семейный дуэт в UFC",
+      "focus": "Жизнь и тренировки двух ветеранов октагона.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Raquel Pennington — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/raquel-pennington",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/raquel_pennington/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Raquel_Pennington_MCCS_Twentynine_Palms_presents_an_action-packed_MMA_Fight_Night_Live_at_The_Combat_Center_(5).jpg",
+    "creator": "Lance Cpl. Enge You / U.S. Marine Corps",
+    "license": "Public Domain — U.S. Marine Corps work",
+    "rights_status": "cleared_no_public_credit",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

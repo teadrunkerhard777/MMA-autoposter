@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "id": "jasmine_jasudavicius",
+  "name_ru": "Жасмин Ясудавичюс",
+  "name_en": "Jasmine Jasudavicius",
+  "gender": "female",
+  "country": "Канада",
+  "promotion": "UFC",
+  "weight_class": "женский наилегчайший вес",
+  "positioning": "Главная канадская претендентка женского наилегчайшего веса, пробившаяся в топ-3 за счёт вязкого грэпплинга, габаритов и relentless-контроля.",
+  "career_story": [
+    "Пришла в единоборства только в 26 лет, получила контракт через Dana White's Contender Series в 2021 году и закрепилась в элите дивизиона.",
+    "Выиграла семь из восьми боёв в UFC в 2024–2026 годах, включая досрочную победу над экс-чемпионкой Джессикой Андраде и триумф над Эрин Бланчфилд в октябре 2026-го."
+  ],
+  "fighting_style": [
+    "Силовые переводы от сетки, контроль со спины с заправленным треугольником на корпусе и жёсткий граунд-энд-паунд.",
+    "Использование преимущества в росте (170 см) и размахе рук для сближения в клинч."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": []
+  },
+  "achievements": [
+    "Победы над экс-чемпионкой UFC Джессикой Андраде и топ-грэпплершей Эрин Бланчфилд.",
+    "Рекорд UFC по разнице ударов в трёхраундовом бою женского наилегчайшего веса (+290 ударов против Присцилы Кашуэйры).",
+    "Три бонуса «Выступление вечера» подряд в 2024–2025 годах."
+  ],
+  "distinctive_features": [
+    "Начала тренироваться без какой-либо детской спортивной базы уже во взрослом возрасте.",
+    "Умеет перебарывать даже профильных мастеров бразильского джиу-джитсу."
+  ],
+  "stats": {
+    "record": {
+      "wins": 16,
+      "losses": 4,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 2,
+      "submission": 4,
+      "decision": 10
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": 3,
+    "pound_for_pound_rank": 10,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Впервые переступила порог бойцовского зала в 2016 году в возрасте 26 лет после случайного знакомства с тренером Крисом Прикеттом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "На турнире UFC 297 в Торонто нанесла сопернице 326 ударов за неполные три раунда, пропустив в ответ всего 36.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "В мае 2025 года в Монреале задушила экс-чемпионку UFC Джессику Андраде уже в первом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В октябре 2026 года в Эдмонтоне провела пять успешных тейкдаунов против базовой чемпионки EBI Эрин Бланчфилд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Имеет литовские корни по отцовской линии и представляет зал Niagara Top Team в Онтарио.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Старт в 26 лет",
+      "focus": "Как без детского спорта дойти до топ-3 UFC.",
+      "fact_ids": [
+        "fact_1",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Рекордный разгром",
+      "focus": "Абсолютный рекорд дивизиона по доминированию в партере.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Гроза фавориток",
+      "focus": "Победы над Андраде и Бланчфилд на канадских аренах.",
+      "fact_ids": [
+        "fact_3",
+        "fact_4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Jasmine Jasudavicius — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/jasmine-jasudavicius",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/jasmine_jasudavicius/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Jasmine_Jasudavicius_2023.png",
+    "creator": "MM-eh",
+    "license": "CC BY 3.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

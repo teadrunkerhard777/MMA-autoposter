@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "id": "amanda_nunes",
+  "name_ru": "Аманда Нуньес",
+  "name_en": "Amanda Nunes",
+  "gender": "female",
+  "country": "Бразилия",
+  "promotion": "UFC",
+  "weight_class": "женский легчайший вес",
+  "positioning": "Величайшая женщина-боец в истории MMA и бывшая двойная чемпионка UFC, вернувшаяся в октагон ради супербоя против Кайлы Харрисон.",
+  "career_story": [
+    "Дебютировала в профи в 2008 году, прошла Strikeforce и Invicta FC, а в UFC одновременно удерживала и защищала пояса в легчайшем и полулёгком дивизионах.",
+    "Ушла непобеждённой чемпионкой летом 2023 года, была введена в Зал славы UFC, но в 2026 году возобновила карьеру ради противостояния с Кайлой Харрисон."
+  ],
+  "fighting_style": [
+    "Разрушительный правый кросс, жёсткие лоу-кики и нокаутирующая мощь с первых секунд.",
+    "Чёрный пояс по BJJ и коричневый по дзюдо, позволяющие уверенно контролировать партер."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Двукратная чемпионка UFC в легчайшем весе",
+        "division": "женский легчайший вес",
+        "won_at": "2016-07 / 2022-07",
+        "defenses": 6,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      },
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпионка UFC в полулёгком весе",
+        "division": "женский полулёгкий вес",
+        "won_at": "2018-12",
+        "defenses": 2,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": []
+  },
+  "achievements": [
+    "Первая женщина в истории UFC, владевшая двумя поясами одновременно и защищавшая оба титула.",
+    "Одиннадцать побед в титульных боях UFC (абсолютный рекорд среди женщин).",
+    "Член современного крыла Зала славы UFC."
+  ],
+  "distinctive_features": [
+    "Победила абсолютно всех бывших чемпионок UFC в легчайшем и полулёгком весах своего поколения.",
+    "Обладает сильнейшим одиночным ударом в истории женских дивизионов."
+  ],
+  "stats": {
+    "record": {
+      "wins": 23,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 13,
+      "submission": 4,
+      "decision": 6
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 2
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 2,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "В декабре 2018 года нокаутировала непобеждённую на протяжении 13 лет Крис Сайборг всего за 51 секунду.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Оформила самый быстрый нокаут в истории женских титульных боёв легчайшего веса, отправив Холли Холм в нокаут хай-киком в первом раунде, а Ронду Роузи — за 48 секунд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "В её послужном списке победы над шестью разными чемпионками UFC: Тейт, Роузи, Шевченко, Сайборг, Холм и де Рандами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "До переезда в США жила прямо в помещении спортзала в Салвадоре (штат Баия), так как не имела денег на аренду жилья.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Их принципиальное соперничество с Кайлой Харрисон началось ещё со времён совместных тренировок в зале American Top Team.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Охотница за легендами",
+      "focus": "Как Нуньес зачистила два дивизиона от всех экс-чемпионок.",
+      "fact_ids": [
+        "fact_1",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Нокаут за секунды",
+      "focus": "Феномен стартовой мощи Львицы в титульных боях.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Большое возвращение",
+      "focus": "История бывших одноклубниц по ATT — Нуньес и Харрисон.",
+      "fact_ids": [
+        "fact_4",
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Amanda Nunes — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/amanda-nunes",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/amanda_nunes/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Ceremonial_weigh_ins_-_Amanda_Nunes_vs_Julianna_Pe%C3%B1a_UFC_269_(cropped).jpg",
+    "creator": "Jgui / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

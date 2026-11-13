@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "id": "julianna_pena",
+  "name_ru": "Джулианна Пенья",
+  "name_en": "Julianna Pena",
+  "gender": "female",
+  "country": "США",
+  "promotion": "UFC",
+  "weight_class": "женский легчайший вес",
+  "positioning": "Двукратная чемпионка UFC в женском легчайшем весе и первая женщина-победительница шоу The Ultimate Fighter, известная неуступчивым характером.",
+  "career_story": [
+    "Начала карьеру в 2009 году, выиграла исторический 18-й сезон TUF и преодолела двухлетний простой после тяжёлой травмы колена и рождения дочери.",
+    "В декабре 2021 года сотворила одну из главных сенсаций в истории UFC, задушив Аманду Нуньес, а в октябре 2024-го вернула чемпионский пояс в бою с Ракель Пеннингтон."
+  ],
+  "fighting_style": [
+    "Силовой прессинг, затяжной клинч у сетки и изматывающий граунд-энд-паунд.",
+    "Цепкие удушающие приёмы (гильотина и удушение сзади) во второй половине боя."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Двукратная чемпионка UFC в легчайшем весе",
+        "division": "женский легчайший вес",
+        "won_at": "2021-12 / 2024-10",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "UFC",
+        "name_ru": "Победительница The Ultimate Fighter 18",
+        "division": "женский легчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Двукратная чемпионка UFC в легчайшем весе.",
+    "Первая женщина в истории, выигравшая турнир The Ultimate Fighter (2013).",
+    "Автор одного из крупнейших апсетов в истории смешанных единоборств (UFC 269)."
+  ],
+  "distinctive_features": [
+    "Никогда не отступает в разменах и навязывает вязкую рубку на ближней дистанции.",
+    "Прозвище The Venezuelan Vixen подчёркивает её венесуэльские и мексиканские корни."
+  ],
+  "stats": {
+    "record": {
+      "wins": 13,
+      "losses": 6,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 3,
+      "submission": 5,
+      "decision": 5
+    },
+    "current_streak": {
+      "type": "loss",
+      "count": 1
+    },
+    "promotion_rank": 5,
+    "pound_for_pound_rank": 10,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "В 2014 году получила разрыв всех связок колена на тренировке и пропустила hampir два года, но вернулась с тремя победами подряд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Перед боем на UFC 269 коэффициенты против неё доходили до 8 к 1, однако она заставила Аманду Нуньес сдаться во втором раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "Помимо выступлений в клетке работает англоязычным комментатором на турнирах по ММА и вольной борьбе.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Пришла в зал Sikjitsu в Спокане в 19 лет изначально просто для того, чтобы сбросить вес с помощью кардио-кикбоксинга.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Делит первое место в истории женского легчайшего веса UFC по количеству побед сабмишенами.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Апсет века",
+      "focus": "Как Пенья сделала то, во что не верил никто перед UFC 269.",
+      "fact_ids": [
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Пионер TUF",
+      "focus": "Путь от кардио-кикбоксинга до двух чемпионских поясов UFC.",
+      "fact_ids": [
+        "fact_1",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Голос у микрофона",
+      "focus": "Работа комментатором и рекорды в партере.",
+      "fact_ids": [
+        "fact_3",
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Julianna Pena — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/julianna-pena",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/julianna_pena/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:2nd_MLG_company_commander_helps_America%E2%80%99s_heroes_140116-M-XX123-001_(cropped).jpg",
+    "creator": "U.S. Marine Corps",
+    "license": "Public Domain — U.S. Marine Corps work",
+    "rights_status": "cleared_no_public_credit",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

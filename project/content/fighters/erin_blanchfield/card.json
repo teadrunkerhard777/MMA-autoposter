@@ -42,7 +42,7 @@
   "stats": {
     "record": {
       "wins": 14,
-      "losses": 2,
+      "losses": 3,
       "draws": 0,
       "no_contests": 0
     },
@@ -52,12 +52,12 @@
       "decision": 7
     },
     "current_streak": {
-      "type": "win",
-      "count": 3
+      "type": "loss",
+      "count": 1
     },
-    "promotion_rank": 4,
-    "pound_for_pound_rank": 8,
-    "verified_at": "2026-09-05",
+    "promotion_rank": 5,
+    "pound_for_pound_rank": 12,
+    "verified_at": "2026-11-13",
     "source_ids": [
       "ufc_profile",
       "ufc_rankings"

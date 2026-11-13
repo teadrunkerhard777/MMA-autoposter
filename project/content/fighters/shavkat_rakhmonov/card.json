@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "id": "shavkat_rakhmonov",
+  "name_ru": "Шавкат Рахмонов",
+  "name_en": "Shavkat Rakhmonov",
+  "gender": "male",
+  "country": "Казахстан",
+  "promotion": "UFC",
+  "weight_class": "полусредний вес",
+  "positioning": "Непобеждённый казахстанский финишер, сочетающий хладнокровный прессинг в стойке с удушающим контролем в клинче и партере.",
+  "career_story": [
+    "Завоевал чемпионские пояса M-1 Global и KZMMAF, после чего в 2020 году дебютировал в UFC и выиграл первые шесть боёв в октагоне досрочно.",
+    "В декабре 2024 года на UFC 310 нанёс первое поражение Иэну Гэрри в пятираундовом претендентском бою, доведя профессиональный рекорд до 19–0."
+  ],
+  "fighting_style": [
+    "Длинные прямые удары, жёсткие колени в клинче и постоянное сокращение дистанции.",
+    "Мгновенные переходы на гильотину и удушение сзади при любой ошибке соперника у сетки."
+  ],
+  "titles": {
+    "current": [],
+    "former": [],
+    "other": [
+      {
+        "organization": "M-1 Global",
+        "name_ru": "Чемпион M-1 Global в полусреднем весе",
+        "division": "полусредний вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Идеальный рекорд 19–0 в профессиональном MMA.",
+    "18 из 19 побед одержал досрочно (8 нокаутами, 10 сабмишенами).",
+    "Первый представитель Казахстана в топ-3 рейтинга UFC."
+  ],
+  "distinctive_features": [
+    "Выходит в октагон в традиционном казахском головном уборе тымаке.",
+    "Обладает почти стопроцентным показателем финишей."
+  ],
+  "stats": {
+    "record": {
+      "wins": 19,
+      "losses": 0,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 8,
+      "submission": 10,
+      "decision": 1
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 19
+    },
+    "promotion_rank": 2,
+    "pound_for_pound_rank": 11,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "В восемнадцать лет стал самым молодым чемпионом мира в истории любительского союза WMMAA.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "Первые восемнадцать боёв в профессиональной карьере завершил досрочно — ни один соперник не дотянул до финального гонга до декабря 2024 года.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "До подписания контракта с мировыми промоушенами подрабатывал грузчиком на рынке в Караганде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Его родная младшая сестра Сора Рахмонова также профессионально выступала в смешанных единоборствах.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Задушил Стивена «Вандербоя» Томпсона наUFC 296, став первым бойцом в истории, кто финишировал его приёмом.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_6",
+      "text": "Готовится к главным поединкам в американском зале Kill Cliff FC во Флориде под руководством Генри Хуфта.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Инстинкт финишера",
+      "focus": "Почему почти все его бои заканчиваются до решения судей.",
+      "fact_ids": [
+        "fact_2",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Путь кочевника",
+      "focus": "От рынка в Караганде и титула M-1 до элиты UFC.",
+      "fact_ids": [
+        "fact_1",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Семья единоборцев",
+      "focus": "Спортивная династия и подготовка в Kill Cliff.",
+      "fact_ids": [
+        "fact_4",
+        "fact_6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Shavkat Rakhmonov — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/shavkat-rakhmonov",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/shavkat_rakhmonov/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Rahkmonov_2.png",
+    "creator": "Wikimedia Commons / CC BY 3.0",
+    "license": "CC BY 3.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

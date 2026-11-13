@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "id": "magomed_ankalaev",
+  "name_ru": "Магомед Анкалаев",
+  "name_en": "Magomed Ankalaev",
+  "gender": "male",
+  "country": "Россия",
+  "promotion": "UFC",
+  "weight_class": "полутяжёлый вес",
+  "positioning": "Экс-чемпион UFC в полутяжёлом весе: расчётливый контрпанчер-левша с фундаментальной базой боевого самбо и непробиваемой защитой от борьбы.",
+  "career_story": [
+    "После доминирования в любительском ММА и завоевания пояса WFCA пришёл в UFC в 2018 году, выдав серию из 13 боёв без поражений.",
+    "Владел чемпионским поясом UFC в полутяжёлом весе, а в июле 2026 года на турнире в Абу-Даби нокаутировал Богдана Гуськова в первом раунде."
+  ],
+  "fighting_style": [
+    "Выверенная работа вторым номером из стойки левши, быстрые встречные серии и хай-кики.",
+    "Силовой клинч, контроль в партере и 87% успешной защиты от тейкдаунов."
+  ],
+  "titles": {
+    "current": [],
+    "former": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC в полутяжёлом весе",
+        "division": "полутяжёлый вес",
+        "won_at": "2025-03",
+        "defenses": 0,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "organization": "WFCA",
+        "name_ru": "Чемпион WFCA в полутяжёлом весе",
+        "division": "полутяжёлый вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Бывший чемпион UFC в полутяжёлом весе.",
+    "Вторая по продолжительности серия без поражений в истории полутяжёлого веса UFC (13 боёв подряд после Джона Джонса).",
+    "Заслуженный мастер спорта России по ММА."
+  ],
+  "distinctive_features": [
+    "Один из самых дисциплинированных тактиков полутяжёлого дивизиона.",
+    "Крайне редко пропускает чистые силовые удары на дистанции."
+  ],
+  "stats": {
+    "record": {
+      "wins": 22,
+      "losses": 2,
+      "draws": 1,
+      "no_contests": 1
+    },
+    "wins_by": {
+      "ko_tko": 12,
+      "submission": 0,
+      "decision": 10
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 1
+    },
+    "promotion_rank": 1,
+    "pound_for_pound_rank": 10,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "Его дебютный бой в UFC против Пола Крейга в 2018 году завершился сдачей ровно за одну секунду до конца третьего раунда, который Анкалаев уверенно выигрывал.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "До перехода в профессионалы выиграл чемпионат мира и четыре чемпионата России по союзу ММА.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "В студенческие годы в Махачкале начинал с греко-римской борьбы и только затем переключился на боевое самбо.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "В июле 2026 года закрыл реванш с Перейрой ярким нокаутом над Богданом Гуськовым за 2 минуты и 41 секунду.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "Ни одна из его двадцати двух побед в профи не была одержана приёмом — все финиши оформлены исключительно нокаутами и ТКО.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Снайпер в полутяжах",
+      "focus": "Почему базовый самбист финиширует соперников только ударами.",
+      "fact_ids": [
+        "fact_3",
+        "fact_5"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Урок последней секунды",
+      "focus": "Как обидное поражение в дебюте запустило серию из 13 боёв без осечек.",
+      "fact_ids": [
+        "fact_1",
+        "fact_2"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Возвращение в Абу-Даби",
+      "focus": "Досрочная победа летом 2026 года и новая погоня за поясом.",
+      "fact_ids": [
+        "fact_4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Magomed Ankalaev — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/magomed-ankalaev",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/magomed_ankalaev/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Magomed_Ankalaev_at_UFC_Fight_Night_136_in_Moscow,_Russia.jpg",
+    "creator": "MMAnytt",
+    "license": "CC BY 3.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

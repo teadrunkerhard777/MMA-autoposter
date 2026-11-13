@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "id": "joshua_van",
+  "name_ru": "Джошуа Ван",
+  "name_en": "Joshua Van",
+  "gender": "male",
+  "country": "США / Мьянма",
+  "promotion": "UFC",
+  "weight_class": "наилегчайший вес",
+  "positioning": "Действующий чемпион UFC в наилегчайшем весе и первый чемпион организации, родившийся в 2000-х годах, обладающий рекордным темпом ударов.",
+  "career_story": [
+    "Переехал с семьёй из Мьянмы в Хьюстон в детстве, дебютировал в профи в 2021 году, взял пояс Fury FC и ворвался в UFC в 21 год.",
+    "В декабре 2025 года завоевал титул UFC против Алешандре Пантожи, а в 2026-м провёл две яркие защиты — нокаутировав Тацуро Таиру в пятом раунде на UFC 328 и повторно победив Пантожу на UFC 331."
+  ],
+  "fighting_style": [
+    "Ураганный бокс на средней дистанции с рекордной плотностью более 8 значимых попаданий в минуту.",
+    "Жёсткие серии по корпусу, быстрые оттягивания и 75% защиты от тейкдаунов."
+  ],
+  "titles": {
+    "current": [
+      {
+        "organization": "UFC",
+        "name_ru": "Чемпион UFC в наилегчайшем весе",
+        "division": "наилегчайший вес",
+        "won_at": "2025-12",
+        "defenses": 2,
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ],
+    "former": [],
+    "other": [
+      {
+        "organization": "Fury FC",
+        "name_ru": "Чемпион Fury FC в наилегчайшем весе",
+        "division": "наилегчайший вес",
+        "source_ids": [
+          "ufc_profile"
+        ]
+      }
+    ]
+  },
+  "achievements": [
+    "Первый чемпион в истории UFC, родившийся в 2000-х годах, и первый чемпион родом из Мьянмы.",
+    "Второй самый молодой чемпион в истории UFC после Джона Джонса (завоевал пояс в 24 года и 57 дней).",
+    "Абсолютный рекорд UFC по количеству значимых ударов в минуту (8,43)."
+  ],
+  "distinctive_features": [
+    "Наращивает объём ударов от раунда к раунду, ломая темп соперников.",
+    "Три боя подряд в 2025–2026 годах получали бонус «Лучший бой вечера»."
+  ],
+  "stats": {
+    "record": {
+      "wins": 18,
+      "losses": 2,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "wins_by": {
+      "ko_tko": 9,
+      "submission": 2,
+      "decision": 7
+    },
+    "current_streak": {
+      "type": "win",
+      "count": 8
+    },
+    "promotion_rank": null,
+    "pound_for_pound_rank": 5,
+    "verified_at": "2026-11-13",
+    "source_ids": [
+      "ufc_profile",
+      "ufc_rankings"
+    ]
+  },
+  "facts": [
+    {
+      "id": "fact_1",
+      "text": "В первом титульном бою на UFC 323 оформил самый быстрый финиш в истории титульных боёв наилегчайшего веса — за 26 секунд.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_2",
+      "text": "В реванше против Алешандре Пантожи в сентябре 2026 года донёс до цели 181 значимый удар (при 259 точных ударах всего).",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_3",
+      "text": "В июне 2025 года принял претендентский бой против Брэндона Ройвала на коротком уведомлении всего через три недели после предыдущего нокаута.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_4",
+      "text": "Начал тренироваться в зале 4oz Fight Club в Хьюстоне лишь в 19 лет — за год до профессионального дебюта.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    },
+    {
+      "id": "fact_5",
+      "text": "В мае 2026 года нанёс первое поражение в карьере японскому проспекту Тацуро Таире, нокаутировав его в пятом раунде.",
+      "source_ids": [
+        "ufc_profile"
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "angle_1",
+      "title": "Поколение 2000-х",
+      "focus": "Стремительный взлёт от новичка в 19 лет до чемпиона UFC в 24 года.",
+      "fact_ids": [
+        "fact_1",
+        "fact_4"
+      ]
+    },
+    {
+      "id": "angle_2",
+      "title": "Пулемётный темп",
+      "focus": "Рекордная статистика ударов и бонусы за лучшие бои вечера.",
+      "fact_ids": [
+        "fact_2",
+        "fact_3"
+      ]
+    },
+    {
+      "id": "angle_3",
+      "title": "Две защиты в 2026-м",
+      "focus": "Как Ван закрепил статус короля 125 фунтов.",
+      "fact_ids": [
+        "fact_5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ufc_profile",
+      "title": "Joshua Van — UFC athlete profile",
+      "url": "https://www.ufc.com/athlete/joshua-van",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "ufc_rankings",
+      "title": "UFC Rankings",
+      "url": "https://www.ufc.com/rankings",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "local_path": "project/content/fighters/joshua_van/photo.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Joshua_Van_1.png",
+    "creator": "YouTube CC-BY / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "rights_status": "cleared_with_embedded_attribution",
+    "publication_ready": true
+  },
+  "last_posted_at": null,
+  "enabled": true
+}

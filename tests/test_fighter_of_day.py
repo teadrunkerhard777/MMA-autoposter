@@ -15,7 +15,6 @@ MISSING_IMAGE_IDS = {
     "erin_blanchfield",
     "fatima_kline",
     "maycee_barber",
-    "song_yadong",
     "tom_aspinall",
     "yan_xiaonan",
 }
@@ -36,14 +35,14 @@ def test_alternates_male_and_female_when_both_are_available():
 
 
 def test_has_no_repeats_inside_a_cycle():
-    results = simulate_fighter_days(23, start_at=NOW)
+    results = simulate_fighter_days(32, start_at=NOW)
 
-    assert len({item["fighter_id"] for item in results}) == 23
+    assert len({item["fighter_id"] for item in results}) == 32
     assert not any(item["repeated"] for item in results)
 
 
 def test_skips_all_cards_without_images_without_error():
-    results = simulate_fighter_days(30, start_at=NOW)
+    results = simulate_fighter_days(38, start_at=NOW)
 
     assert MISSING_IMAGE_IDS.isdisjoint(item["fighter_id"] for item in results)
 
@@ -75,11 +74,11 @@ def test_falls_back_to_other_gender_when_preferred_gender_is_unavailable():
 
 
 def test_starts_new_cycle_after_all_available_fighters_are_used():
-    results = simulate_fighter_days(24, start_at=NOW)
+    results = simulate_fighter_days(33, start_at=NOW)
 
-    assert results[22]["cycle"] == 1
-    assert results[23]["cycle"] == 2
-    assert results[23]["started_new_cycle"] is True
+    assert results[31]["cycle"] == 1
+    assert results[32]["cycle"] == 2
+    assert results[32]["started_new_cycle"] is True
 
 
 def test_rotation_works_with_only_one_gender():
@@ -125,3 +124,11 @@ def test_post_uses_compact_format_and_keeps_sources_private():
     assert "https://" not in post
     assert "Источник" not in post
     assert len(post) <= 1000
+
+
+def test_post_rotates_story_blocks_and_avoids_duplicate_paragraphs():
+    for card in load_fighter_cards():
+        for angle in card.get("angles", []):
+            post = format_fighter_post(card, angle["id"])
+            paragraphs = [p.strip() for p in post.split("\n\n") if p.strip()]
+            assert len(paragraphs) == len(set(paragraphs)), card["id"]

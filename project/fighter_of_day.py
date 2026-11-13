@@ -119,16 +119,24 @@ def simulate_fighter_days(
 
 
 def format_fighter_post(card: dict, topic_id: str | None = None) -> str:
-    """Build the agreed compact Telegram HTML post without public data links."""
+    """Build the agreed compact Telegram HTML post without duplicate statements."""
     stats = card["stats"]
     record = stats["record"]
     wins_by = stats["wins_by"]
     streak = stats.get("current_streak") or {}
     streak_text = _streak_text(streak)
     title_text = _title_or_rank(card)
-    fact = _fact_for_topic(card, topic_id)
-    career = card.get("career_story", [])[:1]
-    style = card.get("fighting_style", [])[:1]
+
+    angle_index = _angle_index(card, topic_id)
+    career_list = card.get("career_story") or []
+    style_list = card.get("fighting_style") or []
+
+    career_line = career_list[angle_index % len(career_list)] if career_list else ""
+    style_line = style_list[angle_index % len(style_list)] if style_list else ""
+    positioning = card["positioning"]
+
+    composed_context = " ".join([title_text, positioning, career_line, style_line])
+    fact = _fact_for_topic(card, topic_id, composed_context)
 
     blocks = [
         f"🥊 <b>БОЕЦ ДНЯ — {escape(card['name_ru'].upper())}</b>",
@@ -138,16 +146,39 @@ def format_fighter_post(card: dict, topic_id: str | None = None) -> str:
             f"🏆 {escape(title_text)}\n"
             f"⚡ KO/TKO: {wins_by['ko_tko']} · Сабмишены: {wins_by['submission']}"
         ),
-        escape(card["positioning"]),
+        escape(positioning),
     ]
-    if career:
-        blocks.append(escape(career[0]))
-    if style:
-        blocks.append(escape(style[0]))
+    if career_line and not _is_redundant(career_line, positioning):
+        blocks.append(escape(career_line))
+    if style_line and not _is_redundant(style_line, f"{positioning} {career_line}"):
+        blocks.append(escape(style_line))
     if fact:
         blocks.append(f"💡 <b>Интересный факт:</b> {escape(fact)}")
     blocks.append(f"#БоецДня #MMA #{escape(card['promotion'].upper())}")
     return "\n\n".join(blocks)
+
+
+def _angle_index(card: dict, topic_id: str | None) -> int:
+    angles = card.get("angles") or []
+    for idx, angle in enumerate(angles):
+        if angle.get("id") == topic_id:
+            return idx
+    return 0
+
+
+def _is_redundant(candidate: str, existing_text: str) -> bool:
+    """Check if candidate sentence repeats the same core statement."""
+    cand_norm = candidate.strip().casefold().rstrip(".")
+    exist_norm = existing_text.casefold()
+    if not cand_norm:
+        return True
+    if cand_norm in exist_norm:
+        return True
+    words = [w.strip(".,!?:;«»()—-") for w in cand_norm.split() if len(w) > 4]
+    if not words:
+        return False
+    overlap = sum(1 for w in words if w in exist_norm) / len(words)
+    return overlap >= 0.72
 
 
 def _select_topic(card: dict, history: list[dict]) -> str | None:
@@ -165,17 +196,25 @@ def _select_topic(card: dict, history: list[dict]) -> str | None:
     return topic_ids[len(previous) % len(topic_ids)]
 
 
-def _fact_for_topic(card: dict, topic_id: str | None) -> str:
+def _fact_for_topic(card: dict, topic_id: str | None, existing_text: str = "") -> str:
     facts = {fact["id"]: fact["text"] for fact in card.get("facts", [])}
     angle = next(
         (item for item in card.get("angles", []) if item.get("id") == topic_id),
         None,
     )
+    ordered_candidates = []
     if angle:
         for fact_id in angle.get("fact_ids", []):
             if fact_id in facts:
-                return facts[fact_id]
-    return next(iter(facts.values()), "")
+                ordered_candidates.append(facts[fact_id])
+    for text in facts.values():
+        if text not in ordered_candidates:
+            ordered_candidates.append(text)
+
+    for candidate in ordered_candidates:
+        if not existing_text or not _is_redundant(candidate, existing_text):
+            return candidate
+    return ordered_candidates[0] if ordered_candidates else ""
 
 
 def _streak_text(streak: dict) -> str:
