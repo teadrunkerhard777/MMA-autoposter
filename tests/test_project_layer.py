@@ -163,7 +163,7 @@ def test_rumor_formatter_never_presents_unconfirmed_item_without_warning():
 
     assert "<b>СЛУХ</b>" in post
     assert "Пока официально не подтверждено." in post
-    assert "#Слух" in post
+    assert post.splitlines()[-1] == "#Чимаев"
 
 
 def test_photo_caption_stays_inside_safe_limit_after_html_escaping():

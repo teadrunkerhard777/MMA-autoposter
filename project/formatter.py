@@ -1,5 +1,6 @@
 """Russian Telegram presentation for the MMA channel."""
 
+import re
 from datetime import datetime
 from html import escape
 
@@ -19,22 +20,122 @@ CATEGORY_LABELS = {
     "evergreen_history": "📚 ИСТОРИЯ MMA",
 }
 
-CATEGORY_TAGS = {
-    "fight_cancelled": "#MMA",
-    "injury": "#MMA",
-    "fight_result": "#MMAResults",
-    "fight_announcement": "#MMAFight",
-    "retirement": "#MMA",
-    "contract_move": "#MMA",
-    "event_update": "#MMAEvent",
-    "statement": "#MMA",
-    "fighter_news": "#MMA",
-    "evergreen_fighter": "#БоецДня",
-    "evergreen_women_mma": "#ЖенщиныMMA",
-    "evergreen_matchup": "#MMAFight",
-    "evergreen_fact": "#MMAFacts",
-    "evergreen_history": "#MMAHistory",
+# Словарь канонических ID бойцов -> русский тег по фамилии
+FIGHTER_SURNAME_TAGS = {
+    "islam_makhachev": "Махачев",
+    "petr_yan": "Ян",
+    "khamzat_chimaev": "Чимаев",
+    "magomed_ankalaev": "Анкалаев",
+    "alexander_volkanovski": "Волкановски",
+    "ilia_topuria": "Топурия",
+    "alex_pereira": "Перейра",
+    "jon_jones": "Джонс",
+    "tom_aspinall": "Аспиналл",
+    "shavkat_rakhmonov": "Рахмонов",
+    "conor_mcgregor": "Макгрегор",
+    "arman_tsarukyan": "Царукян",
+    "mauricio_ruffy": "Руффи",
+    "umar_nurmagomedov": "Нурмагомедов",
+    "song_yadong": "Ядун",
+    "dan_hooker": "Хукер",
+    "salahdine_parnasse": "Парнасс",
+    "michael_page": "Пейдж",
+    "nursulton_ruziboev": "Рузибоев",
+    "valentina_shevchenko": "Шевченко",
+    "kayla_harrison": "Харрисон",
+    "zhang_weili": "Вэйли",
+    "mackenzie_dern": "Дерн",
+    "natalia_silva": "Силва",
+    "manon_fiorot": "Фиоро",
+    "alexa_grasso": "Грассо",
+    "merab_dvalishvili": "Двалишвили",
+    "erin_blanchfield": "Бланчфилд",
+    "sean_strickland": "Стрикленд",
+    "rose_namajunas": "Намаюнас",
+    "charles_oliveira": "Оливейра",
+    "tatiana_suarez": "Суарес",
+    "yan_xiaonan": "Сяонань",
+    "justin_gaethje": "Гейджи",
+    "maycee_barber": "Барбер",
+    "denise_gomes": "Гомес",
+    "tracy_cortez": "Кортес",
+    "fatima_kline": "Клайн",
+    "amanda_nunes": "Нуньес",
+    "jasmine_jasudavicius": "Ясудавичюс",
+    "ciryl_gane": "Ган",
+    "julianna_pena": "Пенья",
+    "joshua_van": "Ван",
+    "raquel_pennington": "Пеннингтон",
 }
+
+# Поиск по основам фамилий в тексте/заголовке (с учётом русских падежей)
+SURNAME_STEMS = (
+    ("махачев", "Махачев"),
+    ("петр ян", "Ян"),
+    ("пётр ян", "Ян"),
+    ("петра ян", "Ян"),
+    ("петру ян", "Ян"),
+    ("чимаев", "Чимаев"),
+    ("анкалаев", "Анкалаев"),
+    ("волкановск", "Волкановски"),
+    ("топури", "Топурия"),
+    ("перейр", "Перейра"),
+    ("джонс", "Джонс"),
+    ("аспиналл", "Аспиналл"),
+    ("рахмонов", "Рахмонов"),
+    ("макгрегор", "Макгрегор"),
+    ("царукян", "Царукян"),
+    ("нурмагомедов", "Нурмагомедов"),
+    ("ядун", "Ядун"),
+    ("парнасс", "Парнасс"),
+    ("шевченк", "Шевченко"),
+    ("харрисон", "Харрисон"),
+    ("вэйли", "Вэйли"),
+    ("дерн", "Дерн"),
+    ("силв", "Силва"),
+    ("фиоро", "Фиоро"),
+    ("грассо", "Грассо"),
+    ("двалишвили", "Двалишвили"),
+    ("бланчфилд", "Бланчфилд"),
+    ("стрикленд", "Стрикленд"),
+    ("намаюнас", "Намаюнас"),
+    ("оливейр", "Оливейра"),
+    ("суарес", "Суарес"),
+    ("сяонан", "Сяонань"),
+    ("гейджи", "Гейджи"),
+    ("барбер", "Барбер"),
+    ("гомес", "Гомес"),
+    ("кортес", "Кортес"),
+    ("клайн", "Клайн"),
+    ("нуньес", "Нуньес"),
+    ("ясудавичюс", "Ясудавичюс"),
+    ("сирил ган", "Ган"),
+    ("сирила ган", "Ган"),
+    ("пенья", "Пенья"),
+    ("джошуа ван", "Ван"),
+    ("пеннингтон", "Пеннингтон"),
+    ("евлоев", "Евлоев"),
+    ("павлович", "Павлович"),
+    ("волков", "Волков"),
+    ("копылов", "Копылов"),
+    ("шара булл", "Магомедов"),
+    ("шарабутдин", "Магомедов"),
+    ("порью", "Порье"),
+    ("порье", "Порье"),
+    ("холлоуэ", "Холлоуэй"),
+    ("дю плесси", "ДюПлесси"),
+    ("адесань", "Адесанья"),
+    ("прохазк", "Прохазка"),
+    ("о'мэлли", "ОМэлли"),
+    ("омэлли", "ОМэлли"),
+    ("пантож", "Пантожа"),
+    ("мокаев", "Мокаев"),
+    ("солдич", "Солдич"),
+    ("усманов", "Усманов"),
+    ("усман", "Усман"),
+    ("ковин", "Ковингтон"),
+    ("белал", "Мухаммад"),
+)
 
 
 def format_post(news_item):
@@ -61,7 +162,7 @@ def format_video_caption(video_item):
         if source_url
         else f"📰 {source}"
     )
-    footer = f"{source_line}\n\n#MMAVideo #MMA"
+    footer = f"{source_line}\n\n#MMAVideo"
     note = fit_text_to_html_limit(
         video_item.get("note") or "",
         max(0, VIDEO_CAPTION_LIMIT - len(header) - len(footer) - 4),
@@ -110,14 +211,36 @@ def _format(news_item, limit):
 
 
 def _hashtags(news_item):
-    tags = [CATEGORY_TAGS.get(news_item.get("event_category"), "#MMA")]
-    tags.extend(
-        f"#{promotion.upper()}"
-        for promotion in news_item.get("matched_promotions", [])[:2]
+    """Return a single hashtag with the main fighter's surname."""
+
+    for key in ("matched_fighters", "event_participants"):
+        for fighter_id in news_item.get(key) or []:
+            surname = FIGHTER_SURNAME_TAGS.get(fighter_id)
+            if surname:
+                return f"#{surname}"
+
+    title_and_desc = (
+        f"{news_item.get('title') or ''} "
+        f"{news_item.get('description') or ''}"
+    ).casefold()
+
+    for stem, surname in SURNAME_STEMS:
+        if stem in title_and_desc:
+            return f"#{surname}"
+
+    # Попытка извлечь "Имя Фамилия" с заглавных букв из заголовка
+    raw_title = str(news_item.get("title") or "")
+    name_match = re.search(
+        r"\b([А-ЯЁ][а-яё]{2,})\s+([А-ЯЁ][а-яё]{2,})\b",
+        raw_title,
     )
-    if news_item.get("is_rumor"):
-        tags.append("#Слух")
-    return " ".join(dict.fromkeys(tags))
+    if name_match:
+        stop_titles = {"Новый", "Главный", "Бывший", "Турнир", "Боец", "Чемпион", "Женщины", "История"}
+        first_word, second_word = name_match.group(1), name_match.group(2)
+        if first_word not in stop_titles and second_word not in stop_titles:
+            return f"#{second_word}"
+
+    return "#MMA"
 
 
 def _format_date(value):

@@ -154,7 +154,7 @@ def format_fighter_post(card: dict, topic_id: str | None = None) -> str:
         blocks.append(escape(style_line))
     if fact:
         blocks.append(f"💡 <b>Интересный факт:</b> {escape(fact)}")
-    blocks.append(f"#БоецДня #MMA #{escape(card['promotion'].upper())}")
+    blocks.append(f"#{escape(_fighter_surname_tag(card['name_ru']))}")
     return "\n\n".join(blocks)
 
 
@@ -179,6 +179,13 @@ def _is_redundant(candidate: str, existing_text: str) -> bool:
         return False
     overlap = sum(1 for w in words if w in exist_norm) / len(words)
     return overlap >= 0.72
+
+
+
+def _fighter_surname_tag(name_ru: str) -> str:
+    parts = [part.strip() for part in name_ru.split() if part.strip()]
+    surname = parts[-1] if parts else name_ru
+    return "".join(ch for ch in surname if ch.isalnum() or ch == "_")
 
 
 def _select_topic(card: dict, history: list[dict]) -> str | None:
