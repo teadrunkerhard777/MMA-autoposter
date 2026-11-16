@@ -85686,5 +85686,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "tracy_cortez",
+    "selected_at": "2026-11-16T17:22:26.446351+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "female"
   }
 ]
