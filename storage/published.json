@@ -87710,5 +87710,13 @@
       "event_date": "2026-11-18",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "amanda_nunes",
+    "selected_at": "2026-11-18T17:22:24.930332+00:00",
+    "cycle": 3,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
