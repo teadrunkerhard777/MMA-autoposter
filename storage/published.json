@@ -88513,5 +88513,13 @@
         "abu_dhabi"
       ]
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "justin_gaethje",
+    "selected_at": "2026-11-19T17:22:25.298622+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
