@@ -90460,5 +90460,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "song_yadong",
+    "selected_at": "2026-11-21T17:22:34.457874+00:00",
+    "cycle": 3,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
