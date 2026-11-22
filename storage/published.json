@@ -91476,5 +91476,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "julianna_pena",
+    "selected_at": "2026-11-22T17:22:24.701836+00:00",
+    "cycle": 3,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
