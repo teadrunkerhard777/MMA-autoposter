@@ -92530,5 +92530,13 @@
       "event_date": "2026-12-11",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "umar_nurmagomedov",
+    "selected_at": "2026-11-23T17:22:25.531027+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
