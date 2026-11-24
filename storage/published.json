@@ -93436,5 +93436,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "raquel_pennington",
+    "selected_at": "2026-11-24T17:22:32.588357+00:00",
+    "cycle": 3,
+    "content_topic": "angle_1",
+    "gender": "female"
   }
 ]
