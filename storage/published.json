@@ -94232,5 +94232,13 @@
       "event_date": "2026-11-28",
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "salahdine_parnasse",
+    "selected_at": "2026-11-25T17:22:30.487408+00:00",
+    "cycle": 3,
+    "content_topic": "angle_3",
+    "gender": "male"
   }
 ]
