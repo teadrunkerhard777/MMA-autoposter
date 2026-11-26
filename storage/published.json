@@ -94726,5 +94726,48 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "title": "Ислам Махачев: «С января буду готовиться к следующему бою»",
+    "url": "https://www.sports.ru/boxing/1117447933-islam-maxachev-s-yanvarya-budu-gotovitsya-k-sleduyushhemu-boyu.html",
+    "published_at": "2026-11-25T10:17:00+03:00",
+    "source": "Sports.ru UFC/MMA",
+    "event_fingerprint": {
+      "categories": [
+        "fight_announcement"
+      ],
+      "tokens": [
+        "буду",
+        "видно",
+        "готовиться",
+        "зависеть",
+        "знаю",
+        "ислам",
+        "летом",
+        "махачев",
+        "моралес",
+        "моралеса",
+        "начнет",
+        "пары",
+        "пратес",
+        "пратеса",
+        "претендентский",
+        "рассказал",
+        "сказал",
+        "следующему",
+        "состоится",
+        "торонто",
+        "чемпион",
+        "этого",
+        "январский",
+        "января"
+      ],
+      "participants": [
+        "islam_makhachev"
+      ],
+      "event_at": null,
+      "event_date": "2027-01-31",
+      "locations": []
+    }
   }
 ]
