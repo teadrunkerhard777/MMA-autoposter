@@ -94898,5 +94898,13 @@
       "event_date": null,
       "locations": []
     }
+  },
+  {
+    "kind": "fighter_of_day",
+    "fighter_id": "shavkat_rakhmonov",
+    "selected_at": "2026-11-26T17:22:25.413422+00:00",
+    "cycle": 3,
+    "content_topic": "angle_1",
+    "gender": "male"
   }
 ]
